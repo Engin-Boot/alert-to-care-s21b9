@@ -123,7 +123,7 @@ namespace AlertToCareApi.Controllers
                 else
                 {
                     BedIdentification bedIdentification = new BedIdentification();
-                    bed.BedSerialNo = bedIdentification.FindBedSerialNo(bed.IcuNo);
+                     bed.BedSerialNo = bedIdentification.FindBedSerialNo(bed.IcuNo);
                     _context.Add(bed);
                     _context.SaveChanges();
                     return Ok();
