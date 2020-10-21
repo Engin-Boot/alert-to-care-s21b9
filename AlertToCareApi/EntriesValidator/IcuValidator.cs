@@ -1,9 +1,10 @@
-﻿using AlertToCareApi.Utilities;
+﻿using System;
+using AlertToCareApi.Utilities;
 using System.Linq;
 
 namespace AlertToCareApi.EntriesValidator
 {
-    public class IcuValidator
+    public abstract class IcuValidator
     {
         private static bool CheckIfIcuIsPresent(int icuNo)
         {
@@ -26,8 +27,11 @@ namespace AlertToCareApi.EntriesValidator
             }
             return false;
         }
+        // ReSharper disable once RedundantAssignment
         public static void CheckForValidIcu(int icuNo, ref bool validIcu, ref string message)
         {
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            if (message == null) throw new ArgumentNullException(nameof(message));
             if (CheckIfIcuIsPresent(icuNo))
             {
                 if (!CheckIfIcuIsFull(icuNo))

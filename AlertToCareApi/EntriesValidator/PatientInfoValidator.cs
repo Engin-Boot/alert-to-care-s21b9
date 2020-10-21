@@ -1,10 +1,11 @@
-﻿using AlertToCareApi.Models;
+﻿using System;
+using AlertToCareApi.Models;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace AlertToCareApi.EntriesValidator
 {
-    public class PatientInfoValidator
+    public abstract class PatientInfoValidator
     {
         private static bool ValidatePatientInfo(Patients patient)
         {
@@ -23,8 +24,26 @@ namespace AlertToCareApi.EntriesValidator
                 return true;
         }
 
-        public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds, ref bool validInfo, ref string message)
+        // ReSharper disable once RedundantAssignment
+        public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds, ref string message)
         {
+            bool validInfo = false;
+            ValidateInfoAndCheckForAvailability(patient, countOfAvailableBeds, ref validInfo, ref message);
+        }
+
+        // ReSharper disable once RedundantAssignment
+        public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds, ref bool validInfo)
+        {
+            string message = null;
+            ValidateInfoAndCheckForAvailability(patient, countOfAvailableBeds, ref validInfo, ref message);
+        }
+
+        // ReSharper disable once RedundantAssignment
+        public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds,
+            ref bool validInfo, ref string message)
+        {
+            if (patient == null) throw new ArgumentNullException(nameof(patient));
+            if (message == null) throw new ArgumentNullException(nameof(message));
             if (ValidatePatientInfo(patient))
             {
                 if (CheckForBedsAvailability(countOfAvailableBeds))

@@ -3,8 +3,8 @@ using AlertToCareApi.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 
 namespace AlertToCareApi.Controllers
 {
@@ -43,6 +43,7 @@ namespace AlertToCareApi.Controllers
             {
                 VitalsMonitoring vitalsMonitoring = new VitalsMonitoring();
                 var patientStore = _context.Patients.FirstOrDefault(item => item.PatientId == patientId);
+                Debug.Assert(patientStore != null, nameof(patientStore) + " != null");
                 var monStat = patientStore.MonitoringStatus;
                 if (monStat == 0)
                 {

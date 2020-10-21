@@ -8,16 +8,15 @@ namespace AlertToCareApi.Utilities
     public class VitalsMonitoring
     {
         readonly ConfigDbContext _context = new ConfigDbContext();
-        public IEnumerable<VitalsLogs> GetAllVitals()
-        {
-            return _context.VitalsLogs.ToList();
-        }
+
         public Alarm GetVitalsForSpecificPatient(int id)
         {
             var vitalStore = _context.VitalsLogs.ToList();
             var vitals = vitalStore.Where(item => item.PatientId == id).ToList();
-            Alarm alarms = new Alarm();
-            alarms.Messages = new List<string>();
+            Alarm alarms = new Alarm
+            {
+                Messages = new List<string>()
+            };
             foreach (VitalsLogs log in vitals.Skip(Math.Max(0, vitals.Count - 10)))
             {
                 var pid = log.PatientId;

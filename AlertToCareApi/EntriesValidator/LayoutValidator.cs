@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AlertToCareApi.EntriesValidator
 {
-    public class LayoutValidator
+    public abstract class LayoutValidator
     {
         public static bool CheckIfLayoutIsPresent(int layoutId)
         {
