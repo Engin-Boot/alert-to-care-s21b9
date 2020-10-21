@@ -42,8 +42,7 @@ namespace AlertToCareApi.EntriesValidator
         public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds,
             ref bool validInfo, ref string message)
         {
-            if (patient == null) throw new ArgumentNullException(nameof(patient));
-            if (message == null) throw new ArgumentNullException(nameof(message));
+           
             if (ValidatePatientInfo(patient))
             {
                 if (CheckForBedsAvailability(countOfAvailableBeds))
