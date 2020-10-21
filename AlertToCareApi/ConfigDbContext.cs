@@ -9,10 +9,11 @@ namespace AlertToCareApi
         {
             optionsBuilder.UseSqlite("Filename=CaseStudy2Database.db");
         }
-        public DbSet<Icu> Icu { get; set; }
-        public DbSet<Beds> Beds { get; set; }
-        public DbSet<Patients> Patients { get; set; }
-        public DbSet<VitalsLogs> VitalsLogs { get; set; }
+
+        internal DbSet<Icu> Icu { get; set; }
+        internal DbSet<Beds> Beds { get; set; }
+        internal DbSet<Patients> Patients { get; set; }
+        internal DbSet<VitalsLogs> VitalsLogs { get; set; }
     }
     
 }

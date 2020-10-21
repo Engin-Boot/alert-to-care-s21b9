@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj": {}
+    "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj": {
+    "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj",
+        "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj",
         "projectName": "AlertToCareApi",
-        "projectPath": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj",
-        "packagesPath": "C:\\Users\\320087363\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareApi\\obj\\",
+        "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj",
+        "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\320087363\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\320087877\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +25,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://artifactory.pic.philips.com:8443/artifactory/api/nuget/ct-local-nuget": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -78,24 +79,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj": {
+    "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
+        "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
         "projectName": "AlertToCareUnitTest",
-        "projectPath": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
-        "packagesPath": "C:\\Users\\320087363\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareUnitTest\\obj\\",
+        "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
+        "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\320087363\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\320087877\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,13 +104,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://artifactory.pic.philips.com:8443/artifactory/api/nuget/ct-local-nuget": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj": {
-                "projectPath": "C:\\Users\\320087363\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj"
+              "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj": {
+                "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj"
               }
             }
           }
@@ -158,7 +160,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
