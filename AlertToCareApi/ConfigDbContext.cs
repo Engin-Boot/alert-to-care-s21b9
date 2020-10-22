@@ -7,7 +7,7 @@ namespace AlertToCareApi
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=CaseStudy2Database.db");
+            optionsBuilder.UseSqlite(@"Filename=D:\a\assist-purchase-s21b8\assist-purchase-s21b8\AlertToCareApi\CaseStudy2Database.db");
         }
 
         internal DbSet<Icu> Icu { get; set; }
