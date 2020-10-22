@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareApi", "AlertToCa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareUnitTest", "AlertToCareUnitTest\AlertToCareUnitTest.csproj", "{5D632BE8-7157-4B98-8FCC-4F778BC922DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertToCareFrontend", "..\..\..\..\source\repos\alert-copy\alert-to-care-s21b9\AlertToCareFrontend\AlertToCareFrontend.csproj", "{55728235-7342-4ED0-82BA-D916F588D069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertToCareFrontend", "AlertToCareFrontend\AlertToCareFrontend.csproj", "{ECA4B675-BC27-4723-AE6F-2D096E6DB87C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{5D632BE8-7157-4B98-8FCC-4F778BC922DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D632BE8-7157-4B98-8FCC-4F778BC922DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D632BE8-7157-4B98-8FCC-4F778BC922DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55728235-7342-4ED0-82BA-D916F588D069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55728235-7342-4ED0-82BA-D916F588D069}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55728235-7342-4ED0-82BA-D916F588D069}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55728235-7342-4ED0-82BA-D916F588D069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA4B675-BC27-4723-AE6F-2D096E6DB87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA4B675-BC27-4723-AE6F-2D096E6DB87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA4B675-BC27-4723-AE6F-2D096E6DB87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA4B675-BC27-4723-AE6F-2D096E6DB87C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
