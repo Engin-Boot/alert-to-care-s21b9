@@ -23,13 +23,15 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            
+
         </Grid.ColumnDefinitions>
-        <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
+        <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10" Grid.Row="0"/>
         <TextBlock Text="Respond To Care" Style="{StaticResource ResourceKey=HeaderStyle}"/>
-        <!--<Separator Style="{StaticResource ResourceKey=SeparatorStyle}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>-->
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="3" Margin="10,37,10,42.4" Grid.RowSpan="2"/>
+
         <TextBlock Text="Personal Information" Grid.Column="0" Grid.Row="1" Style="{StaticResource ResourceKey=HeadingStyle}"/>
-        
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="3" Margin="10,31.4,10,42.8" Grid.RowSpan="2"/>
+
         <TextBlock Text="Name: " Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBlock Text="Age: " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBlock Text="Gender: " Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}"/>
@@ -39,13 +41,14 @@
         <TextBlock Text="Bed no: " Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBlock Text="Patient Id: " Grid.Column="2" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
 
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="4" Grid.ColumnSpan="3" Margin="10,31.4,10,43.2" Grid.RowSpan="2"/>
         <TextBlock Text="Vitals Information" Grid.Column="0" Grid.Row="5" Style="{StaticResource ResourceKey=HeadingStyle}"/>
-        
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="3" Margin="10,31.6,10,43" Grid.RowSpan="2"/>
         <TextBlock Text="Spo2 Status: " Grid.Column="0" Grid.Row="6" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBlock Text="BP Status: " Grid.Column="0" Grid.Row="7" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBlock Text="Respiration Status: " Grid.Column="0" Grid.Row="8" Style="{StaticResource ResourceKey=ContentStyle}"/>
 
-        <Button Content="Save" Grid.Column="2" Grid.Row="10" Style="{StaticResource ResourceKey=ButtonStyle}"/>
+        <Button Content="Save" Grid.Column="2" Grid.Row="9" Style="{StaticResource ResourceKey=ButtonStyle}" Margin="10.4,7.4,19,7.6" Width="237"/>
 
     </Grid>
 </UserControl>
