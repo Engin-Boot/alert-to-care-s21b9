@@ -23,7 +23,7 @@ namespace AlertToCareUnitTest
         [Fact]
         public void EmptyTheBed_ShouldUpdateOccupancyStatusToFalse()
         {
-            Patients _patient = new Patients() { PatientName = "Nikita Kumari", Age = 23, BedId = 1, ContactNo = "9826376268", MonitoringStatus = 0, PatientId = 1 };
+            Patients _patient = new Patients() { PatientName = "Nikita Kumari", BedId = 1, ContactNo = "9826376268", MonitoringStatus = 0, PatientId = 1 };
             var _bedAllotment = new BedAllotment();
             _bedAllotment.EmptyTheBed(_patient);
             var _allBeds = _bedAllotment.GetAvailableBeds();
