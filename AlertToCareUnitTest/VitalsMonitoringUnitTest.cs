@@ -1,5 +1,8 @@
 using AlertToCareApi.Models;
+using AlertToCareApi.Utilities;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using Xunit;
 
 namespace AlertToCareUnitTest
@@ -37,7 +40,7 @@ namespace AlertToCareUnitTest
             VitalsLogs log = new VitalsLogs
             {
                 VitalsLogId = 1,
-                PatientId = 90,
+                PatientId = 290,
                 Spo2Rate = 95,
                 RespRate = 7,
                 BpmRate = 78,
@@ -45,13 +48,10 @@ namespace AlertToCareUnitTest
 
             string ans = apiClassVitalsMonitoring.CheckVitals(log);
             string[] arr = ans.Split(',');
+            var pname = arr[1];
 
-            Assert.True(ans.Length > 1);
-            bool result = ans.Contains("Error");
-            Assert.True(result);
-
-            Assert.False(arr.Length == 5);
-
+            Assert.Equal("", pname);
+           
         }
     }
 }
