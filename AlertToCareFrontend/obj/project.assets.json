@@ -1064,11 +1064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Desktop\\CaseStudy-2-Part-2\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
+      "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
       "projectName": "AlertToCareFrontend",
-      "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Desktop\\CaseStudy-2-Part-2\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
+      "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
       "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Desktop\\CaseStudy-2-Part-2\\AlertToCareFrontend\\obj\\",
+      "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1088,8 +1088,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\320087877\\OneDrive - Philips\\Desktop\\CaseStudy-2-Part-2\\SharedProjects\\SharedProjects.csproj": {
-              "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Desktop\\CaseStudy-2-Part-2\\SharedProjects\\SharedProjects.csproj"
+            "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
+              "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj"
             }
           }
         }
