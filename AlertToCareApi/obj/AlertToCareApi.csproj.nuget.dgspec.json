@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\320087992\\source\\repos\\alert-copy\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
-                "projectPath": "C:\\Users\\320087992\\source\\repos\\alert-copy\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj"
+              "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
+                "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "C:\\Users\\320087992\\source\\repos\\alert-copy\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
+    "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320087992\\source\\repos\\alert-copy\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
+        "projectUniqueName": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
         "projectName": "SharedProjects",
-        "projectPath": "C:\\Users\\320087992\\source\\repos\\alert-copy\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
+        "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
         "packagesPath": "C:\\Users\\320087992\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320087992\\source\\repos\\alert-copy\\alert-to-care-s21b9\\SharedProjects\\obj\\",
+        "outputPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -127,7 +127,7 @@
               "target": "Package",
               "version": "[3.1.9, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.9, )"
             }

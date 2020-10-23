@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\repos\alert-copy\alert-to-care-s21b9\SharedProjects\SharedProjects.csproj" />
+    <ProjectReference Include="..\SharedProjects\SharedProjects.csproj" />
   </ItemGroup>
 
 
