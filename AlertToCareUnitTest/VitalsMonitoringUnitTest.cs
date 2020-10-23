@@ -1,5 +1,6 @@
-using AlertToCareApi.Models;
-using AlertToCareApi.Utilities;
+
+using SharedProjects.Models;
+using SharedProjects.Utilities;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -12,7 +13,7 @@ namespace AlertToCareUnitTest
         [Fact]
         public void WhenCheckVitalsIsGivenCorrectLogItReturnsAString()
         {
-            var apiClassVitalsMonitoring = new AlertToCareApi.Utilities.VitalsMonitoring();
+            var apiClassVitalsMonitoring = new VitalsMonitoring();
             //var _context = new AlertToCareApi.ConfigDbContext();
             //VitalsLogs Log = _context.VitalsLogs.ToList().FirstOrDefault();
 
@@ -36,7 +37,7 @@ namespace AlertToCareUnitTest
         [Fact]
         public void WhenCheckVitalsIsGivenLogThatDoesNotExistInDatabaseItReturnsAnError()
         {
-            var apiClassVitalsMonitoring = new AlertToCareApi.Utilities.VitalsMonitoring();
+            var apiClassVitalsMonitoring = new VitalsMonitoring();
             VitalsLogs log = new VitalsLogs
             {
                 VitalsLogId = 1,

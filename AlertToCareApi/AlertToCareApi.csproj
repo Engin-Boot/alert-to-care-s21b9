@@ -14,5 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\source\repos\alert-copy\alert-to-care-s21b9\SharedProjects\SharedProjects.csproj" />
+  </ItemGroup>
+
 
 </Project>

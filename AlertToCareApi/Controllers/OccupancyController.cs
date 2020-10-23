@@ -1,7 +1,9 @@
-﻿using AlertToCareApi.EntriesValidator;
-using AlertToCareApi.Models;
-using AlertToCareApi.Utilities;
+﻿
 using Microsoft.AspNetCore.Mvc;
+using SharedProjects;
+using SharedProjects.EntriesValidator;
+using SharedProjects.Models;
+using SharedProjects.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

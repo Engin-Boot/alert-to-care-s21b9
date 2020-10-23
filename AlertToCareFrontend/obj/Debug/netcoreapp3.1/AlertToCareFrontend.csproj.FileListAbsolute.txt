@@ -4,7 +4,6 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToC
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\AlertToCareFrontend.runtimeconfig.dev.json
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\AlertToCareFrontend.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\AlertToCareFrontend.pdb
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend.csprojAssemblyReference.cache
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\HomePage.g.cs
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\RespondToCare.g.cs

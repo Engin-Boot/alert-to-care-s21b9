@@ -1,6 +1,8 @@
-﻿using AlertToCareApi.Models;
-using AlertToCareApi.Utilities;
+﻿
 using Microsoft.AspNetCore.Mvc;
+using SharedProjects;
+using SharedProjects.Models;
+using SharedProjects.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,7 +25,7 @@ namespace AlertToCareApi.Controllers
                 VitalsMonitoring vitalsMonitoring = new VitalsMonitoring();
                 var patientStore = _context.Patients.ToList();
                 List<Alarm> patientAlarms = new List<Alarm>();
-                foreach(Patients patient in patientStore)
+                foreach (Patients patient in patientStore)
                 {
                     Alarm patientVitalsAlarms = vitalsMonitoring.GetVitalsForSpecificPatient(patient.PatientId);
                     patientAlarms.Add(patientVitalsAlarms);

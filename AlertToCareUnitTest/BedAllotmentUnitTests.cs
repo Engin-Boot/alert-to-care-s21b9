@@ -1,5 +1,5 @@
-﻿using AlertToCareApi.Models;
-using AlertToCareApi.Utilities;
+﻿using SharedProjects.Models;
+using SharedProjects.Utilities;
 using System.Linq;
 using Xunit;
 

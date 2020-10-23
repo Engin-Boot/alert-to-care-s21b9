@@ -125,6 +125,10 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToC
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.exe
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.deps.json
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.runtimeconfig.json
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.runtimeconfig.dev.json
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.dll
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.pdb
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
@@ -165,6 +169,8 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToC
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\SharedProjects.dll
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\SharedProjects.pdb
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.csprojAssemblyReference.cache
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.AssemblyInfoInputs.cache
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.AssemblyInfo.cs
@@ -177,7 +183,3 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToC
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.pdb
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.genruntimeconfig.cache
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.runtimeconfig.json
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.runtimeconfig.dev.json
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.dll
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\AlertToCareApi.pdb

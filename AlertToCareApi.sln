@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareApi", "AlertToCa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareUnitTest", "AlertToCareUnitTest\AlertToCareUnitTest.csproj", "{5D632BE8-7157-4B98-8FCC-4F778BC922DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertToCareFrontend", "AlertToCareFrontend\AlertToCareFrontend.csproj", "{6F13D25C-B590-4740-8DA7-40465DC589E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareFrontend", "AlertToCareFrontend\AlertToCareFrontend.csproj", "{6F13D25C-B590-4740-8DA7-40465DC589E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedProjects", "..\..\..\..\source\repos\alert-copy\alert-to-care-s21b9\SharedProjects\SharedProjects.csproj", "{74A4F989-273B-4D42-8DD1-ABDA3482316C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6F13D25C-B590-4740-8DA7-40465DC589E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F13D25C-B590-4740-8DA7-40465DC589E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F13D25C-B590-4740-8DA7-40465DC589E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74A4F989-273B-4D42-8DD1-ABDA3482316C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74A4F989-273B-4D42-8DD1-ABDA3482316C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74A4F989-273B-4D42-8DD1-ABDA3482316C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74A4F989-273B-4D42-8DD1-ABDA3482316C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
