@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\HomePage.xaml.cs">
+    <Compile Update="Views\MonitorOccupancy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\RespondToCare.xaml.cs">
@@ -21,7 +21,7 @@
     <Page Update="Styles\ControlStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\HomePage.xaml">
+    <Page Update="Views\MonitorOccupancy.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RespondToCare.xaml">

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AlertToCareFrontend.Views;
 
 namespace AlertToCareFrontend
 {
@@ -24,5 +25,27 @@ namespace AlertToCareFrontend
         {
             InitializeComponent();
         }
+
+        static Views.RespondToCare respondToCare = new RespondToCare();
+        static Views.MonitorOccupancy monitorOccupancy = new MonitorOccupancy();
+       
+       private  UserControl respondtocareControl { get; set; }
+        private UserControl monitoroccupancyControl { get; set; }
+        private void BackButton_Click(object sender, RoutedEventArgs routedEventArgs)
+        {
+            
+
+           
+                    //this.monitoroccupancyControl.Resources.Remove(this);
+            
+        }
+
+        public static bool IsWindowOpen<T>(string name = "") where T : UserControl
+        {
+            return string.IsNullOrEmpty(name)
+                ? Application.Current.Windows.OfType<T>().Any()
+                : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+        }
+       
     }
 }

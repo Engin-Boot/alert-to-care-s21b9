@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlertToCareFrontend"
+        xmlns:tb="clr-namespace:AlertToCareFrontend.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl HorizontalAlignment="Center">
+        <TabItem Header="Monitor Occupancy" Height="22" Width="141" >
+                <StackPanel HorizontalAlignment="Right">
+                    <tb:MonitorOccupancy x:Name="MonitorOccupancy"></tb:MonitorOccupancy>
+                </StackPanel>
+            </TabItem>
+           
+            <TabItem Header="Respond To Care" Height="22" Width="141">
+                <StackPanel HorizontalAlignment="Center">
+                    <tb:RespondToCare x:Name="RespondToCare"></tb:RespondToCare>
+                    </StackPanel>
+                </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
