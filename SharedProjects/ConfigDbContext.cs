@@ -7,7 +7,8 @@ namespace SharedProjects
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string _path = @"D:\a\alert-to-care-s21b9\alert-to-care-s21b9\CaseStudy2Database.db";
+            //string _path = @"D:\a\alert-to-care-s21b9\alert-to-care-s21b9\CaseStudy2Database.db";
+            string _path = @"C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
            
             optionsBuilder.UseSqlite("Filename="+_path);
 

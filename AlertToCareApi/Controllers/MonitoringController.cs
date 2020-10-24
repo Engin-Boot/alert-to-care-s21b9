@@ -64,6 +64,28 @@ namespace AlertToCareApi.Controllers
             }
 
         }
+        [HttpGet("PatientInfo/{PatientId}")]
+        public IActionResult GetPatientInformation(int patientId)
+        {
+            try
+            {
+                var patientInfo = _context.Patients.ToList().FirstOrDefault(item => item.PatientId == patientId);
+                if (patientInfo != null)
+                {
+                    return Ok(patientInfo);
+                }
+                else
+                {
+                    string message = "Invalid PatientId: Enter a valid PatientId.";
+                    return BadRequest(message);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [HttpGet("SetAlarmOn/{patientId}")]
         public IActionResult SetAlarmOn(int patientId)

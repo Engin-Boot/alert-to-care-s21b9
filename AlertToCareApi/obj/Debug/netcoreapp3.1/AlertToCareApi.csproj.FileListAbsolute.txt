@@ -120,6 +120,8 @@ C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\Alert
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.pdb
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.genruntimeconfig.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.csprojAssemblyReference.cache
+C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\SharedProjects.dll
+C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\SharedProjects.pdb
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -183,5 +185,3 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToC
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.pdb
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.genruntimeconfig.cache
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\SharedProjects.dll
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\bin\Debug\netcoreapp3.1\SharedProjects.pdb

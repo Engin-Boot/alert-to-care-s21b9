@@ -1310,6 +1310,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "3.1.9",
           "Microsoft.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.Analyzers": "3.1.9",
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.9",
@@ -4381,7 +4382,7 @@
       ]
     },
     "xunit/2.4.0": {
-      "sha512": "qR8BQB8EVkKI+fPpVvLLDdc5Ef/GfHUrsQFYXeOaCNqA1ijhZJCXllFVuZfIf0R/WpZ1UJtoNhjrHB8xC8fPJg==",
+      "sha512": "NL00nGsDsyWc1CWxz5FXXjLpW9oFG18WJoTPCyhNv4KGP/e5iLJqAqgM1uaJZyQ6WaTtmWIy4yjYP3RdcaT7Vw==",
       "type": "package",
       "path": "xunit/2.4.0",
       "files": [
@@ -4392,7 +4393,7 @@
       ]
     },
     "xunit.abstractions/2.0.2": {
-      "sha512": "lX06DG0EjzC6U+QVVCThaDjGBHMk9qYomnEotK7oxjgvW3jxFW4gEWSvRe2/GlyBjI0ICGB21VgmvS5L5MM6Wg==",
+      "sha512": "vItLB0WkaKg0426RgWq+ZdXH6D+YV/uH28C0weWMOBnVx7I+luHuEYss9hoOngpkiN5kUpLvh9VZRx1H2sk59A==",
       "type": "package",
       "path": "xunit.abstractions/2.0.2",
       "files": [
@@ -4409,7 +4410,7 @@
       ]
     },
     "xunit.analyzers/0.10.0": {
-      "sha512": "Uw6EqkOmt0IystUtzkU4U8ixCEz+piqgczyoPT00RwPDsWHtWwzedjsBQTS6P1h2+uwDF6w5UpYt5/SSE7eexQ==",
+      "sha512": "4/IDFCJfIeg6bix9apmUtIMwvOsiwqdEexeO/R2D4GReIGPLIRODTpId/l4LRSrAJk9lEO3Zx1H0Zx6uohJDNg==",
       "type": "package",
       "path": "xunit.analyzers/0.10.0",
       "hasTools": true,
@@ -4424,7 +4425,7 @@
       ]
     },
     "xunit.assert/2.4.0": {
-      "sha512": "3QEiXEVHxLh+NRvhPijcYx+7onfOhiq8rKVldhDtVJ9a/rLAbwnR0DURn8g4MiBwgejuqta+APa61EZdGC+L8Q==",
+      "sha512": "Swvkm6iTjZr8TiUj5vMnmfG+2dD4s/BIBgsVOzTxxmoq2ndGsmM2WIL4wuqJ8RhxydWIDOPpIaaytjT2pMTEdg==",
       "type": "package",
       "path": "xunit.assert/2.4.0",
       "files": [
@@ -4439,7 +4440,7 @@
       ]
     },
     "xunit.core/2.4.0": {
-      "sha512": "pp0f1fpVqoA+eyLWPR3bQsj8l7cbFZXETqNa1aBGWO3ewV3l89WvredQuEgOsNI9ffw7TB24oU/iGKwBVr7xWg==",
+      "sha512": "BJ/O/tPEcHUCwQYuwqXoYccTMyw6B5dA6yh7WxWWBhKbjqTsG9RWL0nCQXM5yQYJwUuFzBkiXDPN1BO6UdBB4Q==",
       "type": "package",
       "path": "xunit.core/2.4.0",
       "files": [
@@ -4454,7 +4455,7 @@
       ]
     },
     "xunit.extensibility.core/2.4.0": {
-      "sha512": "TTxWCTKosHhfvH195H6NhIv40mXZpaiBU5BIIjeMHDeKT3drzgC436HH4TFHKM9hNVGMnYG4f+jUjEtgIL0D7w==",
+      "sha512": "qr/KrR6uukHXD9e/lLQjyCPfMEDuvvhNFDzsYzCF2kKlYKiqcADfUvA9Q68rBtKFtwHFeghjWEuv15KoGD2SfA==",
       "type": "package",
       "path": "xunit.extensibility.core/2.4.0",
       "files": [
@@ -4474,7 +4475,7 @@
       ]
     },
     "xunit.extensibility.execution/2.4.0": {
-      "sha512": "rchl0pAgHx291bvmeO2ID53TnaQq06kNsJ3alaBEinvzzyOtkvmoxGPs1AgELjg9SRTTlOuhAHdJTTJe0N2zYQ==",
+      "sha512": "252Dzn7i5bMPKtAL15aOP3qJhxKd+57I8ldwIQRJa745JxQuiBu5Da0vtIISVTtc3buRSkBwVnD9iUzsEmCzZA==",
       "type": "package",
       "path": "xunit.extensibility.execution/2.4.0",
       "files": [
@@ -4491,7 +4492,7 @@
       ]
     },
     "xunit.runner.visualstudio/2.4.0": {
-      "sha512": "0k66QGvVZD03GA5/GVhcINzAu/JPNFYzzy9Dez4KGZKAq6qsYV7ajN22SyT8mbV0kjnJQDYf7IaZP7n/12lSoQ==",
+      "sha512": "3eq5cGXbEJkqW9nwLuXwtxy9B5gMA8i7HW4rN63AhAvy5UvEcQbZnve23wx/oPrkyg/4CbfNhxkBezS0b1oUdQ==",
       "type": "package",
       "path": "xunit.runner.visualstudio/2.4.0",
       "files": [
@@ -4541,23 +4542,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\320087877\\.nuget\\packages\\": {},
+    "C:\\Users\\320087992\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
       "projectName": "AlertToCareUnitTest",
-      "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
-      "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\obj\\",
+      "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
+      "packagesPath": "C:\\Users\\320087992\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\320087877\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\320087992\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4565,14 +4566,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://artifactory.pic.philips.com:8443/artifactory/api/nuget/ct-local-nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj": {
-              "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj"
+            "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj": {
+              "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareApi\\AlertToCareApi.csproj"
             }
           }
         }

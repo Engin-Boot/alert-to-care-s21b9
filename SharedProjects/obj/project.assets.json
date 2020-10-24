@@ -1040,23 +1040,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\320087877\\.nuget\\packages\\": {},
+    "C:\\Users\\320087992\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
+      "projectUniqueName": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
       "projectName": "SharedProjects",
-      "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
-      "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\obj\\",
+      "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
+      "packagesPath": "C:\\Users\\320087992\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\320087877\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\320087992\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1064,8 +1064,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://artifactory.pic.philips.com:8443/artifactory/api/nuget/ct-local-nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
