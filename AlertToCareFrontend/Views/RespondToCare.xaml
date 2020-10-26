@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AlertToCareFrontend.Views"
              xmlns:vm="clr-namespace:AlertToCareFrontend.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -65,16 +66,16 @@
         <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="7" Margin="10,31.6,10,43"/>
 
         <TextBlock Text="Spo2: " Grid.Column="0" Grid.Row="6" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
-        <ToggleButton Grid.Row="6" Grid.Column="3" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
+        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=Spo2Alarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}"  ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding Spo2Status}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+        <ToggleButton Name="Spo2Alarm" Grid.Row="6" Grid.Column="3" IsChecked="{Binding Spo2Alarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
 
         <TextBlock Text="Bloor Pressure: " Grid.Column="0" Grid.Row="7" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <ComboBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=statusList}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
-        <ToggleButton Grid.Row="7" Grid.Column="3" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
+        <ComboBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=BpAlarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}" ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding BpStatus}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+        <ToggleButton Name="BpAlarm" Grid.Row="7" Grid.Column="3" IsChecked="{Binding BpAlarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
 
         <TextBlock Text="Respiration: " Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <ComboBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
-        <ToggleButton Grid.Row="8" Grid.Column="3" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
+        <ComboBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=RespAlarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}" ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding RespRateStatus}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+        <ToggleButton Name="RespAlarm" Grid.Row="8" Grid.Column="3" IsChecked="{Binding RespRateAlarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
 
 
         <Button Content="Save" Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="7" Style="{StaticResource ResourceKey=ButtonStyle}" Width="237"/>
