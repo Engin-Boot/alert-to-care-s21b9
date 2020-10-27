@@ -10,6 +10,9 @@
     <Compile Update="Views\MonitorOccupancy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PersonalInformation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\RespondToCare.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -18,7 +21,10 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ControlStyles.xaml">
+    <Page Update="Views\PersonalInformation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Styles\ControlStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MonitorOccupancy.xaml">

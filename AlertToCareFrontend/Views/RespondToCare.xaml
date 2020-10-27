@@ -10,75 +10,65 @@
     <UserControl.DataContext>
         <vm:RespondToCare></vm:RespondToCare>
     </UserControl.DataContext>
-    <Grid Background="Gainsboro">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.Column="0" Grid.ColumnSpan="7" Grid.RowSpan="10" Grid.Row="0"/>
-        <TextBlock Text="Respond To Care" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=HeaderStyle}"/>
-        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="7" Margin="10,37,10,42.4" Grid.RowSpan="2"/>
+    <StackPanel HorizontalAlignment="Right" Width="544" Margin="0,0,0,10">
+        <Grid Background="Gainsboro">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.Column="0" Grid.ColumnSpan="7" Grid.RowSpan="6" Grid.Row="0" Margin="3,3,3,51"/>
+            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="7" Margin="10,37,10,42.4" Grid.RowSpan="2"/>
 
-        <TextBlock Text="Personal Information" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=HeadingStyle}"/>
-        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="7" Margin="10,31.4,10,42.8" Grid.RowSpan="2"/>
+            <TextBlock Text="Respond To Care" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=HeadingStyle}" Margin="0,8,0,0" VerticalAlignment="Top"/>
+            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="7" Margin="10,31.4,10,42.8" Grid.RowSpan="2"/>
 
-        <TextBlock Text="Name: " Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=PatientName}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="4" Grid.ColumnSpan="7" Margin="10,31.4,10,43.2" />
+            <TextBlock Text="Vitals Information" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=HeadingStyle}" Margin="3,52,0,0" VerticalAlignment="Top" Width="191"/>
 
-        <TextBlock Text="Age: "  Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="4" Text="{Binding Path=PatientAge}" Grid.Column="1" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="7" Margin="10,31.6,10,43"/>
 
-        <TextBlock Text="Status: " Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding Path=MonitoringStatus}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+            <TextBlock Text="Spo2: " Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}" Margin="16,10,0,0" VerticalAlignment="Top"/>
+            <ComboBox Grid.Row="3" Grid.ColumnSpan="3" IsEnabled="{Binding ElementName=Spo2Alarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}"  ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding Spo2Status}" Style="{StaticResource ResourceKey=ComboBoxStyle}" Margin="114,5,10,5"/>
+            <ToggleButton Name="Spo2Alarm" Grid.Row="3" Grid.Column="2" IsChecked="{Binding Spo2Alarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="78,14,78,14" Grid.ColumnSpan="3"/>
 
-        <TextBlock Text="Contact no: " Grid.Column="2" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Path=ContactNo}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+            <TextBlock Text="Blood Pressure: " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}" Margin="10,8,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="99"/>
+            <ComboBox Grid.Row="4" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=BpAlarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}" ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding BpStatus}" Style="{StaticResource ResourceKey=ComboBoxStyle}" Margin="36,1,10,45" Grid.Column="1"/>
+            <ToggleButton Name="BpAlarm" Grid.Row="3" Grid.Column="2" IsChecked="{Binding BpAlarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Grid.ColumnSpan="3" Margin="78,31,78,22" Grid.RowSpan="2"/>
 
-        <TextBlock Text="ICU no: " Grid.Column="5" Grid.Row="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding Path=IcuNo}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
-
-        <TextBlock Text="Bed no: " Grid.Column="5" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="6" Text="{Binding Path=BedId}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
-
-        <TextBlock Text="Patient Id: " Grid.Column="5" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=PatientId}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
-
-        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="4" Grid.ColumnSpan="7" Margin="10,31.4,10,43.2" />
-        <TextBlock Text="Vitals Information" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=HeadingStyle}"/>
-
-        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="7" Margin="10,31.6,10,43"/>
-
-        <TextBlock Text="Spo2: " Grid.Column="0" Grid.Row="6" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=Spo2Alarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}"  ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding Spo2Status}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
-        <ToggleButton Name="Spo2Alarm" Grid.Row="6" Grid.Column="3" IsChecked="{Binding Spo2Alarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
-
-        <TextBlock Text="Bloor Pressure: " Grid.Column="0" Grid.Row="7" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <ComboBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=BpAlarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}" ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding BpStatus}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
-        <ToggleButton Name="BpAlarm" Grid.Row="7" Grid.Column="3" IsChecked="{Binding BpAlarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
-
-        <TextBlock Text="Respiration: " Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <ComboBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=RespAlarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}" ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding RespRateStatus}" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
-        <ToggleButton Name="RespAlarm" Grid.Row="8" Grid.Column="3" IsChecked="{Binding RespRateAlarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
+            <TextBlock Text="Respiration: " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}" Margin="10,59,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="95"/>
+            <ComboBox Grid.Row="4" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=RespAlarm, Mode=TwoWay, Path=IsChecked, Converter={StaticResource ResourceKey=cbvc}}" ItemsSource="{Binding Path=StatusList}" SelectedItem="{Binding RespRateStatus}" Style="{StaticResource ResourceKey=ComboBoxStyle}" Margin="41,57,5,7" Grid.Column="1"/>
+            <ToggleButton Name="RespAlarm" Grid.Row="4" Grid.Column="2" IsChecked="{Binding RespRateAlarm}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Grid.ColumnSpan="2" Margin="73,24,6,67" Grid.RowSpan="2"/>
 
 
-        <Button Content="Save" Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="7" Style="{StaticResource ResourceKey=ButtonStyle}" Width="237"/>
+            <Button Content="Save" Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ButtonStyle}" Width="145" HorizontalAlignment="Left" Margin="35,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Grid.RowSpan="2">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.583"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
 
-    </Grid>
+        </Grid>
+    </StackPanel>
+
 </UserControl>

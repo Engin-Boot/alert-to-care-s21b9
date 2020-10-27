@@ -6,21 +6,37 @@
         xmlns:local="clr-namespace:AlertToCareFrontend"
         xmlns:tb="clr-namespace:AlertToCareFrontend.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="900">
     <Grid>
-        <TabControl HorizontalAlignment="Center">
-        <TabItem Header="Monitor Occupancy" Height="22" Width="141" >
-                <StackPanel HorizontalAlignment="Right">
-                    <tb:MonitorOccupancy x:Name="MonitorOccupancy"></tb:MonitorOccupancy>
+        <TabControl HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="332" Width="566" Margin="0,0,10,0">
+            <TabItem Header="Monitor Occupancy" Height="22" Width="141" >
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <tb:MonitorOccupancy x:Name="MonitorOccupancy" Height="293" Width="554"/>
                 </StackPanel>
             </TabItem>
-           
-            <TabItem Header="Respond To Care" Height="22" Width="141">
-                <StackPanel HorizontalAlignment="Center">
-                    <tb:RespondToCare x:Name="RespondToCare"></tb:RespondToCare>
-                    </StackPanel>
-                </TabItem>
-        </TabControl>
 
+            <TabItem Header="Respond To Care" Height="22" Width="141">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <tb:RespondToCare x:Name="RespondToCare" Width="554" Height="296"/>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right">
+            <tb:PersonalInformation Height="339" Width="573"/>
+        </StackPanel>
+        <Button Content="Find" HorizontalAlignment="Left" Margin="130,170,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button Content="Find" HorizontalAlignment="Left" Margin="134,498,0,0" VerticalAlignment="Top" Width="70"/>
+        <ComboBox HorizontalAlignment="Left" Margin="109,58,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="113,302,0,0" VerticalAlignment="Top" Width="112"/>
+        <ComboBox HorizontalAlignment="Left" Margin="113,352,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label Content="PatientInfo Validator" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="165"/>
+        <Label Content="Patient ID" HorizontalAlignment="Left" Margin="46,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="ICU Validator" HorizontalAlignment="Left" Margin="134,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="ICU no" HorizontalAlignment="Left" Margin="60,352,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bed no" HorizontalAlignment="Left" Margin="60,306,0,0" VerticalAlignment="Top"/>
+        <StackPanel Margin="0,0,594,464"/>
+        <StackPanel Margin="0,251,594,0"/>
+        <GridSplitter HorizontalAlignment="Left" Height="15" Margin="10,236,0,0" VerticalAlignment="Top" Width="296"/>
     </Grid>
 </Window>

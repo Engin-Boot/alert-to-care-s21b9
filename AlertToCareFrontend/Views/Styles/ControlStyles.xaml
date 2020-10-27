@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:AlertToCareFrontend.Converters">
+                    xmlns:converters="clr-namespace:AlertToCareFrontend.ViewModels.Converters">
     <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
         <Setter Property="BorderBrush" Value="Gray"/>
         <Setter Property="BorderThickness" Value="1"/>

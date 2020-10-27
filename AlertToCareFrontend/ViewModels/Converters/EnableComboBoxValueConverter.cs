@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Data;
 
-namespace AlertToCareFrontend.Converters
+namespace AlertToCareFrontend.ViewModels.Converters
 {
     public class EnableComboBoxValueConverter : IValueConverter
     {
