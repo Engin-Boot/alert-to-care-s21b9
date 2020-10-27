@@ -2,6 +2,7 @@
 using SharedProjects.Models;
 using System.Collections.Generic;
 using System.Linq;
+using SQLitePCL;
 
 namespace SharedProjects.Utilities
 {
@@ -11,6 +12,7 @@ namespace SharedProjects.Utilities
 
         public List<Beds> GetAvailableBeds()
         {
+            
             var bedStore = _context.Beds.ToList();
             var availableBeds = bedStore.Where(item => item.OccupancyStatus == false).ToList();
             return availableBeds;
