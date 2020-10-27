@@ -35,8 +35,8 @@ namespace AlertToCareApi.Controllers
         [HttpGet("Status/{IcuNo}/{BedId}")]
         public IActionResult GetBedsOccupancyStatus(int icuno, int bedId)
         {
-            try
-            {
+            //try
+            //{
                 var bedStore = _context.Beds.ToList();
                 foreach (var bed in bedStore)
                 {
@@ -46,11 +46,11 @@ namespace AlertToCareApi.Controllers
                     }
                 }
                 return BadRequest("No Bed With The Given Bed Id Exists");
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return StatusCode(500);
+            //}
         }
 
         [HttpPost("PatientInfo")]
