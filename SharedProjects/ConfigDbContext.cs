@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.IO;
+using System.Net.Mime;
+using Microsoft.EntityFrameworkCore;
 using SharedProjects.Models;
+using System.IO;
 
 namespace SharedProjects
 {
@@ -7,9 +10,11 @@ namespace SharedProjects
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string _path = @"D:\a\alert-to-care-s21b9\alert-to-care-s21b9\CaseStudy2Database.db";
-           // string _path = @"C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
-           //string _path =@"C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
+            Directory.SetCurrentDirectory("CaseStudy2Database.db");
+            string _path = @"CaseStudy2Database.db";
+            // string _path = @"C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
+            //string _path =@"C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
+           
             optionsBuilder.UseSqlite("Filename="+_path);
 
         }
@@ -19,5 +24,6 @@ namespace SharedProjects
         public DbSet<Patients> Patients { get; set; }
         public DbSet<VitalsLogs> VitalsLogs { get; set; }
     }
+
     
 }

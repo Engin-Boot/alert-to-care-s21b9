@@ -1,13 +1,17 @@
 ﻿using SharedProjects.Models;
 using SharedProjects.Utilities;
 using System.Linq;
+using Microsoft.EntityFrameworkCore.Storage;
+using SharedProjects;
 using Xunit;
 
 namespace AlertToCareUnitTest
 {
     public class BedAllotmentUnitTests
     {
-        [Fact]
+        
+       
+[Fact]
 
         public void GetAvailabilityOfBeds_ReturnsAListOfAvailaibleBeds()
         {

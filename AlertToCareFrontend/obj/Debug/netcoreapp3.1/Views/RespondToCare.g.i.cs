@@ -107,14 +107,14 @@ namespace AlertToCareFrontend.Views {
             case 1:
             this.pageBorder = ((System.Windows.Controls.Border)(target));
             return;
-            //case 2:
-            //this.Spo2Alarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
-            //return;
-            //case 3:
-            //this.BpAlarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
-            //return;
-            //case 4:
-            //this.RespAlarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
+            case 2:
+            this.Spo2Alarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
+            return;
+            case 3:
+            this.BpAlarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
+            return;
+            case 4:
+            this.RespAlarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
             return;
             }
             this._contentLoaded = true;
