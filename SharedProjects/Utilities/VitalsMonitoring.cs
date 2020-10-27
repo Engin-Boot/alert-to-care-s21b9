@@ -1,5 +1,4 @@
-﻿
-using SharedProjects.Models;
+﻿using SharedProjects.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

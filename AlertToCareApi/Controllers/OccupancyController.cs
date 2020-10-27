@@ -32,22 +32,20 @@ namespace AlertToCareApi.Controllers
             }
         }
 
-        [HttpGet("Status/{BedId}")]
-        public IActionResult GetBedsOccupancyStatus(int bedId)
+        [HttpGet("Status/{IcuNo}/{BedId}")]
+        public IActionResult GetBedsOccupancyStatus(int icuno, int bedId)
         {
             try
             {
                 var bedStore = _context.Beds.ToList();
-                var findBedWithId = bedStore.FirstOrDefault(item => item.BedId == bedId);
-                if (findBedWithId == null)
+                foreach (var bed in bedStore)
                 {
-                    return BadRequest("No Bed With The Given Bed Id Exists");
+                    if (bed.IcuNo == icuno && bed.BedId == bedId)
+                    {
+                        return Ok(bed);
+                    }
                 }
-                else
-                {
-                    var status = findBedWithId.OccupancyStatus;
-                    return Ok(status);
-                }
+                return BadRequest("No Bed With The Given Bed Id Exists");
             }
             catch (Exception)
             {
