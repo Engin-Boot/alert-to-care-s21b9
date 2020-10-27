@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SharedProjects;
@@ -12,6 +13,7 @@ namespace AlertToCareApi
         {
             var client = new ConfigDbContext();
             client.Database.EnsureCreated();
+            client.Database.Migrate();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
