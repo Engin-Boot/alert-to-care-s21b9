@@ -2,5 +2,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=932fde44_002D3362_002D48f3_002Db2ab_002Decf3e5743796/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WhenCheckVitalsIsGivenCorrectLogItReturnsAString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.VitalsMonitoringUnitTest.WhenCheckVitalsIsGivenCorrectLogItReturnsAString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.LayoutInformationUnitTests.FindNoOfIcus_ShouldGetTheNumberOfIcusWithAGivenLayout&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
