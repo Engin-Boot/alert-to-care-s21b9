@@ -11,20 +11,19 @@ namespace AlertToCareFrontend.ViewModels
 {
     public class RespondToCare : Base
     {
+        public RespondToCare()
+        {
+            SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
+        }
+        #region private members
         public string _baseUrl = "http://localhost:5000/api/";
         private static RestClient _client;
         private static RestRequest _request;
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
         public ICommand SaveCommand { get; set; }
+        #endregion
 
-        public RespondToCare()
-        {
-            //AddItemsToStatusList();
-            UpdatePatientInfo(2);
-            VitalAndAlarmSelection(2);
-            SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
-        }
         #region properties
         private string _patientName;
         public string PatientName
@@ -266,7 +265,7 @@ namespace AlertToCareFrontend.ViewModels
             _request.AddUrlSegment("patientid", patientid);
             _response = _client.Execute(_request);
 
-            if(_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
 
@@ -291,7 +290,7 @@ namespace AlertToCareFrontend.ViewModels
                 var msg = _deserializer.Deserialize<string>(_response);
                 MessageBox.Show(msg);
             }
-           
+
         }
 
         private string SetAlarmForParameter(string status)
@@ -310,7 +309,7 @@ namespace AlertToCareFrontend.ViewModels
             _request.AddUrlSegment("patientid", patientid);
             _response = _client.Execute(_request);
 
-            if(_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var _patient = _deserializer.Deserialize<Patients>(_response);
 
@@ -344,7 +343,7 @@ namespace AlertToCareFrontend.ViewModels
             var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = this.BpRate, Spo2Rate = this.Spo2Rate, RespRate = this.RespRate, VitalsLogId = 200 };
             _request.AddJsonBody(vitals);
             _response = _client.Execute(_request);
-            if(_response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 MessageBox.Show("Details not saved");
             }

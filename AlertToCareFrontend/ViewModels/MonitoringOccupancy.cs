@@ -12,9 +12,9 @@ namespace AlertToCareFrontend.ViewModels
     {
         public MonitoringOccupancy()
         {
-            SetOccupancyStatus(19,1 );
             SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
         }
+        #region private variables
         public string _baseUrl = "http://localhost:5000/api/";
         private static RestClient _client;
         private static RestRequest _request;
@@ -23,6 +23,8 @@ namespace AlertToCareFrontend.ViewModels
         Beds _bed;
         #region properties
         public ICommand SaveCommand { get; set; }
+        #endregion
+
 
         private bool _admitStatus;
         public bool AdmitStatus
@@ -53,7 +55,7 @@ namespace AlertToCareFrontend.ViewModels
         }
         #endregion
 
-        
+
         public void SetOccupancyStatus(int icuno, int bedid)
         {
             _client = new RestClient(_baseUrl);
@@ -62,7 +64,7 @@ namespace AlertToCareFrontend.ViewModels
             _request.AddUrlSegment("BedId", bedid);
             _response = _client.Execute(_request);
 
-          if(_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 _bed = _deserializer.Deserialize<Beds>(_response);
                 if (_bed.OccupancyStatus)
@@ -78,7 +80,6 @@ namespace AlertToCareFrontend.ViewModels
         }
         public void SaveChanges()
         {
-            //save change in data
             _client = new RestClient(_baseUrl);
             _request = new RestRequest("occupancy/Update", Method.POST);
             _request.AddJsonBody(_bed);
@@ -92,7 +93,6 @@ namespace AlertToCareFrontend.ViewModels
         }
         void SaveCommandWrapper(object parameter)
         {
-            //call function that needs to get executed
             SaveChanges();
         }
 

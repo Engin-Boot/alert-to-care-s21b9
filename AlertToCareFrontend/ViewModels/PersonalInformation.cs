@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RestSharp;
+﻿using RestSharp;
 using RestSharp.Serialization.Json;
 using SharedProjects.Models;
 
 namespace AlertToCareFrontend.ViewModels
 {
-    class PersonalInformation:Base
+    public class PersonalInformation : Base
     {
+        public PersonalInformation() { }
+        #region private members
         public string _baseUrl = "http://localhost:5000/api/";
         private static RestClient _client;
         private static RestRequest _request;
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
 
-        public PersonalInformation()
-            
-        {
-            UpdatePatientInfo(2);
-           
-        }
+        #endregion
+
+        #region properties
         private string _patientName;
         public string PatientName
         {
@@ -116,6 +112,8 @@ namespace AlertToCareFrontend.ViewModels
                 }
             }
         }
+        #endregion
+
         public void UpdatePatientInfo(int patientid)
         {
             _client = new RestClient(_baseUrl);
@@ -124,12 +122,12 @@ namespace AlertToCareFrontend.ViewModels
             _response = _client.Execute(_request);
             var _patient = _deserializer.Deserialize<Patients>(_response);
 
-            PatientId = _patient.PatientId;
-            PatientName = _patient.PatientName;
-            BedId = _patient.BedId;
-            ContactNo = _patient.ContactNo;
-            PatientAge = _patient.Age;
-            MonitoringStatus = _patient.MonitoringStatus == 0 ? "On" : "Off";
+            this.PatientId = _patient.PatientId;
+            this.PatientName = _patient.PatientName;
+            this.BedId = _patient.BedId;
+            this.ContactNo = _patient.ContactNo;
+            this.PatientAge = _patient.Age;
+            this.MonitoringStatus = _patient.MonitoringStatus == 0 ? "On" : "Off";
 
             _request = new RestRequest("config/beds/{bedid}", Method.GET);
             _request.AddUrlSegment("bedid", BedId);
