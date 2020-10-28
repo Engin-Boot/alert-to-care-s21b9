@@ -35,8 +35,8 @@ namespace AlertToCareApi.Controllers
         [HttpGet("Status/{IcuNo}/{BedId}")]
         public IActionResult GetBedsOccupancyStatus(int icuno, int bedId)
         {
-            //try
-            //{
+            try
+            {
                 var bedStore = _context.Beds.ToList();
                 foreach (var bed in bedStore)
                 {
@@ -46,11 +46,11 @@ namespace AlertToCareApi.Controllers
                     }
                 }
                 return BadRequest("No Bed With The Given Bed Id Exists");
-            //}
-            //catch (Exception)
-            //{
-            //    return StatusCode(500);
-            //}
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
         [HttpPost("PatientInfo")]
@@ -89,6 +89,28 @@ namespace AlertToCareApi.Controllers
             _context.SaveChanges();
         }
 
+        [HttpPost("Update")]
+        public IActionResult UpdateVitalsInfo([FromBody] Beds updateBed)
+        {
+            try
+            {
+                var bedStore = _context.Beds.ToList();
+                var bedToBeUpdated = bedStore.FirstOrDefault(item => item.BedId == updateBed.BedId && item.IcuNo == updateBed.IcuNo);
+                if (bedToBeUpdated == null)
+                {
+                    return BadRequest("No Bed With The Given Vital ID Exists");
+                }
+                _context.Remove(bedToBeUpdated);
+                _context.Add(updateBed);
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpDelete("PatientInfo/{patientId}")]
         public IActionResult DischargingPatient(int patientId)
         {
@@ -118,40 +140,6 @@ namespace AlertToCareApi.Controllers
         #region Manipulation Functions
 
 
-        //Get All Patient Info
-        [HttpGet("PatientInfo")]
-        public ActionResult<IEnumerable<Patients>> GetAllPatientInfo()
-        {
-            try
-            {
-                var patientStore = _context.Patients.ToList();
-                return Ok(patientStore);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
-
-        //Get Particular Patient Info 
-        [HttpGet("PatientInfo/{patientId}")]
-        public ActionResult<Patients> GetParticularPatientInfo(int patientId)
-        {
-            try
-            {
-                var patientStore = _context.Patients.ToList();
-                var patient = patientStore.FirstOrDefault(item => item.PatientId == patientId);
-                if (patient == null)
-                {
-                    return BadRequest("No Patient With The Given Patient Id Exists");
-                }
-                return Ok(patient);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
         #endregion
 
     }

@@ -47,7 +47,7 @@
 
             <TextBlock Text="Discharge: " Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}" Margin="23,20,0,0" VerticalAlignment="Top"/>
 
-            <Button Content="Save" Style="{StaticResource ResourceKey=ButtonStyle}" Margin="26,39,0,0" Width="109" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
+            <Button Content="Save" Command="{Binding Path=SaveCommand}" Style="{StaticResource ResourceKey=ButtonStyle}" Margin="26,39,0,0" Width="109" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
 
         </Grid>
     </StackPanel>

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Documents;
+using System.Windows.Input;
+using AlertToCareFrontend.Commands;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using SharedProjects.Models;
+using SharedProjects.Utilities;
 
 namespace AlertToCareFrontend.ViewModels
 {
@@ -19,17 +16,113 @@ namespace AlertToCareFrontend.ViewModels
         private static RestRequest _request;
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
+        public ICommand SaveCommand { get; set; }
 
         public RespondToCare()
         {
-            AddItemsToStatusList();
-           
+            //AddItemsToStatusList();
+            UpdatePatientInfo(2);
             VitalAndAlarmSelection(2);
+            SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
         }
-        
+        #region properties
+        private string _patientName;
+        public string PatientName
+        {
+            get { return _patientName; }
+            set
+            {
+                if (value != _patientName)
+                {
+                    this._patientName = value;
+                    OnPropertyChanged("PatientName");
+                }
+            }
+        }
 
-      
+        private int _patientId;
+        public int PatientId
+        {
+            get { return _patientId; }
+            set
+            {
+                if (value != _patientId)
+                {
+                    this._patientId = value;
+                    OnPropertyChanged("PatientId");
+                }
+            }
+        }
 
+        private int _patientAge;
+        public int PatientAge
+        {
+            get { return _patientAge; }
+            set
+            {
+                if (value != _patientAge)
+                {
+                    this._patientAge = value;
+                    OnPropertyChanged("PatientAge");
+                }
+            }
+        }
+
+        private string _contactNo;
+        public string ContactNo
+        {
+            get { return _contactNo; }
+            set
+            {
+                if (value != _contactNo)
+                {
+                    this._contactNo = value;
+                    OnPropertyChanged("ContactNo");
+                }
+            }
+        }
+
+        private int _bedid;
+        public int BedId
+        {
+            get { return _bedid; }
+            set
+            {
+                if (value != _bedid)
+                {
+                    this._bedid = value;
+                    OnPropertyChanged("BedId");
+                }
+            }
+        }
+
+        private string _monitoringStatus;
+        public string MonitoringStatus
+        {
+            get { return _monitoringStatus; }
+            set
+            {
+                if (value != _monitoringStatus)
+                {
+                    this._monitoringStatus = value;
+                    OnPropertyChanged("MonitoringStatus");
+                }
+            }
+        }
+
+        private int _icuno;
+        public int IcuNo
+        {
+            get { return _icuno; }
+            set
+            {
+                if (value != _icuno)
+                {
+                    this._icuno = value;
+                    OnPropertyChanged("IcuNo");
+                }
+            }
+        }
 
         private ObservableCollection<string> statusList = new ObservableCollection<string>();
         public ObservableCollection<string> StatusList
@@ -38,44 +131,44 @@ namespace AlertToCareFrontend.ViewModels
             set { this.statusList = value; }
         }
 
-        private string _spo2Status;
-        public string Spo2Status
+        private double _spo2Rate;
+        public double Spo2Rate
         {
-            get { return _spo2Status; }
+            get { return _spo2Rate; }
             set
             {
-                if (value != _spo2Status)
+                if (value != _spo2Rate)
                 {
-                    this._spo2Status = value;
+                    this._spo2Rate = value;
                     OnPropertyChanged("Spo2Status");
                 }
             }
         }
 
-        private string _bpStatus;
-        public string BpStatus
+        private double _bpRate;
+        public double BpRate
         {
-            get { return _bpStatus; }
+            get { return _bpRate; }
             set
             {
-                if (value != _bpStatus)
+                if (value != _bpRate)
                 {
-                    this._bpStatus = value;
-                    OnPropertyChanged("BpStatus");
+                    this._bpRate = value;
+                    OnPropertyChanged("BpRate");
                 }
             }
         }
 
-        private string _respRateStatus;
-        public string RespRateStatus
+        private double _respRate;
+        public double RespRate
         {
-            get { return _respRateStatus; }
+            get { return _respRate; }
             set
             {
-                if (value != _respRateStatus)
+                if (value != _respRate)
                 {
-                    this._respRateStatus = value;
-                    OnPropertyChanged("RespRateStatus");
+                    this._respRate = value;
+                    OnPropertyChanged("RespRate");
                 }
             }
         }
@@ -121,60 +214,151 @@ namespace AlertToCareFrontend.ViewModels
                 }
             }
         }
+
+        private string _spo2Status;
+        public string Spo2Status
+        {
+            get { return _spo2Status; }
+            set
+            {
+                if (value != _spo2Status)
+                {
+                    this._spo2Status = value;
+                    OnPropertyChanged("Spo2Status");
+                }
+            }
+        }
+
+        private string _bpStatus;
+        public string BpStatus
+        {
+            get { return _bpStatus; }
+            set
+            {
+                if (value != _bpStatus)
+                {
+                    this._bpStatus = value;
+                    OnPropertyChanged("BpStatus");
+                }
+            }
+        }
+
+        private string _respRateStatus;
+        public string RespRateStatus
+        {
+            get { return _respRateStatus; }
+            set
+            {
+                if (value != _respRateStatus)
+                {
+                    this._respRateStatus = value;
+                    OnPropertyChanged("RespRateStatus");
+                }
+            }
+        }
+
+        #endregion
+
         public void VitalAndAlarmSelection(int patientid)
         {
             _client = new RestClient(_baseUrl);
-            _request = new RestRequest("monitoring/healthstatus/{patientid}", Method.GET);
+            _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
             _request.AddUrlSegment("patientid", patientid);
             _response = _client.Execute(_request);
 
-            var logMessages = _deserializer.Deserialize<Alarm>(_response).Messages;
-            var lastLogMessage = logMessages[logMessages.Count - 1];
-
-            var messages = lastLogMessage.Split(',');
-
-            //set the combo-box selected parameter
-            var spo2Status = messages[1].Split(':')[1].Trim().Split(' ')[1];
-            var bpStatus = messages[2].Split(':')[1].Trim().Split(' ')[1];
-            var respRateStatus = messages[3].Split(':')[1].Trim().Split(' ')[1];
-
-            Spo2Alarm = SetAlarmForParameter(ref spo2Status);
-            BpAlarm = SetAlarmForParameter(ref bpStatus);
-            RespRateAlarm = SetAlarmForParameter(ref respRateStatus);
-
-            Spo2Status = spo2Status;
-            BpStatus = bpStatus;
-            RespRateStatus = respRateStatus;
-
-            //EnableComboBoxOnAlarmValue();
-        }
-
-        private string SetAlarmForParameter(ref string status)
-        {
-            if (status.Equals("low"))
+            if(_response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                status = "Low";
-                return "True";
-            }
-            else if (status.Equals("good"))
-            {
-                status = "Normal";
-                return "False";
+                var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
+
+                //set the text-box selected parameter
+                this.Spo2Rate = vitals.Spo2Rate;
+                this.BpRate = vitals.BpmRate;
+                this.RespRate = vitals.RespRate;
+
+                var vitalsMonitoring = new VitalsMonitoring();
+                string message = vitalsMonitoring.CheckVitals(vitals);
+
+                var spo2Status = message.Split(',')[2].Split(' ')[3];
+                var bpStatus = message.Split(',')[3].Split(' ')[3];
+                var respRateStatus = message.Split(',')[4].Split(' ')[3];
+
+                Spo2Alarm = SetAlarmForParameter(spo2Status);
+                BpAlarm = SetAlarmForParameter(bpStatus);
+                RespRateAlarm = SetAlarmForParameter(respRateStatus);
             }
             else
             {
-                status = "High";
-                return "True";
+                var msg = _deserializer.Deserialize<string>(_response);
+                MessageBox.Show(msg);
             }
+           
         }
 
-        public void AddItemsToStatusList()
+        private string SetAlarmForParameter(string status)
         {
-            StatusList.Add("High");
-            StatusList.Add("Low");
-            StatusList.Add("Normal");
+            if (status.Equals("low"))
+                return "True";
+            else if (status.Equals("good"))
+                return "False";
+            else
+                return "True";
         }
-        
+        public void UpdatePatientInfo(int patientid)
+        {
+            _client = new RestClient(_baseUrl);
+            _request = new RestRequest("monitoring/patientinfo/{patientid}", Method.GET);
+            _request.AddUrlSegment("patientid", patientid);
+            _response = _client.Execute(_request);
+
+            if(_response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var _patient = _deserializer.Deserialize<Patients>(_response);
+
+                PatientId = _patient.PatientId;
+                PatientName = _patient.PatientName;
+                BedId = _patient.BedId;
+                ContactNo = _patient.ContactNo;
+                PatientAge = _patient.Age;
+                MonitoringStatus = _patient.MonitoringStatus == 0 ? "On" : "Off";
+
+                _request = new RestRequest("config/beds/{bedid}", Method.GET);
+                _request.AddUrlSegment("bedid", BedId);
+                _response = _client.Execute(_request);
+                var _beds = _deserializer.Deserialize<Beds>(_response);
+
+                IcuNo = _beds.IcuNo;
+            }
+            else
+            {
+                var msg = _deserializer.Deserialize<string>(_response);
+                MessageBox.Show(msg);
+            }
+
+
+        }
+        public void SaveChanges()
+        {
+            // save change in data
+            _client = new RestClient(_baseUrl);
+            _request = new RestRequest("monitoring/vitals", Method.POST);
+            var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = this.BpRate, Spo2Rate = this.Spo2Rate, RespRate = this.RespRate, VitalsLogId = 200 };
+            _request.AddJsonBody(vitals);
+            _response = _client.Execute(_request);
+            if(_response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Details not saved");
+            }
+        }
+        void SaveCommandWrapper(object parameter)
+        {
+            //call function that needs to get executed
+            SaveChanges();
+        }
+
+        bool CommandCanExecuteWrapper(object parameter)
+        {
+            return true;
+        }
 
     }
 }

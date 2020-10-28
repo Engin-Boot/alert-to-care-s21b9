@@ -1,6 +1,9 @@
-﻿using RestSharp;
+﻿using AlertToCareFrontend.Commands;
+using RestSharp;
 using RestSharp.Serialization.Json;
 using SharedProjects.Models;
+using System.Windows;
+using System.Windows.Input;
 
 namespace AlertToCareFrontend.ViewModels
 {
@@ -9,13 +12,17 @@ namespace AlertToCareFrontend.ViewModels
     {
         public MonitoringOccupancy()
         {
-            SetOccupancyStatus(11, 2);
+            SetOccupancyStatus(19,1 );
+            SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
         }
         public string _baseUrl = "http://localhost:5000/api/";
         private static RestClient _client;
         private static RestRequest _request;
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
+        Beds _bed;
+        #region properties
+        public ICommand SaveCommand { get; set; }
 
         private bool _admitStatus;
         public bool AdmitStatus
@@ -44,21 +51,54 @@ namespace AlertToCareFrontend.ViewModels
                 }
             }
         }
+        #endregion
+
+        
         public void SetOccupancyStatus(int icuno, int bedid)
         {
             _client = new RestClient(_baseUrl);
             _request = new RestRequest("occupancy/status/{IcuNo}/{BedId}", Method.GET);
             _request.AddUrlSegment("IcuNo", icuno);
             _request.AddUrlSegment("BedId", bedid);
-
             _response = _client.Execute(_request);
-            var _bed = _deserializer.Deserialize<Beds>(_response);
 
-            if (_bed.OccupancyStatus)
-                AdmitStatus = true;
+          if(_response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                _bed = _deserializer.Deserialize<Beds>(_response);
+                if (_bed.OccupancyStatus)
+                    AdmitStatus = true;
+                else
+                    DischargeStatus = true;
+            }
             else
-                DischargeStatus = true;
+            {
+                string msg = _deserializer.Deserialize<string>(_response);
+                MessageBox.Show(msg);
+            }
+        }
+        public void SaveChanges()
+        {
+            //save change in data
+            _client = new RestClient(_baseUrl);
+            _request = new RestRequest("occupancy/Update", Method.POST);
+            _request.AddJsonBody(_bed);
+            _response = _client.Execute(_request);
 
+            if (_response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Details not saved");
+            }
+
+        }
+        void SaveCommandWrapper(object parameter)
+        {
+            //call function that needs to get executed
+            SaveChanges();
+        }
+
+        bool CommandCanExecuteWrapper(object parameter)
+        {
+            return true;
         }
     }
 }
