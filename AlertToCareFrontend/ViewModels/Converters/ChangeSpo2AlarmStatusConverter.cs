@@ -8,13 +8,17 @@ namespace AlertToCareFrontend.ViewModels.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int spo2 = Int32.Parse(value.ToString());
-            if (spo2 < 95)
+            try
             {
-                return true;
+                int spo2 = Int32.Parse(value.ToString());
+                if (spo2 < 95)
+                {
+                    return true;
+                }
+                else
+                    return false;
             }
-            else
-                return false;
+            catch (Exception) { return false; }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

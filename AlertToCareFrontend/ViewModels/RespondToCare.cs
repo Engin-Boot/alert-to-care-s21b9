@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using AlertToCareFrontend.Commands;
@@ -13,7 +14,24 @@ namespace AlertToCareFrontend.ViewModels
     {
         public RespondToCare()
         {
+
             SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
+            UpdatePatientList();
+        }
+        public void UpdatePatientList()
+        {
+            _client = new RestClient(_baseUrl);
+            _request = new RestRequest("monitoring/patientinfo", Method.GET);
+
+            _response = _client.Execute(_request);
+            var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
+
+
+            foreach (var patient in _patientStore)
+            {
+                PatientIdList.Add(patient);
+            }
+
         }
         #region private members
         public string _baseUrl = "http://localhost:5000/api/";
@@ -25,19 +43,7 @@ namespace AlertToCareFrontend.ViewModels
         #endregion
 
         #region properties
-        private string _patientName;
-        public string PatientName
-        {
-            get { return _patientName; }
-            set
-            {
-                if (value != _patientName)
-                {
-                    this._patientName = value;
-                    OnPropertyChanged("PatientName");
-                }
-            }
-        }
+
 
         private int _patientId;
         public int PatientId
@@ -48,90 +54,14 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _patientId)
                 {
                     this._patientId = value;
+                    VitalAndAlarmSelection();
                     OnPropertyChanged("PatientId");
                 }
             }
         }
 
-        private int _patientAge;
-        public int PatientAge
-        {
-            get { return _patientAge; }
-            set
-            {
-                if (value != _patientAge)
-                {
-                    this._patientAge = value;
-                    OnPropertyChanged("PatientAge");
-                }
-            }
-        }
-
-        private string _contactNo;
-        public string ContactNo
-        {
-            get { return _contactNo; }
-            set
-            {
-                if (value != _contactNo)
-                {
-                    this._contactNo = value;
-                    OnPropertyChanged("ContactNo");
-                }
-            }
-        }
-
-        private int _bedid;
-        public int BedId
-        {
-            get { return _bedid; }
-            set
-            {
-                if (value != _bedid)
-                {
-                    this._bedid = value;
-                    OnPropertyChanged("BedId");
-                }
-            }
-        }
-
-        private string _monitoringStatus;
-        public string MonitoringStatus
-        {
-            get { return _monitoringStatus; }
-            set
-            {
-                if (value != _monitoringStatus)
-                {
-                    this._monitoringStatus = value;
-                    OnPropertyChanged("MonitoringStatus");
-                }
-            }
-        }
-
-        private int _icuno;
-        public int IcuNo
-        {
-            get { return _icuno; }
-            set
-            {
-                if (value != _icuno)
-                {
-                    this._icuno = value;
-                    OnPropertyChanged("IcuNo");
-                }
-            }
-        }
-
-        private ObservableCollection<string> statusList = new ObservableCollection<string>();
-        public ObservableCollection<string> StatusList
-        {
-            get { return statusList; }
-            set { this.statusList = value; }
-        }
-
-        private double _spo2Rate;
-        public double Spo2Rate
+        private string _spo2Rate;
+        public string Spo2Rate
         {
             get { return _spo2Rate; }
             set
@@ -139,13 +69,12 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _spo2Rate)
                 {
                     this._spo2Rate = value;
-                    OnPropertyChanged("Spo2Status");
+                    OnPropertyChanged("Spo2Rate");
                 }
             }
         }
-
-        private double _bpRate;
-        public double BpRate
+        private string _bpRate;
+        public string BpRate
         {
             get { return _bpRate; }
             set
@@ -158,8 +87,8 @@ namespace AlertToCareFrontend.ViewModels
             }
         }
 
-        private double _respRate;
-        public double RespRate
+        private string _respRate;
+        public string RespRate
         {
             get { return _respRate; }
             set
@@ -214,55 +143,15 @@ namespace AlertToCareFrontend.ViewModels
             }
         }
 
-        private string _spo2Status;
-        public string Spo2Status
-        {
-            get { return _spo2Status; }
-            set
-            {
-                if (value != _spo2Status)
-                {
-                    this._spo2Status = value;
-                    OnPropertyChanged("Spo2Status");
-                }
-            }
-        }
 
-        private string _bpStatus;
-        public string BpStatus
-        {
-            get { return _bpStatus; }
-            set
-            {
-                if (value != _bpStatus)
-                {
-                    this._bpStatus = value;
-                    OnPropertyChanged("BpStatus");
-                }
-            }
-        }
-
-        private string _respRateStatus;
-        public string RespRateStatus
-        {
-            get { return _respRateStatus; }
-            set
-            {
-                if (value != _respRateStatus)
-                {
-                    this._respRateStatus = value;
-                    OnPropertyChanged("RespRateStatus");
-                }
-            }
-        }
 
         #endregion
 
-        public void VitalAndAlarmSelection(int patientid)
+        public void VitalAndAlarmSelection()
         {
             _client = new RestClient(_baseUrl);
             _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
-            _request.AddUrlSegment("patientid", patientid);
+            _request.AddUrlSegment("patientid", PatientId);
             _response = _client.Execute(_request);
 
             if (_response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -270,9 +159,9 @@ namespace AlertToCareFrontend.ViewModels
                 var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
 
                 //set the text-box selected parameter
-                this.Spo2Rate = vitals.Spo2Rate;
-                this.BpRate = vitals.BpmRate;
-                this.RespRate = vitals.RespRate;
+                this.Spo2Rate = vitals.Spo2Rate.ToString();
+                this.BpRate = vitals.BpmRate.ToString();
+                this.RespRate = vitals.RespRate.ToString();
 
                 var vitalsMonitoring = new VitalsMonitoring();
                 string message = vitalsMonitoring.CheckVitals(vitals);
@@ -302,50 +191,26 @@ namespace AlertToCareFrontend.ViewModels
             else
                 return "True";
         }
-        public void UpdatePatientInfo(int patientid)
-        {
-            _client = new RestClient(_baseUrl);
-            _request = new RestRequest("monitoring/patientinfo/{patientid}", Method.GET);
-            _request.AddUrlSegment("patientid", patientid);
-            _response = _client.Execute(_request);
-
-            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var _patient = _deserializer.Deserialize<Patients>(_response);
-
-                PatientId = _patient.PatientId;
-                PatientName = _patient.PatientName;
-                BedId = _patient.BedId;
-                ContactNo = _patient.ContactNo;
-                PatientAge = _patient.Age;
-                MonitoringStatus = _patient.MonitoringStatus == 0 ? "On" : "Off";
-
-                _request = new RestRequest("config/beds/{bedid}", Method.GET);
-                _request.AddUrlSegment("bedid", BedId);
-                _response = _client.Execute(_request);
-                var _beds = _deserializer.Deserialize<Beds>(_response);
-
-                IcuNo = _beds.IcuNo;
-            }
-            else
-            {
-                var msg = _deserializer.Deserialize<string>(_response);
-                MessageBox.Show(msg);
-            }
-
-
-        }
         public void SaveChanges()
         {
             // save change in data
             _client = new RestClient(_baseUrl);
             _request = new RestRequest("monitoring/vitals", Method.POST);
-            var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = this.BpRate, Spo2Rate = this.Spo2Rate, RespRate = this.RespRate, VitalsLogId = 200 };
+
+            var bp = double.Parse(BpRate);
+            var spo2 = double.Parse(Spo2Rate);
+            var resp = double.Parse(RespRate);
+
+            var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
             _request.AddJsonBody(vitals);
             _response = _client.Execute(_request);
             if (_response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 MessageBox.Show("Details not saved");
+            }
+            else
+            {
+                MessageBox.Show("Details Saved Successfully...");
             }
         }
         void SaveCommandWrapper(object parameter)
@@ -358,6 +223,8 @@ namespace AlertToCareFrontend.ViewModels
         {
             return true;
         }
+        public ObservableCollection<Patients> PatientIdList { get; set; } = new ObservableCollection<Patients>();
+
 
     }
 }

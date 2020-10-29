@@ -8,13 +8,17 @@ namespace AlertToCareFrontend.ViewModels.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            double bpm = Double.Parse(value.ToString());
-            if (bpm < 70)
-                return true ;
-            if (bpm > 100)
-                return true;
-            else
-                return false;
+            try
+            {
+                double bpm = Double.Parse(value.ToString());
+                if (bpm < 70)
+                    return true;
+                if (bpm > 100)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception) { return false; }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

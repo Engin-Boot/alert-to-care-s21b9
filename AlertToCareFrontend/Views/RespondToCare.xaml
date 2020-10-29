@@ -7,7 +7,7 @@
              xmlns:vm="clr-namespace:AlertToCareFrontend.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-  
+
     <Grid Background="Gainsboro">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -30,14 +30,14 @@
 
         <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.Column="0" Grid.ColumnSpan="7" Grid.RowSpan="6" Grid.Row="0"/>
         <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="7" Grid.RowSpan="2"/>
-
         <TextBlock Text="Respond To Care" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=HeadingStyle}" FontWeight="Bold" />
         <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="7" Grid.RowSpan="2"/>
-
         <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.ColumnSpan="7" Margin="0,56,0,19" />
         <TextBlock Text="Vitals Information" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=HeadingStyle}"/>
+        <TextBlock Text="Patient ID" Grid.Row="1" Grid.Column="2" Style="{StaticResource ResourceKey=ContentStyle}" FontWeight="Bold"/>
 
-        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="2" Grid.ColumnSpan="7" />-->
+        <ComboBox Name="PatientList" ItemsSource="{Binding PatientIdList}" DisplayMemberPath="PatientId" Text="{Binding Path=PatientId, Mode=TwoWay}" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+        <!--<ContentControl Content="{Binding ElementName=PatientList,Path=SelectedItem}" ContentTemplate="{StaticResource ResourceKey=personalInfoTemplate}" Grid.Row="3" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="7"/>-->
 
         <TextBlock Text="Spo2: " Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}" />
         <TextBox x:Name="Spo2Rate" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Spo2Rate}" IsEnabled="{Binding Spo2Alarm}" Style="{StaticResource TextBoxStyle}"/>
@@ -61,6 +61,5 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-
     </Grid>
 </UserControl>
