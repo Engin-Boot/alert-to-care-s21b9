@@ -12,7 +12,22 @@ namespace AlertToCareFrontend.ViewModels
         {
             this.UpdatePatientList();
         }
+        public void UpdatePatientList()
+        {
+            var _client = new RestClient(_baseUrl);
+            var _request = new RestRequest("monitoring/patientinfo", Method.GET);
 
+            var _response = _client.Execute(_request);
+            var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
+
+            foreach (var patient in _patientStore)
+            {
+                PatientIdList.Add(patient);
+            }
+
+        }
+
+        #region Properties
         private int _selectedItem;
         public int SelectedItem
         {
@@ -27,43 +42,14 @@ namespace AlertToCareFrontend.ViewModels
                 }
             }
         }
-        private string _lastName;
-        public string LastName
-        {
-            get { return _lastName; }
-            set
-            {
-                if (_lastName != value)
-                {
-                    _lastName = value;
-                    OnPropertyChanged("LastName");
-                }
-            }
-        }
-
-        public void UpdatePatientList()
-        {
-            _client = new RestClient(_baseUrl);
-            _request = new RestRequest("monitoring/patientinfo", Method.GET);
-
-            _response = _client.Execute(_request);
-            var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
-
-
-            foreach (var patient in _patientStore)
-            {
-                PatientIdList.Add(patient);
-            }
-
-        }
-        #region private members
-        public string _baseUrl = "http://localhost:5000/api/";
-        private static RestClient _client;
-        private static RestRequest _request;
-        private readonly JsonDeserializer _deserializer = new JsonDeserializer();
-        private static IRestResponse _response;
-
         #endregion
+        #region private members
+        private string _baseUrl = "http://localhost:5000/api/";
+        private readonly JsonDeserializer _deserializer = new JsonDeserializer();
+        #endregion
+        #region Public Members
         public ObservableCollection<Patients> PatientIdList { get; set; } = new ObservableCollection<Patients>();
+        #endregion
+
     }
 }

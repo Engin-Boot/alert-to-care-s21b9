@@ -51,15 +51,8 @@
         <TextBox x:Name="RespRate" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Text="{Binding RespRate}" IsEnabled="{Binding RespRateAlarm}" Style="{StaticResource TextBoxStyle}"/>
         <ToggleButton Name="RespAlarm" Grid.Row="5" Grid.Column="3" IsChecked="{Binding ElementName=RespRate, Mode=TwoWay,Path=Text, Converter={StaticResource ResourceKey=respc}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}"/>
 
-        <Button Content="Save" Command="{Binding Path=SaveCommand}" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ButtonStyle}" Width="145" Grid.RowSpan="2">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.583"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        <Button Content="Save" Command="{Binding Path=SaveCommand}" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ButtonStyle}" Width="145" Grid.RowSpan="2"/>
+        <Button Content="Reset" Command="{Binding Path=ResetCommand}" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ButtonStyle}" Width="145" Grid.RowSpan="2"/>
+
     </Grid>
 </UserControl>

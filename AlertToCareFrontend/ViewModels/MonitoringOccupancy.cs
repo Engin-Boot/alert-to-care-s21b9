@@ -21,6 +21,7 @@ namespace AlertToCareFrontend.ViewModels
 
         private void SetBedsInIcuList()
         {
+            BedIdList.Clear();
             var _client = new RestClient(_baseUrl);
             var _request = new RestRequest("config/BedsInIcu/{IcuNo}", Method.GET);
             _request.AddUrlSegment("IcuNo", IcuRoomNo);
@@ -83,6 +84,7 @@ namespace AlertToCareFrontend.ViewModels
             }
             else
             {
+                
                 string msg = _deserializer.Deserialize<string>(_response);
                 MessageBox.Show(msg);
             }
@@ -98,6 +100,7 @@ namespace AlertToCareFrontend.ViewModels
             {
                 MessageBox.Show("Details not saved");
             }
+            MessageBox.Show("Details saved successfully!");
 
         }
         void SaveCommandWrapper(object parameter)
@@ -179,16 +182,12 @@ namespace AlertToCareFrontend.ViewModels
             }
         }
         #endregion
-        #region private variables
+
+        #region public variables
         public string _baseUrl = "http://localhost:5000/api/";
-        private readonly JsonDeserializer _deserializer = new JsonDeserializer();
+        public readonly JsonDeserializer _deserializer = new JsonDeserializer();
         public Beds _bed;
-        #region properties
         public ICommand SaveCommand { get; set; }
-        #endregion
-
-
-
         #endregion
 
     }

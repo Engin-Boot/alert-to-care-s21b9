@@ -16,30 +16,117 @@ namespace AlertToCareFrontend.ViewModels
         {
 
             SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
+            ResetCommand = new DelegateCommandClass(ResetCommandWrapper, CommandCanExecuteWrapper);
             UpdatePatientList();
         }
+
         public void UpdatePatientList()
         {
-            _client = new RestClient(_baseUrl);
-            _request = new RestRequest("monitoring/patientinfo", Method.GET);
+           var _client = new RestClient(_baseUrl);
+            var _request = new RestRequest("monitoring/patientinfo", Method.GET);
 
             _response = _client.Execute(_request);
             var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
-
-
             foreach (var patient in _patientStore)
             {
                 PatientIdList.Add(patient);
             }
 
         }
+        public void VitalAndAlarmSelection()
+        {
+            var _client = new RestClient(_baseUrl);
+            var _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
+            _request.AddUrlSegment("patientid", PatientId);
+            var _response = _client.Execute(_request);
+
+            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
+
+                //set the text-box selected parameter
+                this.Spo2Rate = vitals.Spo2Rate.ToString();
+                this.BpRate = vitals.BpmRate.ToString();
+                this.RespRate = vitals.RespRate.ToString();
+
+                var vitalsMonitoring = new VitalsMonitoring();
+                string message = vitalsMonitoring.CheckVitals(vitals);
+
+                var spo2Status = message.Split(',')[2].Split(' ')[3];
+                var bpStatus = message.Split(',')[3].Split(' ')[3];
+                var respRateStatus = message.Split(',')[4].Split(' ')[3];
+
+                Spo2Alarm = SetAlarmForParameter(spo2Status);
+                BpAlarm = SetAlarmForParameter(bpStatus);
+                RespRateAlarm = SetAlarmForParameter(respRateStatus);
+            }
+            else
+            {
+                var msg = _deserializer.Deserialize<string>(_response);
+                MessageBox.Show(msg);
+            }
+
+        }
+        private string SetAlarmForParameter(string status)
+        {
+            if (status.Equals("low"))
+                return "True";
+            else if (status.Equals("good"))
+                return "False";
+            else
+                return "True";
+        }
+        private void ResetVitalInfo()
+        {
+            VitalAndAlarmSelection();
+        }
+
+
+        public void SaveChanges()
+        {
+            // save change in data
+            var _client = new RestClient(_baseUrl);
+            var _request = new RestRequest("monitoring/vitals", Method.POST);
+
+            var bp = double.Parse(BpRate);
+            var spo2 = double.Parse(Spo2Rate);
+            var resp = double.Parse(RespRate);
+
+            var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
+            _request.AddJsonBody(vitals);
+            _response = _client.Execute(_request);
+            if (_response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Details not saved");
+            }
+            else
+            {
+                MessageBox.Show("Details Saved Successfully...");
+            }
+        }
+        void SaveCommandWrapper(object parameter)
+        {
+            SaveChanges();
+        }
+        private void ResetCommandWrapper(object obj)
+        {
+            ResetVitalInfo();
+        }
+        bool CommandCanExecuteWrapper(object parameter)
+        {
+            return true;
+        }
+        #region
+        public ObservableCollection<Patients> PatientIdList { get; set; } = new ObservableCollection<Patients>();
+        #endregion
+
         #region private members
         public string _baseUrl = "http://localhost:5000/api/";
-        private static RestClient _client;
-        private static RestRequest _request;
+
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
         public ICommand SaveCommand { get; set; }
+        public ICommand ResetCommand { get; set; }
         #endregion
 
         #region properties
@@ -146,85 +233,5 @@ namespace AlertToCareFrontend.ViewModels
 
 
         #endregion
-
-        public void VitalAndAlarmSelection()
-        {
-            _client = new RestClient(_baseUrl);
-            _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
-            _request.AddUrlSegment("patientid", PatientId);
-            _response = _client.Execute(_request);
-
-            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
-
-                //set the text-box selected parameter
-                this.Spo2Rate = vitals.Spo2Rate.ToString();
-                this.BpRate = vitals.BpmRate.ToString();
-                this.RespRate = vitals.RespRate.ToString();
-
-                var vitalsMonitoring = new VitalsMonitoring();
-                string message = vitalsMonitoring.CheckVitals(vitals);
-
-                var spo2Status = message.Split(',')[2].Split(' ')[3];
-                var bpStatus = message.Split(',')[3].Split(' ')[3];
-                var respRateStatus = message.Split(',')[4].Split(' ')[3];
-
-                Spo2Alarm = SetAlarmForParameter(spo2Status);
-                BpAlarm = SetAlarmForParameter(bpStatus);
-                RespRateAlarm = SetAlarmForParameter(respRateStatus);
-            }
-            else
-            {
-                var msg = _deserializer.Deserialize<string>(_response);
-                MessageBox.Show(msg);
-            }
-
-        }
-
-        private string SetAlarmForParameter(string status)
-        {
-            if (status.Equals("low"))
-                return "True";
-            else if (status.Equals("good"))
-                return "False";
-            else
-                return "True";
-        }
-        public void SaveChanges()
-        {
-            // save change in data
-            _client = new RestClient(_baseUrl);
-            _request = new RestRequest("monitoring/vitals", Method.POST);
-
-            var bp = double.Parse(BpRate);
-            var spo2 = double.Parse(Spo2Rate);
-            var resp = double.Parse(RespRate);
-
-            var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
-            _request.AddJsonBody(vitals);
-            _response = _client.Execute(_request);
-            if (_response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                MessageBox.Show("Details not saved");
-            }
-            else
-            {
-                MessageBox.Show("Details Saved Successfully...");
-            }
-        }
-        void SaveCommandWrapper(object parameter)
-        {
-            //call function that needs to get executed
-            SaveChanges();
-        }
-
-        bool CommandCanExecuteWrapper(object parameter)
-        {
-            return true;
-        }
-        public ObservableCollection<Patients> PatientIdList { get; set; } = new ObservableCollection<Patients>();
-
-
     }
 }
