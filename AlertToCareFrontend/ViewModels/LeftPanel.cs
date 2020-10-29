@@ -80,7 +80,7 @@ namespace AlertToCareFrontend.ViewModels
         {
             // call monitoringOccupancy/SetOccupancyRecord
             var monitoringOccupancy = new MonitoringOccupancy();
-            monitoringOccupancy.SetOccupancyStatus(_icuno, _bedid);
+            
         }
 
         private void FindPatientWrapper(object obj)
@@ -93,7 +93,7 @@ namespace AlertToCareFrontend.ViewModels
 
             // call PersonalInfo/UpdatePatientInfo
             var personalInfo = new PersonalInformation();
-            personalInfo.UpdatePatientInfo(_patientId);
+            
         }
 
         private void SetPatientList()

@@ -10,45 +10,49 @@
     <UserControl.DataContext>
         <vm:MonitoringOccupancy></vm:MonitoringOccupancy>
     </UserControl.DataContext>
-    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="262" Width="532" Margin="0,0,0,17">
-        <Grid Background="Gainsboro" Height="407" Width="574">
+    <Grid Background="Gainsboro">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
 
-            </Grid.ColumnDefinitions>
-            <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.RowSpan="10" Grid.Row="0" Margin="10,-10,10,-10" Grid.ColumnSpan="3"/>
-            <TextBlock Text="Monitor Occupancy" Style="{StaticResource ResourceKey=HeaderStyle}" Grid.ColumnSpan="2" Margin="21,10,39,10"/>
-            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="3" Margin="10,37,10,42.4" Grid.RowSpan="2"/>
-            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="3" Margin="10,31.4,10,42.8" Grid.RowSpan="2"/>
+        </Grid.ColumnDefinitions>
 
-            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="4" Grid.ColumnSpan="3" Margin="10,31.4,10,43.2" Grid.RowSpan="2"/>
-            <TextBlock Text="Occupancy Status" Grid.Column="0" Grid.Row="1" Style="{StaticResource ResourceKey=HeadingStyle}" Margin="21,13,0,0" VerticalAlignment="Top"/>
-            <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="3" Margin="10,31.6,10,43" Grid.RowSpan="2"/>
-            <TextBlock Text="Admit : " Grid.Column="0" Grid.Row="2" Style="{StaticResource ResourceKey=ContentStyle}" Margin="21,19,0,0" VerticalAlignment="Top"/>
+        <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.RowSpan="10" Grid.Row="0" Grid.ColumnSpan="3"/>
+        <TextBlock Text="Monitor Occupancy" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=HeaderStyle}" />
+        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
 
-            <RadioButton Grid.Row="2" IsChecked="{Binding Path=AdmitStatus}" Margin="10,19,29,38" Grid.Column="1" Grid.RowSpan="2" />
-            <RadioButton Grid.Row="3" IsChecked="{Binding Path=DischargeStatus}" Margin="10,10,29,8" Grid.Column="1" />
+        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
+        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
+        <TextBlock Text="Occupancy Status" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Style="{StaticResource ResourceKey=ContentStyle}"/>
 
+        <TextBlock Text="Bed no" Grid.Row="2" Grid.Column="3" Style="{StaticResource ContentStyle}"/>
+        <ComboBox ItemsSource="{Binding BedIdList}" Grid.Row="2" Grid.Column="4" SelectedItem="{Binding BedId, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}"/>
 
-            <TextBlock Text="Discharge: " Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=ContentStyle}" Margin="23,20,0,0" VerticalAlignment="Top"/>
+        <TextBlock Text="ICU no" Grid.Row="2" Grid.Column="1" Style="{StaticResource ContentStyle}"/>
+        <ComboBox ItemsSource="{Binding IcuIdList}" Grid.Row="2" Grid.Column="2"  SelectedItem="{Binding IcuRoomNo, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}" />
+        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
 
-            <Button Content="Save" Command="{Binding Path=SaveCommand}" Style="{StaticResource ResourceKey=ButtonStyle}" Margin="26,39,0,0" Width="109" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <TextBlock Text="Admit : " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <TextBlock Text="Discharge: " Grid.Column="0" Grid.Row="5" Style="{StaticResource ResourceKey=ContentStyle}" />
 
-        </Grid>
-    </StackPanel>
+        <RadioButton Grid.Row="4"  Grid.Column="1" IsChecked="{Binding Path=AdmitStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"/>
+        <RadioButton Grid.Row="5" Grid.Column="1" IsChecked="{Binding Path=DischargeStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"  />
+
+        <Button Content="Save" Command="{Binding Path=SaveCommand}" Style="{StaticResource ResourceKey=ButtonStyle}" Grid.Row="6" Grid.Column="4" Width="132"/>
+
+    </Grid>
 </UserControl>

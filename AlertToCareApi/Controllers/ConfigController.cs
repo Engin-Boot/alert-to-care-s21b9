@@ -37,6 +37,25 @@ namespace AlertToCareApi.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpGet("BedsInIcu/{IcuNo}")]
+        public ActionResult<IEnumerable<Beds>> GetNumberOfBedsInGivenIcu(int icuNo)
+        {
+            try
+            {
+                var bedStore = _context.Beds.ToList();
+                List<Beds> BedsInIcu = new List<Beds>();
+                foreach (var bed in bedStore)
+                {
+                    if (bed.IcuNo == icuNo)
+                        BedsInIcu.Add(bed);
+                }
+                return Ok(BedsInIcu);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
 
         //Bed Identification
         [HttpGet("Beds/{BedId}")]

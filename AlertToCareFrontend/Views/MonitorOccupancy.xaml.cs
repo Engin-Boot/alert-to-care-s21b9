@@ -21,11 +21,7 @@ namespace AlertToCareFrontend.Views
         public MonitorOccupancy()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.DataContext = new ViewModels.MonitoringOccupancy();
         }
     }
 }

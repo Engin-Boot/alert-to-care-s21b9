@@ -21,6 +21,7 @@ namespace AlertToCareFrontend.Views
         public RespondToCare()
         {
             InitializeComponent();
+            this.DataContext = new ViewModels.RespondToCare();
         }
     }
 }

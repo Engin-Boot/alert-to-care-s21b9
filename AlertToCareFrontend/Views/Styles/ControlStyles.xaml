@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:AlertToCareFrontend.ViewModels.Converters">
+
     <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
         <Setter Property="BorderBrush" Value="Gray"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -141,4 +142,10 @@
     <converters:ChangeBpAlarmStatusConverter x:Key="bpc"/>
     <converters:ChangeSpo2AlarmStatusConverter x:Key="spo2c"/>
     <converters:ChangeRespRateAlarmStatusConverter x:Key="respc"/>
+    <Style x:Key="radioButtonStyle" TargetType="RadioButton">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
 </ResourceDictionary>

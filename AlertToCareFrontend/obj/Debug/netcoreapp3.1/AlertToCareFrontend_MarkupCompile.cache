@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\App.xaml
-5-391927348
+6-613470462
 
 16-1236506772
 2181863455005
-MainWindow.xaml;Views\MonitorOccupancy.xaml;Views\PersonalInformation.xaml;Views\RespondToCare.xaml;Views\Styles\ControlStyles.xaml;
+DataTemplates\PersonalInformationTemplate.xaml;MainWindow.xaml;Views\MonitorOccupancy.xaml;Views\PersonalInformation.xaml;Views\RespondToCare.xaml;Views\Styles\ControlStyles.xaml;
 
 False
 

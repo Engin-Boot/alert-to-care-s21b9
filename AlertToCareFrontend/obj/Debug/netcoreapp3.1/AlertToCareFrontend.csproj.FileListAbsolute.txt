@@ -137,6 +137,18 @@ C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\Alert
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend.genruntimeconfig.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.g.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.baml
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend.csprojAssemblyReference.cache
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.baml
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\MonitorOccupancy.g.cs
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.g.cs
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\RespondToCare.g.cs
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend_MarkupCompile.cache
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend_MarkupCompile.lref
+C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\DataTemplates\PersonalInformationTemplate.baml
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\AlertToCareFrontend.exe
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\AlertToCareFrontend.deps.json
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\AlertToCareFrontend.runtimeconfig.json
@@ -185,19 +197,8 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToC
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\SharedProjects.dll
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\SharedProjects.pdb
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend.csprojAssemblyReference.cache
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\App.baml
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\MainWindow.g.cs
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\MonitorOccupancy.g.cs
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.g.cs
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\RespondToCare.g.cs
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\App.g.cs
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend_MarkupCompile.cache
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend_MarkupCompile.lref
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\MonitorOccupancy.baml
-C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.baml
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\RespondToCare.baml
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\Styles\ControlStyles.baml
 C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend.g.resources
