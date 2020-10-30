@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -85,20 +86,30 @@ namespace AlertToCareFrontend.ViewModels
         public void SaveChanges()
         {
             // save change in data
+            double bp = default;
+            double spo2 = default;
+            double resp = default;
+            // save change in data
             var _client = new RestClient(_baseUrl);
             var _request = new RestRequest("monitoring/vitals", Method.POST);
             try
             {
-                var bp = double.Parse(BpRate);
-                var spo2 = double.Parse(Spo2Rate);
-                var resp = double.Parse(RespRate);
+
+                bp = double.Parse(BpRate);
+                spo2 = double.Parse(Spo2Rate);
+                resp = double.Parse(RespRate);
 
             }
-            catch (Exception e)
+
+            catch (Exception)
             {
-               MessageBox.Show("Input shuld be a double value")
+                if (BpRate == "" || Spo2Rate == "" || RespRate == "")
+                    MessageBox.Show("   This field cannot be null");
+                if ((BpRate is double) == false || (Spo2Rate is double) == false || (RespRate is double) == false)
+                    MessageBox.Show("Input string is not in correct format");
+
+
             }
-            
             var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
             _request.AddJsonBody(vitals);
             _response = _client.Execute(_request);
