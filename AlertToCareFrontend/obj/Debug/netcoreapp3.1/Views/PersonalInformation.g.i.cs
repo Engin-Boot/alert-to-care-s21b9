@@ -68,7 +68,7 @@ namespace AlertToCareFrontend.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AlertToCareFrontend;V1.0.0.0;component/views/personalinformation.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AlertToCareFrontend;component/views/personalinformation.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\PersonalInformation.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

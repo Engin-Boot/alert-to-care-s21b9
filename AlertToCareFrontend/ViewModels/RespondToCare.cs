@@ -87,11 +87,18 @@ namespace AlertToCareFrontend.ViewModels
             // save change in data
             var _client = new RestClient(_baseUrl);
             var _request = new RestRequest("monitoring/vitals", Method.POST);
+            try
+            {
+                var bp = double.Parse(BpRate);
+                var spo2 = double.Parse(Spo2Rate);
+                var resp = double.Parse(RespRate);
 
-            var bp = double.Parse(BpRate);
-            var spo2 = double.Parse(Spo2Rate);
-            var resp = double.Parse(RespRate);
-
+            }
+            catch (Exception e)
+            {
+               MessageBox.Show("Input shuld be a double value")
+            }
+            
             var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
             _request.AddJsonBody(vitals);
             _response = _client.Execute(_request);
