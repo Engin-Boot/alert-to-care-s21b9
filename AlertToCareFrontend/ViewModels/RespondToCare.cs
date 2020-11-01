@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Input;
 using AlertToCareFrontend.Commands;
@@ -83,6 +84,7 @@ namespace AlertToCareFrontend.ViewModels
         }
 
 
+        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         public void SaveChanges()
         {
             // save change in data
@@ -105,7 +107,9 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (BpRate == "" || Spo2Rate == "" || RespRate == "")
                     MessageBox.Show("   This field cannot be null");
-                if ((BpRate is double) == false || (Spo2Rate is double) == false || (RespRate is double) == false)
+#pragma warning disable 184
+                if (BpRate is double == false || Spo2Rate is double == false || RespRate is double == false)
+#pragma warning restore 184
                     MessageBox.Show("Input string is not in correct format");
 
 
@@ -160,7 +164,9 @@ namespace AlertToCareFrontend.ViewModels
                 {
                     this._patientId = value;
                     VitalAndAlarmSelection();
+                    UpdatePatientList();
                     OnPropertyChanged("PatientId");
+
                 }
             }
         }

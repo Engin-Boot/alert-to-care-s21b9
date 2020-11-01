@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareUnitTest", "Aler
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertToCareFrontend", "AlertToCareFrontend\AlertToCareFrontend.csproj", "{6F13D25C-B590-4740-8DA7-40465DC589E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedProjects", "SharedProjects\SharedProjects.csproj", "{3C3D9E7D-FE1D-47B0-82C3-C064F0334BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedProjects", "SharedProjects\SharedProjects.csproj", "{3C3D9E7D-FE1D-47B0-82C3-C064F0334BF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D02D953-AFE1-4079-B21E-D8DEBAFBC5AD}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

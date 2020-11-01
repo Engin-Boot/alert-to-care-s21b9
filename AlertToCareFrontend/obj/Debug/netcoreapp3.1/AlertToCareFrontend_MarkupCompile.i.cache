@@ -1,0 +1,20 @@
+﻿AlertToCareFrontend
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\
+AlertToCareFrontend
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\App.xaml
+9987063420
+
+19530650747
+218-582378883
+MainWindow.xaml;Views\DataTemplates\AddNewIcuLayoutTemplate.xaml;Views\DataTemplates\ChangeExistingLayoutTemplate.xaml;Views\DataTemplates\PersonalInformationTemplate.xaml;Views\ICULayoutConfiguration.xaml;Views\MonitorOccupancy.xaml;Views\PersonalInformation.xaml;Views\RespondToCare.xaml;Views\Styles\ControlStyles.xaml;
+
+True
+

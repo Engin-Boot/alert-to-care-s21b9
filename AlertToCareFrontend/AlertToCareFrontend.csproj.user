@@ -18,13 +18,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DataTemplates\ChangeExistingLayoutTemplate.xaml">
+    <Page Update="Views\DataTemplates\ChangeExistingLayoutTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="DataTemplates\AddNewIcuLayoutTemplate.xaml">
+    <Page Update="Views\DataTemplates\AddNewIcuLayoutTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="DataTemplates\PersonalInformationTemplate.xaml">
+    <Page Update="Views\DataTemplates\PersonalInformationTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
