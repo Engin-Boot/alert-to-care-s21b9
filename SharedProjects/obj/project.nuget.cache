@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5WqS81SQZWAP+crhgLu4sRNE4u+wsfzKgC6QGxMaLOe5xvXqzdNZXO61xWY6fwkHwmGOnI1X32jDavidIs0z8w==",
+  "dgSpecHash": "pr6v6dxKgVCjeCO+FDF4RZOnAz9EsJ9FUL1ruGEUdDcQZkuFk1awgorQX2ragAFOUJRx+KQASbQzwPdDRLkdVw==",
   "success": true,
   "projectFilePath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\320087877\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.9\\microsoft.extensions.logging.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\microsoft.extensions.options\\3.1.9\\microsoft.extensions.options.3.1.9.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
+    "C:\\Users\\320087877\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",

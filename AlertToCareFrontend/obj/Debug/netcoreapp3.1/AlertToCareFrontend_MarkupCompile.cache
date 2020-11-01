@@ -16,5 +16,5 @@ C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\Alert
 218-582378883
 MainWindow.xaml;Views\DataTemplates\AddNewIcuLayoutTemplate.xaml;Views\DataTemplates\ChangeExistingLayoutTemplate.xaml;Views\DataTemplates\PersonalInformationTemplate.xaml;Views\ICULayoutConfiguration.xaml;Views\MonitorOccupancy.xaml;Views\RespondToCare.xaml;Views\Styles\ControlStyles.xaml;
 
-False
+True
 

@@ -15,8 +15,8 @@ namespace AlertToCareApi.Controllers
     [ApiController]
     public class MonitoringController : ControllerBase
     {
-        private readonly static ConfigDbContext Context = new ConfigDbContext();
-        static List<Patients> patientStore = Context.Patients.ToList();
+        private static readonly ConfigDbContext Context = new ConfigDbContext();
+        static readonly List<Patients> PatientStore = Context.Patients.ToList();
        
         
         #region Main Functions
@@ -28,7 +28,7 @@ namespace AlertToCareApi.Controllers
                 VitalsMonitoring vitalsMonitoring = new VitalsMonitoring();
                
                 List<Alarm> patientAlarms = new List<Alarm>();
-                foreach (Patients patient in patientStore)
+                foreach (Patients patient in PatientStore)
                 {
                     Alarm patientVitalsAlarms = vitalsMonitoring.GetVitalsForSpecificPatient(patient.PatientId);
                     patientAlarms.Add(patientVitalsAlarms);
@@ -73,7 +73,7 @@ namespace AlertToCareApi.Controllers
             try
             {
                
-                return Ok(patientStore);
+                return Ok(PatientStore);
             }
             catch (Exception)
             {
@@ -88,7 +88,7 @@ namespace AlertToCareApi.Controllers
             try
             {
                
-                var patient = patientStore.FirstOrDefault(item => item.PatientId == patientIdToGetPatientInfo);
+                var patient = PatientStore.FirstOrDefault(item => item.PatientId == patientIdToGetPatientInfo);
                 if (patient == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
@@ -107,7 +107,7 @@ namespace AlertToCareApi.Controllers
             try
             {
                 
-                var givenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOn);
+                var givenPatientId = PatientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOn);
                 if (givenPatientId == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
@@ -128,7 +128,7 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                Patients id = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOff);
+                Patients id = PatientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOff);
 
                 if (id == null)
                 {

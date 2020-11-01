@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace AlertToCareApi
 {
-    public class Program
+    public abstract class Program
     {
         public static void Main(string[] args)
         {
