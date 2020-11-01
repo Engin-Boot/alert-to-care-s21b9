@@ -7,22 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
 
-    <Grid Margin="0,0,0,-258">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TabControl Margin="0,10,0,130" Grid.RowSpan="2">
+        <TabControl Grid.RowSpan="2">
             <TabItem Header="Monitor Occupancy">
-                <view:MonitorOccupancy x:Name="MonitorOccupancy" Width="884" Height="505" Margin="0,0,10,0"/>
+                <view:MonitorOccupancy x:Name="MonitorOccupancy"/>
             </TabItem>
 
             <TabItem Header="Respond To Care">
-                <view:RespondToCare x:Name="RespondToCare" Height="573" x:FieldModifier="public" />
+                <view:RespondToCare x:Name="RespondToCare"/>
             </TabItem>
             <TabItem Header="ICULayoutConfiguration">
-                <view:IcuLayoutConfiguration x:Name="IcuLayoutConfiguration" Height="772" />
+                <view:IcuLayoutConfiguration x:Name="IcuLayoutConfiguration" />
             </TabItem>
         </TabControl>
     </Grid>

@@ -26,12 +26,12 @@ namespace AlertToCareFrontend.ViewModels
 
         public void UpdatePatientList()
         {
-           var client = new RestClient(BaseUrl);
-            var request = new RestRequest("monitoring/patientinfo", Method.GET);
+            var _client = new RestClient(_baseUrl);
+            var _request = new RestRequest("monitoring/patientinfo", Method.GET);
 
-            _response = client.Execute(request);
-            var patientStore = _deserializer.Deserialize<List<Patients>>(_response);
-            foreach (var patient in patientStore)
+            _response = _client.Execute(_request);
+            var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
+            foreach (var patient in _patientStore)
             {
                 PatientIdList.Add(patient);
             }
@@ -39,19 +39,20 @@ namespace AlertToCareFrontend.ViewModels
         }
         public void VitalAndAlarmSelection()
         {
-            var client = new RestClient(BaseUrl);
-            var request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
-            request.AddUrlSegment("patientid", PatientId);
-            var response = client.Execute(request);
+            var _client = new RestClient(_baseUrl);
+            var _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
+            _request.AddUrlSegment("patientid", PatientId);
+            var _response = _client.Execute(_request);
 
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (_response.StatusCode == HttpStatusCode.OK)
             {
-                var vitals = _deserializer.Deserialize<VitalsLogs>(response);
+                var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
+                VitalLogId = vitals.VitalsLogId;
 
                 //set the text-box selected parameter
-                Spo2Rate = vitals.Spo2Rate.ToString(CultureInfo.InvariantCulture);
-                BpRate = vitals.BpmRate.ToString(CultureInfo.InvariantCulture);
-                RespRate = vitals.RespRate.ToString(CultureInfo.InvariantCulture);
+                this.Spo2Rate = vitals.Spo2Rate.ToString();
+                this.BpRate = vitals.BpmRate.ToString();
+                this.RespRate = vitals.RespRate.ToString();
 
                 var vitalsMonitoring = new VitalsMonitoring();
                 string message = vitalsMonitoring.CheckVitals(vitals);
@@ -66,7 +67,7 @@ namespace AlertToCareFrontend.ViewModels
             }
             else
             {
-                var msg = _deserializer.Deserialize<string>(response);
+                var msg = _deserializer.Deserialize<string>(_response);
                 MessageBox.Show(msg);
             }
 
@@ -75,56 +76,62 @@ namespace AlertToCareFrontend.ViewModels
         {
             if (status.Equals("low"))
                 return "True";
-            if (status.Equals("good"))
+            else if (status.Equals("good"))
                 return "False";
-            return "True";
+            else
+                return "True";
         }
         private void ResetVitalInfo()
         {
             VitalAndAlarmSelection();
         }
 
-
-        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         public void SaveChanges()
         {
-            // save change in data
+
             double bp = default;
             double spo2 = default;
             double resp = default;
-            // save change in data
-            var client = new RestClient(BaseUrl);
-            var request = new RestRequest("monitoring/vitals", Method.POST);
             try
             {
-
                 bp = double.Parse(BpRate);
                 spo2 = double.Parse(Spo2Rate);
                 resp = double.Parse(RespRate);
-
             }
 
             catch (Exception)
             {
                 if (BpRate == "" || Spo2Rate == "" || RespRate == "")
                     MessageBox.Show("   This field cannot be null");
-#pragma warning disable 184
+
                 if (BpRate is double == false || Spo2Rate is double == false || RespRate is double == false)
-#pragma warning restore 184
                     MessageBox.Show("Input string is not in correct format");
-
-
             }
-            var vitals = new VitalsLogs { PatientId = PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
-            request.AddJsonBody(vitals);
-            _response = client.Execute(request);
-            if (_response.StatusCode != HttpStatusCode.OK)
+
+
+            string url = _baseUrl + "monitoring/Vitals/" + VitalLogId;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Content-Type", "application/json");
+            VitalsLogs vitals = new VitalsLogs()
             {
-                MessageBox.Show("Details not saved");
+                PatientId = this.PatientId,
+                BpmRate = bp,
+                Spo2Rate = spo2,
+                RespRate = resp,
+                VitalsLogId = this.VitalLogId
+            };
+            request.AddJsonBody(vitals);
+            IRestResponse _response = client.Execute(request);
+
+            if (_response.StatusCode == HttpStatusCode.OK)
+            {
+                MessageBox.Show("Details Saved Successfully...");
+
             }
             else
             {
-                MessageBox.Show("Details Saved Successfully...");
+                MessageBox.Show("Details not saved");
             }
         }
         void SaveCommandWrapper(object parameter)
@@ -144,7 +151,7 @@ namespace AlertToCareFrontend.ViewModels
         #endregion
 
         #region private members
-        public string BaseUrl = "http://localhost:5000/api/";
+        public string _baseUrl = "http://localhost:5000/api/";
 
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
@@ -154,7 +161,7 @@ namespace AlertToCareFrontend.ViewModels
 
         #region properties
 
-
+        public int VitalLogId { get; set; }
         private int _patientId;
         public int PatientId
         {
@@ -163,10 +170,10 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _patientId)
                 {
-                    _patientId = value;
+                    this._patientId = value;
                     VitalAndAlarmSelection();
                     UpdatePatientList();
-                    OnPropertyChanged();
+                    OnPropertyChanged("PatientId");
 
                 }
             }
@@ -180,8 +187,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _spo2Rate)
                 {
-                    _spo2Rate = value;
-                    OnPropertyChanged();
+                    this._spo2Rate = value;
+                    OnPropertyChanged("Spo2Rate");
                 }
             }
         }
@@ -193,8 +200,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _bpRate)
                 {
-                    _bpRate = value;
-                    OnPropertyChanged();
+                    this._bpRate = value;
+                    OnPropertyChanged("BpRate");
                 }
             }
         }
@@ -207,8 +214,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _respRate)
                 {
-                    _respRate = value;
-                    OnPropertyChanged();
+                    this._respRate = value;
+                    OnPropertyChanged("RespRate");
                 }
             }
         }
@@ -221,8 +228,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _spo2Alarm)
                 {
-                    _spo2Alarm = value;
-                    OnPropertyChanged();
+                    this._spo2Alarm = value;
+                    OnPropertyChanged("Spo2Alarm");
                 }
             }
         }
@@ -235,8 +242,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _bpAlarm)
                 {
-                    _bpAlarm = value;
-                    OnPropertyChanged();
+                    this._bpAlarm = value;
+                    OnPropertyChanged("BpAlarm");
                 }
             }
         }
@@ -249,8 +256,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _respRateAlarm)
                 {
-                    _respRateAlarm = value;
-                    OnPropertyChanged();
+                    this._respRateAlarm = value;
+                    OnPropertyChanged("RespRateAlarm");
                 }
             }
         }

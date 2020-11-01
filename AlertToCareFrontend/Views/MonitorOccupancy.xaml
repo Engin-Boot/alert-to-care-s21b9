@@ -20,6 +20,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -31,28 +35,27 @@
 
         </Grid.ColumnDefinitions>
 
-        <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.RowSpan="10" Grid.Row="0" Grid.ColumnSpan="3"/>
+        <Border x:Name="pageBorder" Style="{StaticResource ResourceKey=BorderStyle}" Grid.RowSpan="10" Grid.Row="0" Grid.ColumnSpan="6"/>
         <TextBlock Text="Monitor Occupancy" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=HeaderStyle}" />
-        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
 
-        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
-        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
         <TextBlock Text="Occupancy Status" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Style="{StaticResource ResourceKey=ContentStyle}"/>
 
         <TextBlock Text="Bed no" Grid.Row="2" Grid.Column="3" Style="{StaticResource ContentStyle}"/>
         <ComboBox ItemsSource="{Binding BedIdList}" Grid.Row="2" Grid.Column="4" SelectedItem="{Binding BedId, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}"/>
+        <Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
 
         <TextBlock Text="ICU no" Grid.Row="2" Grid.Column="1" Style="{StaticResource ContentStyle}"/>
         <ComboBox ItemsSource="{Binding IcuIdList}" Grid.Row="2" Grid.Column="2"  SelectedItem="{Binding IcuRoomNo, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}" />
-        <!--<Separator Style="{StaticResource ResourceKey=HorizontalSeparatorStyle}" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2"/>-->
 
         <TextBlock Text="Admit : " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBlock Text="Discharge: " Grid.Column="0" Grid.Row="5" Style="{StaticResource ResourceKey=ContentStyle}" />
 
         <RadioButton Grid.Row="4"  Grid.Column="1" IsChecked="{Binding Path=AdmitStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"/>
-        <RadioButton Grid.Row="5" Grid.Column="1" IsChecked="{Binding Path=DischargeStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"  />
+        <RadioButton Grid.Row="7" Grid.Column="1" IsChecked="{Binding Path=DischargeStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"  />
 
-        <Button Content="Save" Command="{Binding Path=SaveCommand}" Style="{StaticResource ResourceKey=ButtonStyle}" Grid.Row="6" Grid.Column="4" Width="132"/>
+        <Button Content="Save" Command="{Binding Path=SaveCommand}" Style="{StaticResource ResourceKey=ButtonStyle}" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Width="200"/>
 
     </Grid>
 </UserControl>

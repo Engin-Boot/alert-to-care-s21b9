@@ -51,6 +51,9 @@ namespace AlertToCareApi.Controllers
                 return StatusCode(500);
             }
         }
+        #endregion
+
+        #region Manipulation Functions
 
         [HttpPost("PatientInfo")]
         public IActionResult AddPatientInfo([FromBody] Patients patient)
@@ -66,12 +69,14 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest(message);
                 }
-
-                patient.BedId = availableBeds[0].BedId;
-                _context.Patients.Add(patient);
-                _context.SaveChanges();
-                bedAllotment.AllotBedToPatient(patient);
-                return Ok();
+                else
+                {
+                    patient.BedId = availableBeds[0].BedId;
+                    _context.Patients.Add(patient);
+                    _context.SaveChanges();
+                    bedAllotment.AllotBedToPatient(patient);
+                    return Ok();
+                }
             }
             catch (Exception)
             {
@@ -87,7 +92,7 @@ namespace AlertToCareApi.Controllers
         }
 
         [HttpPost("Update")]
-        public IActionResult UpdateVitalsInfo([FromBody] Beds updateBed)
+        public IActionResult UpdateBedInfo([FromBody] Beds updateBed)
         {
             try
             {
@@ -95,7 +100,7 @@ namespace AlertToCareApi.Controllers
                 var bedToBeUpdated = bedStore.FirstOrDefault(item => item.BedId == updateBed.BedId && item.IcuNo == updateBed.IcuNo);
                 if (bedToBeUpdated == null)
                 {
-                    return BadRequest("No Bed With The Given Vital ID Exists");
+                    return BadRequest("No Bed With The Given Bed ID Exists");
                 }
                 _context.Remove(bedToBeUpdated);
                 _context.Add(updateBed);
@@ -131,11 +136,6 @@ namespace AlertToCareApi.Controllers
                 return StatusCode(500);
             }
         }
-
-        #endregion
-
-        #region Manipulation Functions
-
 
         #endregion
 

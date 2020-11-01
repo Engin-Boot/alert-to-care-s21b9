@@ -16,6 +16,7 @@ namespace AlertToCareFrontend.ViewModels
         public MonitoringOccupancy()
         {
             SetIcuNoList();
+
             SaveCommand = new DelegateCommandClass(SaveCommandWrapper, CommandCanExecuteWrapper);
         }
 
@@ -47,7 +48,7 @@ namespace AlertToCareFrontend.ViewModels
         }
         private void SetIcuNoList()
         {
-            //call api to return all Icus: monitoring/patientinfo
+
             var _client = new RestClient(_baseUrl);
             var _request = new RestRequest("config/icu", Method.GET);
 
@@ -66,7 +67,6 @@ namespace AlertToCareFrontend.ViewModels
                 MessageBox.Show("Not able to fetch the Icu list...");
             }
         }
-
         public void SetOccupancyStatus()
         {
             var _client = new RestClient(_baseUrl);
@@ -85,7 +85,7 @@ namespace AlertToCareFrontend.ViewModels
             }
             else
             {
-                
+
                 string msg = _deserializer.Deserialize<string>(_response);
                 MessageBox.Show(msg);
             }
@@ -111,9 +111,6 @@ namespace AlertToCareFrontend.ViewModels
 
         bool CommandCanExecuteWrapper(object parameter)
         {
-#pragma warning disable CS0168 // Variable is declared but never used
-           CanExecuteChangedEventManager execute;
-#pragma warning restore CS0168 // Variable is declared but never used
             return true;
         }
         #region properties
@@ -125,9 +122,9 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _icuRoomNo)
                 {
-                    _icuRoomNo = value;
+                    this._icuRoomNo = value;
                     SetBedsInIcuList();
-                    OnPropertyChanged();
+                    OnPropertyChanged("IcuRoomNo");
                 }
             }
         }
@@ -139,24 +136,24 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _bedid)
                 {
-                    _bedid = value;
+                    this._bedid = value;
                     SetOccupancyStatus();
-                    OnPropertyChanged();
+                    OnPropertyChanged("BedId");
                 }
             }
         }
         private ObservableCollection<int> _icuIdList = new ObservableCollection<int>();
         public ObservableCollection<int> IcuIdList
         {
-            get { return _icuIdList; }
-            set { _icuIdList = value; }
+            get { return this._icuIdList; }
+            set { this._icuIdList = value; }
         }
 
         private ObservableCollection<int> _bedIdList = new ObservableCollection<int>();
         public ObservableCollection<int> BedIdList
         {
-            get { return _bedIdList; }
-            set { _bedIdList = value; }
+            get { return this._bedIdList; }
+            set { this._bedIdList = value; }
         }
         private bool _admitStatus;
         public bool AdmitStatus
@@ -166,8 +163,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _admitStatus)
                 {
-                    _admitStatus = value;
-                    OnPropertyChanged();
+                    this._admitStatus = value;
+                    OnPropertyChanged("AdmitStatus");
                 }
             }
         }
@@ -180,8 +177,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _dischargeStatus)
                 {
-                    _dischargeStatus = value;
-                    OnPropertyChanged();
+                    this._dischargeStatus = value;
+                    OnPropertyChanged("DischargeStatus");
                 }
             }
         }

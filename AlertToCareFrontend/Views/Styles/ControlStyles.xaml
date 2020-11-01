@@ -138,7 +138,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <converters:EnableComboBoxValueConverter x:Key="cbvc"/>
     <converters:ChangeBpAlarmStatusConverter x:Key="bpc"/>
     <converters:ChangeSpo2AlarmStatusConverter x:Key="spo2c"/>
     <converters:ChangeRespRateAlarmStatusConverter x:Key="respc"/>

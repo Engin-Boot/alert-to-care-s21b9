@@ -16,92 +16,6 @@ namespace AlertToCareApi.Controllers
         readonly ConfigDbContext _context = new ConfigDbContext();
 
         #region MainFunctions
-
-        //Number of beds in each ICU
-        [HttpGet("BedsInEachIcu")]
-        public ActionResult<IEnumerable<NumberOfBedsInIcu>> GetNumberOfBedsInEachIcu()
-        {
-            try
-            {
-                var icuStore = _context.Icu.ToList();
-                List<NumberOfBedsInIcu> numberOfBedsInIcu = new List<NumberOfBedsInIcu>();
-                BedIdentification bedIdentification = new BedIdentification();
-                foreach (Icu icu in icuStore)
-                {
-                    numberOfBedsInIcu.Add(new NumberOfBedsInIcu { IcuRoomNo = icu.IcuNo, CountOfBeds = bedIdentification.FindCountOfBeds(icu.IcuNo) });
-                }
-                return Ok(numberOfBedsInIcu);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
-        [HttpGet("BedsInIcu/{IcuNo}")]
-        public ActionResult<IEnumerable<Beds>> GetNumberOfBedsInGivenIcu(int icuNo)
-        {
-            try
-            {
-                var bedStore = _context.Beds.ToList();
-                List<Beds> bedsInIcu = new List<Beds>();
-                foreach (var bed in bedStore)
-                {
-                    if (bed.IcuNo == icuNo)
-                        bedsInIcu.Add(bed);
-                }
-                return Ok(bedsInIcu);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
-
-        //Bed Identification
-        [HttpGet("Beds/{BedId}")]
-        public ActionResult<Beds> GetParticularBedInfo(int bedId)
-        {
-            try
-            {
-                var bedStore = _context.Beds.ToList();
-                var bed = bedStore.FirstOrDefault(item => item.BedId == bedId);
-                if (bed == null)
-                {
-                    return BadRequest("No Bed With The Given Bed Id Is Present");
-                }
-                return Ok(bed);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
-
-        //Layout Information
-        [HttpGet("Layouts")]
-        public ActionResult<IEnumerable<Layouts>> GetLayoutInfo()
-        {
-            try
-            {
-                LayoutInformation layoutInformation = new LayoutInformation();
-                var layoutStore = LayoutInformation.Layouts;
-                foreach (Layouts layout in layoutStore)
-                {
-                    layout.NoOfIcus = layoutInformation.FindNoOfIcus(layout.LayoutId);
-                    layout.ListOfIcus = layoutInformation.FindListOfIcus(layout.LayoutId);
-                }
-                return Ok(layoutStore);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
-
-        #endregion
-
-        #region Manipulation Functions
-
         [HttpGet("Beds")]
         public ActionResult<IEnumerable<Beds>> GetAllBedsInfo()
         {
@@ -128,6 +42,92 @@ namespace AlertToCareApi.Controllers
             }
         }
 
+        [HttpGet("BedsInEachIcu")]
+        public ActionResult<IEnumerable<NumberOfBedsInIcu>> GetNumberOfBedsInEachIcu()
+        {
+            try
+            {
+                var icuStore = _context.Icu.ToList();
+                List<NumberOfBedsInIcu> numberOfBedsInIcu = new List<NumberOfBedsInIcu>();
+                BedIdentification bedIdentification = new BedIdentification();
+                foreach (Icu icu in icuStore)
+                {
+                    numberOfBedsInIcu.Add(new NumberOfBedsInIcu { IcuRoomNo = icu.IcuNo, CountOfBeds = bedIdentification.FindCountOfBeds(icu.IcuNo) });
+                }
+                return Ok(numberOfBedsInIcu);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpGet("BedsInIcu/{IcuNo}")]
+        public ActionResult<IEnumerable<Beds>> GetNumberOfBedsInGivenIcu(int icuNo)
+        {
+            try
+            {
+                var bedStore = _context.Beds.ToList();
+                List<Beds> BedsInIcu = new List<Beds>();
+                foreach (var bed in bedStore)
+                {
+                    if (bed.IcuNo == icuNo)
+                        BedsInIcu.Add(bed);
+                }
+                return Ok(BedsInIcu);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+
+        [HttpGet("Beds/{BedId}")]
+        public ActionResult<Beds> GetParticularBedInfo(int bedId)
+        {
+            try
+            {
+                var bedStore = _context.Beds.ToList();
+                var bed = bedStore.FirstOrDefault(item => item.BedId == bedId);
+                if (bed == null)
+                {
+                    return BadRequest("No Bed With The Given Bed Id Is Present");
+                }
+                return Ok(bed);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+
+        [HttpGet("Layouts")]
+        public ActionResult<IEnumerable<Layouts>> GetLayoutInfo()
+        {
+            try
+            {
+                LayoutInformation layoutInformation = new LayoutInformation();
+                var layoutStore = LayoutInformation.Layouts;
+                foreach (Layouts layout in layoutStore)
+                {
+                    layout.NoOfIcus = layoutInformation.FindNoOfIcus(layout.LayoutId);
+                    layout.ListOfIcus = layoutInformation.FindListOfIcus(layout.LayoutId);
+                }
+                return Ok(layoutStore);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        #endregion
+
+        #region Manipulation Functions
+
+
         [HttpPost("Beds")]
         public IActionResult AddNewBed([FromBody] Beds bed)
         {
@@ -140,12 +140,14 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest(message);
                 }
-
-                BedIdentification bedIdentification = new BedIdentification();
-                bed.BedSerialNo = bedIdentification.FindBedSerialNo(bed.IcuNo);
-                _context.Add(bed);
-                _context.SaveChanges();
-                return Ok();
+                else
+                {
+                    BedIdentification bedIdentification = new BedIdentification();
+                    bed.BedSerialNo = bedIdentification.FindBedSerialNo(bed.IcuNo);
+                    _context.Add(bed);
+                    _context.SaveChanges();
+                    return Ok();
+                }
             }
             catch (Exception ex)
             {
@@ -162,10 +164,12 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest("The Inserted Layout Id For The ICU is Not Available");
                 }
-
-                _context.Add(icu);
-                _context.SaveChanges();
-                return Ok();
+                else
+                {
+                    _context.Add(icu);
+                    _context.SaveChanges();
+                    return Ok();
+                }
             }
             catch (Exception)
             {
