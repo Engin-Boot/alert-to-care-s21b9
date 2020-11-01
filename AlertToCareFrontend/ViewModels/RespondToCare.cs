@@ -92,21 +92,18 @@ namespace AlertToCareFrontend.ViewModels
             double bp = default;
             double spo2 = default;
             double resp = default;
-            try
-            {
+            
                 bp = double.Parse(BpRate);
                 spo2 = double.Parse(Spo2Rate);
                 resp = double.Parse(RespRate);
-            }
+           
+            
+                //if (BpRate == "" || Spo2Rate == "" || RespRate == "")
+                //    MessageBox.Show("   This field cannot be null");
 
-            catch (Exception)
-            {
-                if (BpRate == "" || Spo2Rate == "" || RespRate == "")
-                    MessageBox.Show("   This field cannot be null");
-
-                if (BpRate is double == false || Spo2Rate is double == false || RespRate is double == false)
-                    MessageBox.Show("Input string is not in correct format");
-            }
+                //if (BpRate is double == false || Spo2Rate is double == false || RespRate is double == false)
+                //    MessageBox.Show("Input string is not in correct format");
+           
 
 
             string url = _baseUrl + "monitoring/Vitals/" + VitalLogId;

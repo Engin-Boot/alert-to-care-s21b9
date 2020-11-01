@@ -34,8 +34,7 @@ namespace AlertToCareApi.Controllers
         [HttpGet("Status/{IcuNo}/{BedId}")]
         public IActionResult GetBedsOccupancyStatus(int icuno, int bedId)
         {
-            try
-            {
+           
                 var bedStore = _context.Beds.ToList();
                 foreach (var bed in bedStore)
                 {
@@ -45,11 +44,7 @@ namespace AlertToCareApi.Controllers
                     }
                 }
                 return BadRequest("No Bed With The Given Bed Id Exists");
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
+            
         }
         #endregion
 
@@ -94,8 +89,7 @@ namespace AlertToCareApi.Controllers
         [HttpPost("Update")]
         public IActionResult UpdateBedInfo([FromBody] Beds updateBed)
         {
-            try
-            {
+           
                 var bedStore = _context.Beds.ToList();
                 var bedToBeUpdated = bedStore.FirstOrDefault(item => item.BedId == updateBed.BedId && item.IcuNo == updateBed.IcuNo);
                 if (bedToBeUpdated == null)
@@ -106,11 +100,8 @@ namespace AlertToCareApi.Controllers
                 _context.Add(updateBed);
                 _context.SaveChanges();
                 return Ok();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            
+           
         }
 
         [HttpDelete("PatientInfo/{patientId}")]

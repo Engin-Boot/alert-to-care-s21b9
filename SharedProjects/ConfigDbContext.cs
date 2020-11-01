@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.IO;
+using Microsoft.EntityFrameworkCore;
 using SharedProjects.Models;
+using System.IO;
 
 namespace SharedProjects
 {
@@ -7,8 +9,10 @@ namespace SharedProjects
     {
         protected  override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string _path = @"C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
-           
+            //string _path = @"C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
+            string pathCurrentDirectory = Directory.GetCurrentDirectory();
+            string path = @"\CaseStudy2Database";
+           string _path = pathCurrentDirectory + path;
             optionsBuilder.UseSqlite("Filename="+_path);
 
         }
