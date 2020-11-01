@@ -98,12 +98,7 @@ namespace AlertToCareFrontend {
             case 1:
             this.MonitorOccupancy = ((AlertToCareFrontend.Views.MonitorOccupancy)(target));
             return;
-            //case 2:
-            //this.RespondToCare = ((AlertToCareFrontend.Views.RespondToCare)(target));
-            //return;
-            //case 3:
-            //this.IcuLayoutConfiguration = ((AlertToCareFrontend.Views.IcuLayoutConfiguration)(target));
-            //return;
+           
             }
             this._contentLoaded = true;
         }

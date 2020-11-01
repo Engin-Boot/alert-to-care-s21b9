@@ -148,30 +148,7 @@ namespace AlertToCareFrontend.Views {
             case 1:
             this.Respond = ((System.Windows.Controls.Grid)(target));
             return;
-            case 2:
-            this.pageBorder = ((System.Windows.Controls.Border)(target));
-            return;
-            case 3:
-            this.PatientList = ((System.Windows.Controls.ComboBox)(target));
-            return;
-            case 4:
-            this.Spo2Rate = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 5:
-            this.Spo2Alarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
-            return;
-            case 6:
-            this.BpRate = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 7:
-            this.BpAlarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
-            return;
-            case 8:
-            this.RespRate = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 9:
-            this.RespAlarm = ((System.Windows.Controls.Primitives.ToggleButton)(target));
-            return;
+            
             }
             this._contentLoaded = true;
         }
