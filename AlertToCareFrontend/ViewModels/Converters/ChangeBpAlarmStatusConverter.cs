@@ -11,8 +11,8 @@ namespace AlertToCareFrontend.ViewModels.Converters
             //try
             //{
                 double bpm = Double.Parse(value?.ToString() ?? string.Empty);
-                if (bpm < 70/*||bpm>100*/)
-                    return true;
+                //if (bpm < 70/*||bpm>100*/)
+                //    return true;
                
                 return false;
             //}

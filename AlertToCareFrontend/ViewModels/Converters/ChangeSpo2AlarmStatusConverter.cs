@@ -11,10 +11,10 @@ namespace AlertToCareFrontend.ViewModels.Converters
             //try
             //{
                 int spo2 = Int32.Parse(value?.ToString());
-                if (spo2 < 95)
-                {
-                    return true;
-                }
+                //if (spo2 < 95)
+                //{
+                //    return true;
+                //}
 
                 return false;
            // }
