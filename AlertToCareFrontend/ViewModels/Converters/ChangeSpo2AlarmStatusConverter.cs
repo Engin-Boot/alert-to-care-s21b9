@@ -10,13 +10,13 @@ namespace AlertToCareFrontend.ViewModels.Converters
         {
             try
             {
-                int spo2 = Int32.Parse(value.ToString());
+                int spo2 = Int32.Parse(value?.ToString() ?? string.Empty);
                 if (spo2 < 95)
                 {
                     return true;
                 }
-                else
-                    return false;
+
+                return false;
             }
             catch (Exception) { return false; }
         }

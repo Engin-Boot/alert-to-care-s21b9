@@ -187,12 +187,10 @@ C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\Alert
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\SharedProjects.dll
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\bin\Debug\netcoreapp3.1\SharedProjects.pdb
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\AlertToCareFrontend.csprojAssemblyReference.cache
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.baml
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\App.baml
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\ICULayoutConfiguration.g.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\MonitorOccupancy.g.cs
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\PersonalInformation.g.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\Views\RespondToCare.g.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareFrontend\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs

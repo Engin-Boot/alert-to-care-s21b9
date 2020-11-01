@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace AlertToCareFrontend.Views
 {
     /// <summary>
     /// Interaction logic for ICULayoutConfiguration.xaml
     /// </summary>
-    public partial class ICULayoutConfiguration : UserControl
+    public partial class IcuLayoutConfiguration : UserControl
     {
-        public ICULayoutConfiguration()
+        public IcuLayoutConfiguration()
         {
             InitializeComponent();
-            this.DataContext = new ViewModels.ICULayoutConfiguration();
+            DataContext = new ViewModels.IcuLayoutConfiguration();
         }
     }
 }

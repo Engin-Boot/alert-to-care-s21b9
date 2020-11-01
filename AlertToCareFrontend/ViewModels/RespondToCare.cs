@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Windows;
 using System.Windows.Input;
 using AlertToCareFrontend.Commands;
@@ -42,14 +43,14 @@ namespace AlertToCareFrontend.ViewModels
             _request.AddUrlSegment("patientid", PatientId);
             var _response = _client.Execute(_request);
 
-            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == HttpStatusCode.OK)
             {
                 var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
 
                 //set the text-box selected parameter
-                this.Spo2Rate = vitals.Spo2Rate.ToString();
-                this.BpRate = vitals.BpmRate.ToString();
-                this.RespRate = vitals.RespRate.ToString();
+                Spo2Rate = vitals.Spo2Rate.ToString();
+                BpRate = vitals.BpmRate.ToString();
+                RespRate = vitals.RespRate.ToString();
 
                 var vitalsMonitoring = new VitalsMonitoring();
                 string message = vitalsMonitoring.CheckVitals(vitals);
@@ -73,10 +74,9 @@ namespace AlertToCareFrontend.ViewModels
         {
             if (status.Equals("low"))
                 return "True";
-            else if (status.Equals("good"))
+            if (status.Equals("good"))
                 return "False";
-            else
-                return "True";
+            return "True";
         }
         private void ResetVitalInfo()
         {
@@ -114,10 +114,10 @@ namespace AlertToCareFrontend.ViewModels
 
 
             }
-            var vitals = new VitalsLogs() { PatientId = this.PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
+            var vitals = new VitalsLogs { PatientId = PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
             _request.AddJsonBody(vitals);
             _response = _client.Execute(_request);
-            if (_response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode != HttpStatusCode.OK)
             {
                 MessageBox.Show("Details not saved");
             }
@@ -162,10 +162,10 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _patientId)
                 {
-                    this._patientId = value;
+                    _patientId = value;
                     VitalAndAlarmSelection();
                     UpdatePatientList();
-                    OnPropertyChanged("PatientId");
+                    OnPropertyChanged();
 
                 }
             }
@@ -179,8 +179,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _spo2Rate)
                 {
-                    this._spo2Rate = value;
-                    OnPropertyChanged("Spo2Rate");
+                    _spo2Rate = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -192,8 +192,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _bpRate)
                 {
-                    this._bpRate = value;
-                    OnPropertyChanged("BpRate");
+                    _bpRate = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -206,8 +206,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _respRate)
                 {
-                    this._respRate = value;
-                    OnPropertyChanged("RespRate");
+                    _respRate = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -220,8 +220,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _spo2Alarm)
                 {
-                    this._spo2Alarm = value;
-                    OnPropertyChanged("Spo2Alarm");
+                    _spo2Alarm = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -234,8 +234,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _bpAlarm)
                 {
-                    this._bpAlarm = value;
-                    OnPropertyChanged("BpAlarm");
+                    _bpAlarm = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -248,8 +248,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _respRateAlarm)
                 {
-                    this._respRateAlarm = value;
-                    OnPropertyChanged("RespRateAlarm");
+                    _respRateAlarm = value;
+                    OnPropertyChanged();
                 }
             }
         }

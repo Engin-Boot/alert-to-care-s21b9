@@ -6,7 +6,7 @@ namespace AlertToCareUnitTest
 {
     public class PatientInfoValidatorUnitTests
     {
-        private Patients patient = new Patients()
+        private Patients patient = new Patients
         {
             PatientId = 123,
             PatientName = "Samyukta",

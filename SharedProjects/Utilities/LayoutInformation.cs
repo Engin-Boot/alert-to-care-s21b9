@@ -1,6 +1,6 @@
-﻿using SharedProjects.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using SharedProjects.Models;
 
 namespace SharedProjects.Utilities
 {

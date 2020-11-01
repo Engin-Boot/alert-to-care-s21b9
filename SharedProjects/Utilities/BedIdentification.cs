@@ -41,11 +41,9 @@ namespace SharedProjects.Utilities
             {
                 return 0;
             }
-            else
-            {
-                int serialNo = countofbeds + 1;
-                return serialNo;
-            }
+
+            int serialNo = countofbeds + 1;
+            return serialNo;
 
 
         }

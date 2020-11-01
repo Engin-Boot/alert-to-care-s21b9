@@ -1,6 +1,6 @@
 ﻿
-using SharedProjects.Utilities;
 using System.Linq;
+using SharedProjects.Utilities;
 
 namespace SharedProjects.EntriesValidator
 {

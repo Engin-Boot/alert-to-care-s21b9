@@ -10,9 +10,6 @@
     <Compile Update="Views\MonitorOccupancy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\PersonalInformation.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\RespondToCare.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,16 +21,13 @@
     <Page Update="Views\DataTemplates\AddNewIcuLayoutTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\DataTemplates\PersonalInformationTemplate.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ICULayoutConfiguration.xaml">
+    <Page Update="Views\DataTemplates\PersonalInformationTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\PersonalInformation.xaml">
+    <Page Update="Views\ICULayoutConfiguration.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Styles\ControlStyles.xaml">

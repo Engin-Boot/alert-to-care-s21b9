@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SharedProjects;
 using SharedProjects.EntriesValidator;
 using SharedProjects.Models;
 using SharedProjects.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AlertToCareApi.Controllers
 {
@@ -67,14 +67,12 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest(message);
                 }
-                else
-                {
-                    patient.BedId = availableBeds[0].BedId;
-                    _context.Patients.Add(patient);
-                    _context.SaveChanges();
-                    bedAllotment.AllotBedToPatient(patient);
-                    return Ok();
-                }
+
+                patient.BedId = availableBeds[0].BedId;
+                _context.Patients.Add(patient);
+                _context.SaveChanges();
+                bedAllotment.AllotBedToPatient(patient);
+                return Ok();
             }
             catch (Exception)
             {

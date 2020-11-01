@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-
-namespace AlertToCareFrontend.ViewModels
+﻿namespace AlertToCareFrontend.ViewModels
 {
-    class ICULayoutConfiguration:Base
+    internal class IcuLayoutConfiguration:Base
     {
         private int _configurenew;
         
@@ -17,9 +11,9 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _configurenew)
                 {
-                    this._configurenew = value;
+                    _configurenew = value;
 
-                    OnPropertyChanged("Configurenew");
+                    OnPropertyChanged();
                 }
             }
         }

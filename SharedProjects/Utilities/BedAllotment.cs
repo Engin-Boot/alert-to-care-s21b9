@@ -1,8 +1,7 @@
 ﻿
-using SharedProjects.Models;
 using System.Collections.Generic;
 using System.Linq;
-using SQLitePCL;
+using SharedProjects.Models;
 
 namespace SharedProjects.Utilities
 {

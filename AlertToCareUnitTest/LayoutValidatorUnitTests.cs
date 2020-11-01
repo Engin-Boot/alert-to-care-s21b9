@@ -1,7 +1,4 @@
 ﻿using SharedProjects.EntriesValidator;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertToCareUnitTest

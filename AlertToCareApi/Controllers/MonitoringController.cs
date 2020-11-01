@@ -1,12 +1,12 @@
 ﻿
-using Microsoft.AspNetCore.Mvc;
-using SharedProjects;
-using SharedProjects.Models;
-using SharedProjects.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using SharedProjects;
+using SharedProjects.Models;
+using SharedProjects.Utilities;
 
 namespace AlertToCareApi.Controllers
 {
@@ -52,11 +52,9 @@ namespace AlertToCareApi.Controllers
                     Alarm patientVitalsAlarms = vitalsMonitoring.GetVitalsForSpecificPatient(patientId);
                     return Ok(patientVitalsAlarms);
                 }
-                else
-                {
-                    string message = "No Alarms : Patient's Monitoring Status is Off ";
-                    return BadRequest(message);
-                }
+
+                string message = "No Alarms : Patient's Monitoring Status is Off ";
+                return BadRequest(message);
             }
             catch (Exception ex)
             {
@@ -111,12 +109,10 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
                 }
-                else
-                {
-                    patientWithGivenPatientId.MonitoringStatus = 0;
-                    _context.SaveChanges();
-                    return Ok();
-                }
+
+                patientWithGivenPatientId.MonitoringStatus = 0;
+                _context.SaveChanges();
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -135,13 +131,10 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
                 }
-                else
-                {
 
-                    patientWithGivenPatientId.MonitoringStatus = 1;
-                    _context.SaveChanges();
-                    return Ok();
-                }
+                patientWithGivenPatientId.MonitoringStatus = 1;
+                _context.SaveChanges();
+                return Ok();
             }
             catch (Exception ex)
             {

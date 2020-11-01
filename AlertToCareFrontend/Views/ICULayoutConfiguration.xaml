@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AlertToCareFrontend.Views.ICULayoutConfiguration"
+﻿<UserControl x:Class="AlertToCareFrontend.Views.IcuLayoutConfiguration"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

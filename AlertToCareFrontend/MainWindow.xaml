@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AlertToCareFrontend"
         xmlns:view="clr-namespace:AlertToCareFrontend.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
@@ -23,7 +22,7 @@
                 <view:RespondToCare x:Name="RespondToCare" Height="573"/>
             </TabItem>
             <TabItem Header="ICULayoutConfiguration">
-                <view:ICULayoutConfiguration x:Name="ICULayoutConfiguration" Height="772"/>
+                <view:IcuLayoutConfiguration x:Name="IcuLayoutConfiguration" Height="772"/>
             </TabItem>
         </TabControl>
     </Grid>

@@ -46,15 +46,15 @@
 
         <TextBlock Text="Spo2: " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}" Margin="10,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.809,1.955" />
         <TextBox x:Name="Spo2Rate" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Spo2Rate}" IsEnabled="{Binding Spo2Alarm}" Style="{StaticResource TextBoxStyle}" Margin="22,34,85,12"/>
-        <ToggleButton Name="Spo2Alarm" Grid.Row="4" Grid.Column="3" IsChecked="{Binding ElementName=Spo2Rate, Mode=TwoWay, Path=Text, Converter={StaticResource ResourceKey=spo2c}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="77,30,45,12" Grid.ColumnSpan="2"/>
+        <ToggleButton Name="Spo2Alarm" Grid.Row="4" Grid.Column="4" IsChecked="{Binding ElementName=Spo2Rate, Mode=TwoWay, Path=Text, Converter={StaticResource ResourceKey=spo2c}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="28,34,5,8"/>
 
         <TextBlock Text="Blood Pressure: " Grid.Row="5" Style="{StaticResource ResourceKey=ContentStyle}" Margin="3,25,0,25" VerticalAlignment="Stretch" RenderTransformOrigin="0.432,1.538" Grid.ColumnSpan="2"/>
         <TextBox x:Name="BpRate" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="1" Text="{Binding BpRate}" IsEnabled="{Binding BpAlarm}" Style="{StaticResource TextBoxStyle}" Margin="23,25,86,22"/>
-        <ToggleButton Name="BpAlarm" Grid.Row="5" Grid.Column="3" IsChecked="{Binding ElementName=BpRate, Mode=TwoWay, Path=Text, Converter={StaticResource ResourceKey=bpc}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="77,25,45,16" RenderTransformOrigin="1.952,0.793" Grid.ColumnSpan="2"/>
+        <ToggleButton Name="BpAlarm" Grid.Row="5" Grid.Column="4" IsChecked="{Binding ElementName=BpRate, Mode=TwoWay, Path=Text, Converter={StaticResource ResourceKey=bpc}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="28,29,4,14" RenderTransformOrigin="1.952,0.793"/>
 
         <TextBlock Text="Respiration: " Grid.Row="6" Style="{StaticResource ResourceKey=ContentStyle}" Width="95" Margin="0,10,0,0" RenderTransformOrigin="0.577,2.236" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <TextBox x:Name="RespRate" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1" Text="{Binding RespRate}" IsEnabled="{Binding RespRateAlarm}" Style="{StaticResource TextBoxStyle}" Margin="22,10,82,40"/>
-        <ToggleButton Name="RespAlarm" Grid.Row="5" Grid.Column="3" IsChecked="{Binding ElementName=RespRate, Mode=TwoWay,Path=Text, Converter={StaticResource ResourceKey=respc}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="77,63,45,26" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <ToggleButton Name="RespAlarm" Grid.Row="5" Grid.Column="4" IsChecked="{Binding ElementName=RespRate, Mode=TwoWay,Path=Text, Converter={StaticResource ResourceKey=respc}}" Style="{StaticResource ResourceKey=ToggleButtonStyle}" Margin="28,62,5,27" Grid.RowSpan="2"/>
 
         <Button Content="Save" Command="{Binding Path=SaveCommand}" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=ButtonStyle}" Width="91" HorizontalAlignment="Left" Margin="48,46,0,0" VerticalAlignment="Top" Height="34" Grid.RowSpan="2"/>
         <Button Content="Reset" Command="{Binding Path=ResetCommand}" Grid.Row="4" Grid.Column="5" Style="{StaticResource ResourceKey=ButtonStyle}" Width="91" HorizontalAlignment="Left" Margin="48,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2"/>

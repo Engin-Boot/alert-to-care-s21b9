@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using SharedProjects;
 using SharedProjects.EntriesValidator;
 using SharedProjects.Models;
 using SharedProjects.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AlertToCareApi.Controllers
 {
@@ -43,13 +43,13 @@ namespace AlertToCareApi.Controllers
             try
             {
                 var bedStore = _context.Beds.ToList();
-                List<Beds> BedsInIcu = new List<Beds>();
+                List<Beds> bedsInIcu = new List<Beds>();
                 foreach (var bed in bedStore)
                 {
                     if (bed.IcuNo == icuNo)
-                        BedsInIcu.Add(bed);
+                        bedsInIcu.Add(bed);
                 }
-                return Ok(BedsInIcu);
+                return Ok(bedsInIcu);
             }
             catch (Exception)
             {
@@ -140,14 +140,12 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest(message);
                 }
-                else
-                {
-                    BedIdentification bedIdentification = new BedIdentification();
-                     bed.BedSerialNo = bedIdentification.FindBedSerialNo(bed.IcuNo);
-                    _context.Add(bed);
-                    _context.SaveChanges();
-                    return Ok();
-                }
+
+                BedIdentification bedIdentification = new BedIdentification();
+                bed.BedSerialNo = bedIdentification.FindBedSerialNo(bed.IcuNo);
+                _context.Add(bed);
+                _context.SaveChanges();
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -164,12 +162,10 @@ namespace AlertToCareApi.Controllers
                 {
                     return BadRequest("The Inserted Layout Id For The ICU is Not Available");
                 }
-                else
-                {
-                    _context.Add(icu);
-                    _context.SaveChanges();
-                    return Ok();
-                }
+
+                _context.Add(icu);
+                _context.SaveChanges();
+                return Ok();
             }
             catch (Exception)
             {

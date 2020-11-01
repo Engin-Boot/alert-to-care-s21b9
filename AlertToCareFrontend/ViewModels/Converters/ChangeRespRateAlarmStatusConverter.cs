@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Windows.Data;
 
 namespace AlertToCareFrontend.ViewModels.Converters
@@ -12,13 +10,12 @@ namespace AlertToCareFrontend.ViewModels.Converters
         {
             try
             {
-                double respRate = Double.Parse(value.ToString());
+                double respRate = Double.Parse(value?.ToString() ?? string.Empty);
                 if (respRate < 12)
                     return true;
                 if (respRate > 16)
                     return true;
-                else
-                    return false;
+                return false;
             }
             catch (Exception) { return false; }
         }

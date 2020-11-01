@@ -1,7 +1,7 @@
-﻿using SharedProjects.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SharedProjects.Models;
 
 namespace SharedProjects.Utilities
 {
@@ -70,8 +70,8 @@ namespace SharedProjects.Utilities
             {
                 return -1;
             }
-            else
-                return 0;
+
+            return 0;
 
         }
         private int CheckBpm(double bpm)
@@ -80,8 +80,7 @@ namespace SharedProjects.Utilities
                 return -1;
             if (bpm > 100)
                 return 1;
-            else
-                return 0;
+            return 0;
         }
         private int CheckRespRate(double respRate)
         {
@@ -89,8 +88,7 @@ namespace SharedProjects.Utilities
                 return -1;
             if (respRate > 16)
                 return 1;
-            else
-                return 0;
+            return 0;
         }
 
         private string InterpretMessage(int msg)
@@ -99,8 +97,7 @@ namespace SharedProjects.Utilities
                 return "is low";
             if (msg == 1)
                 return "is high";
-            else
-                return "is good";
+            return "is good";
         }
     }
 }

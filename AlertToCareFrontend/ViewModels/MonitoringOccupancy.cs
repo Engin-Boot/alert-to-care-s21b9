@@ -1,11 +1,12 @@
-﻿using AlertToCareFrontend.Commands;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Net;
+using System.Windows;
+using System.Windows.Input;
+using AlertToCareFrontend.Commands;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using SharedProjects.Models;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Input;
-using System.Collections.Generic;
 
 namespace AlertToCareFrontend.ViewModels
 {
@@ -28,7 +29,7 @@ namespace AlertToCareFrontend.ViewModels
 
             var _response = _client.Execute(_request);
 
-            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == HttpStatusCode.OK)
             {
 
                 var bedListInIcu = _deserializer.Deserialize<List<Beds>>(_response);
@@ -52,7 +53,7 @@ namespace AlertToCareFrontend.ViewModels
 
             var _response = _client.Execute(_request);
 
-            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == HttpStatusCode.OK)
             {
                 var icuInfo = _deserializer.Deserialize<List<Icu>>(_response);
                 foreach (var icu in icuInfo)
@@ -74,7 +75,7 @@ namespace AlertToCareFrontend.ViewModels
             _request.AddUrlSegment("BedId", BedId);
             var _response = _client.Execute(_request);
 
-            if (_response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode == HttpStatusCode.OK)
             {
                 _bed = _deserializer.Deserialize<Beds>(_response);
                 if (_bed.OccupancyStatus)
@@ -96,7 +97,7 @@ namespace AlertToCareFrontend.ViewModels
             _request.AddJsonBody(_bed);
             var _response = _client.Execute(_request);
 
-            if (_response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (_response.StatusCode != HttpStatusCode.OK)
             {
                 MessageBox.Show("Details not saved");
             }
@@ -121,9 +122,9 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _icuRoomNo)
                 {
-                    this._icuRoomNo = value;
+                    _icuRoomNo = value;
                     SetBedsInIcuList();
-                    OnPropertyChanged("IcuRoomNo");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -135,24 +136,24 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _bedid)
                 {
-                    this._bedid = value;
+                    _bedid = value;
                     SetOccupancyStatus();
-                    OnPropertyChanged("BedId");
+                    OnPropertyChanged();
                 }
             }
         }
         private ObservableCollection<int> _icuIdList = new ObservableCollection<int>();
         public ObservableCollection<int> IcuIdList
         {
-            get { return this._icuIdList; }
-            set { this._icuIdList = value; }
+            get { return _icuIdList; }
+            set { _icuIdList = value; }
         }
 
         private ObservableCollection<int> _bedIdList = new ObservableCollection<int>();
         public ObservableCollection<int> BedIdList
         {
-            get { return this._bedIdList; }
-            set { this._bedIdList = value; }
+            get { return _bedIdList; }
+            set { _bedIdList = value; }
         }
         private bool _admitStatus;
         public bool AdmitStatus
@@ -162,8 +163,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _admitStatus)
                 {
-                    this._admitStatus = value;
-                    OnPropertyChanged("AdmitStatus");
+                    _admitStatus = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -176,8 +177,8 @@ namespace AlertToCareFrontend.ViewModels
             {
                 if (value != _dischargeStatus)
                 {
-                    this._dischargeStatus = value;
-                    OnPropertyChanged("DischargeStatus");
+                    _dischargeStatus = value;
+                    OnPropertyChanged();
                 }
             }
         }

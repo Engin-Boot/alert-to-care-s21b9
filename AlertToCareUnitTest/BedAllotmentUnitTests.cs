@@ -1,8 +1,6 @@
-﻿using SharedProjects.Models;
+﻿using System.Linq;
+using SharedProjects.Models;
 using SharedProjects.Utilities;
-using System.Linq;
-using Microsoft.EntityFrameworkCore.Storage;
-using SharedProjects;
 using Xunit;
 
 namespace AlertToCareUnitTest
@@ -16,22 +14,22 @@ namespace AlertToCareUnitTest
         public void GetAvailabilityOfBeds_ReturnsAListOfAvailaibleBeds()
         {
             int beds = 0;
-            var _bedAllotment = new BedAllotment();
-            var _availableListOfBeds = _bedAllotment.GetAvailableBeds();
-            beds += (from bed in _availableListOfBeds
+            var bedAllotment = new BedAllotment();
+            var availableListOfBeds = bedAllotment.GetAvailableBeds();
+            beds += (from bed in availableListOfBeds
                      where !bed.OccupancyStatus
                      select bed).Count();
-            Assert.True(beds == _availableListOfBeds.Count());
+            Assert.True(beds == availableListOfBeds.Count());
         }
 
         [Fact]
         public void EmptyTheBed_ShouldUpdateOccupancyStatusToFalse()
         {
-            Patients _patient = new Patients() { PatientName = "Nikita Kumari", BedId = 1, ContactNo = "9826376268", MonitoringStatus = 0, PatientId = 1 };
-            var _bedAllotment = new BedAllotment();
-            _bedAllotment.EmptyTheBed(_patient);
-            var _allBeds = _bedAllotment.GetAvailableBeds();
-            foreach (var bed in _allBeds)
+            Patients patient = new Patients { PatientName = "Nikita Kumari", BedId = 1, ContactNo = "9826376268", MonitoringStatus = 0, PatientId = 1 };
+            var bedAllotment = new BedAllotment();
+            bedAllotment.EmptyTheBed(patient);
+            var allBeds = bedAllotment.GetAvailableBeds();
+            foreach (var bed in allBeds)
             {
                 Assert.True(bed.BedId == 1);
                 break;

@@ -1,7 +1,7 @@
 ﻿
-using SharedProjects.Models;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SharedProjects.Models;
 
 namespace SharedProjects.EntriesValidator
 {
@@ -20,8 +20,7 @@ namespace SharedProjects.EntriesValidator
         {
             if (countOfAvailableBeds == 0)
                 return false;
-            else
-                return true;
+            return true;
         }
 
         // ReSharper disable once RedundantAssignment

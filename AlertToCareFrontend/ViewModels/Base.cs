@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace AlertToCareFrontend.ViewModels
 {
     public class Base : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName()] string propertyName = "")
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (this.PropertyChanged != null)
+            if (PropertyChanged != null)
             {
-                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
 
         }
