@@ -15,6 +15,17 @@ namespace AlertToCareUnitTest
             ContactNo = "1236547896",
             MonitoringStatus = 0
         };
+        private Patients patientinfo = new Patients
+        {
+            PatientId = 1,
+            PatientName = "Nikita Kumari",
+            Age = 23,
+            BedId = 1,
+            ContactNo = "9826376268",
+            MonitoringStatus = 0
+        };
+        
+
         [Fact]
         public void ValidateInfoAndCheckForAvailability_ShouldCheckPatientInfoAndBedAvailaibility()
         {
@@ -24,7 +35,16 @@ namespace AlertToCareUnitTest
 
             Assert.True(message == "Patient Information Is Incorrect, Please Recheck");
         }
+        [Fact]
+        public void ValidateInfoAndCheckForAvailability_ShouldCheckPatientInfoAndBedAvailaibilityifPatientInfoisPresent()
+        {
+            string message = "";
+            bool validInfo = true;
+            PatientInfoValidator.ValidateInfoAndCheckForAvailability(patientinfo, 32, ref validInfo, ref message);
 
+            Assert.True(message == "");
+        }
        
+
     }
 }
