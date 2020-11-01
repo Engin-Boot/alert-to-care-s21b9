@@ -8,20 +8,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
 
-    <Grid>
+    <Grid Margin="0,0,0,-258">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <view:PersonalInformation Grid.Row="0"></view:PersonalInformation>
 
-        <TabControl Grid.Row="1">
+        <TabControl Margin="0,10,0,130" Grid.RowSpan="2">
             <TabItem Header="Monitor Occupancy">
-                <view:MonitorOccupancy x:Name="MonitorOccupancy"/>
+                <view:MonitorOccupancy x:Name="MonitorOccupancy" Width="884" Height="630" Margin="10,0,0,0"/>
             </TabItem>
 
             <TabItem Header="Respond To Care">
-                <view:RespondToCare x:Name="RespondToCare"/>
+                <view:RespondToCare x:Name="RespondToCare" Height="469" Margin="-106,0,106,0"/>
+            </TabItem>
+            <TabItem Header="ICULayoutConfiguration">
+                <view:ICULayoutConfiguration x:Name="ICULayoutConfiguration" Height="575"/>
             </TabItem>
         </TabControl>
     </Grid>

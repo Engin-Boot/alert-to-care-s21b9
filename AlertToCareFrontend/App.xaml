@@ -6,6 +6,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Views/Styles/ControlStyles.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="DataTemplates/PersonalInformationTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="DataTemplates/AddNewIcuLayoutTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="DataTemplates/ChangeExistingLayoutTemplate.xaml"></ResourceDictionary>
+				<ResourceDictionary Source="/DataTemplates/AddNewIcuLayoutTemplate.xaml"/>
+	<ResourceDictionary Source="/DataTemplates/ChangeExistingLayoutTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

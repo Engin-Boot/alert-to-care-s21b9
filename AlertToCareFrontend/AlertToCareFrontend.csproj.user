@@ -18,10 +18,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DataTemplates\ChangeExistingLayoutTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DataTemplates\AddNewIcuLayoutTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DataTemplates\PersonalInformationTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ICULayoutConfiguration.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PersonalInformation.xaml">
