@@ -23,7 +23,7 @@ jobs:
       - name: Add Entity Framework Package
         run: dotnet add AlertToCareApi/AlertToCareApi.csproj package Microsoft.EntityFrameworkCore --version 3.1.9
 
-        - name: Add Entity Framework Package
+      - name: Add Entity Framework Package
         run: dotnet add AlertToCareApi/AlertToCareApi.csproj package Microsoft.EntityFrameworkCore.Analyzers --version 3.1.9
         
       - name: Run resharper inspection
