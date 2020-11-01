@@ -11,6 +11,7 @@ jobs:
   resharper:
     runs-on: windows-latest
     steps:
+      - run: dotnet publish -c Release -o out --no-cache
       - name: Checkout
         uses: actions/checkout@v2
       
