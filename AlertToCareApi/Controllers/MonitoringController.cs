@@ -10,12 +10,15 @@ using SharedProjects.Utilities;
 
 namespace AlertToCareApi.Controllers
 {
-    [Route("api/[controller]")]
+   
+[Route("api/[controller]")]
     [ApiController]
     public class MonitoringController : ControllerBase
     {
-        readonly ConfigDbContext _context = new ConfigDbContext();
-
+        private readonly static ConfigDbContext Context = new ConfigDbContext();
+        static List<Patients> patientStore = Context.Patients.ToList();
+       
+        
         #region Main Functions
         [HttpGet("HealthStatus")]
         public ActionResult<IEnumerable<string>> GetAlarmForAllPatients()
@@ -23,7 +26,7 @@ namespace AlertToCareApi.Controllers
             try
             {
                 VitalsMonitoring vitalsMonitoring = new VitalsMonitoring();
-                var patientStore = _context.Patients.ToList();
+               
                 List<Alarm> patientAlarms = new List<Alarm>();
                 foreach (Patients patient in patientStore)
                 {
@@ -39,17 +42,17 @@ namespace AlertToCareApi.Controllers
         }
 
         [HttpGet("HealthStatus/{PatientId}")]
-        public ActionResult<IEnumerable<string>> GetAlarmForParticularPatient(int patientId)
+        public ActionResult<IEnumerable<string>> GetAlarmForParticularPatient(int patientIdToGetHealthStatus)
         {
             try
             {
                 VitalsMonitoring vitalsMonitoring = new VitalsMonitoring();
-                var patientStore = _context.Patients.FirstOrDefault(item => item.PatientId == patientId);
-                Debug.Assert(patientStore != null, nameof(patientStore) + " != null");
-                var monStat = patientStore.MonitoringStatus;
+                var firstOrDefault = Context.Patients.FirstOrDefault(item => item.PatientId == patientIdToGetHealthStatus);
+                Debug.Assert(firstOrDefault != null, nameof(firstOrDefault) + " != null");
+                var monStat = firstOrDefault.MonitoringStatus;
                 if (monStat == 0)
                 {
-                    Alarm patientVitalsAlarms = vitalsMonitoring.GetVitalsForSpecificPatient(patientId);
+                    Alarm patientVitalsAlarms = vitalsMonitoring.GetVitalsForSpecificPatient(patientIdToGetHealthStatus);
                     return Ok(patientVitalsAlarms);
                 }
 
@@ -69,7 +72,7 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                var patientStore = _context.Patients.ToList();
+               
                 return Ok(patientStore);
             }
             catch (Exception)
@@ -79,13 +82,13 @@ namespace AlertToCareApi.Controllers
         }
 
         //Get Particular Patient Info 
-        [HttpGet("PatientInfo/{patientId}")]
-        public ActionResult<Patients> GetParticularPatientInfo(int patientId)
+        [HttpGet("PatientInfo/{patientIdToGetPatientInfo}")]
+        public ActionResult<Patients> GetParticularPatientInfo(int patientIdToGetPatientInfo)
         {
             try
             {
-                var patientStore = _context.Patients.ToList();
-                var patient = patientStore.FirstOrDefault(item => item.PatientId == patientId);
+               
+                var patient = patientStore.FirstOrDefault(item => item.PatientId == patientIdToGetPatientInfo);
                 if (patient == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
@@ -98,20 +101,20 @@ namespace AlertToCareApi.Controllers
             }
         }
 
-        [HttpGet("SetAlarmOn/{patientId}")]
-        public IActionResult SetAlarmOn(int patientId)
+        [HttpGet("SetAlarmOn/{patientIdToSetAlaramOn}")]
+        public IActionResult SetAlarmOn(int patientIdToSetAlaramOn)
         {
             try
             {
-                var patientStore = _context.Patients.ToList();
-                var patientWithGivenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientId);
+                
+                var patientWithGivenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOn);
                 if (patientWithGivenPatientId == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
                 }
 
                 patientWithGivenPatientId.MonitoringStatus = 0;
-                _context.SaveChanges();
+                Context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -120,20 +123,20 @@ namespace AlertToCareApi.Controllers
             }
         }
 
-        [HttpGet("SetAlarmOff/{patientId}")]
-        public IActionResult SetAlarmOff(int patientId)
+        [HttpGet("SetAlarmOff/{patientIdToSetAlaramOff}")]
+        public IActionResult SetAlarmOff(int patientIdToSetAlaramOff)
         {
             try
             {
-                var patientStore = _context.Patients.ToList();
-                var patientWithGivenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientId);
+                Patients patientWithGivenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOff);
+
                 if (patientWithGivenPatientId == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
                 }
 
                 patientWithGivenPatientId.MonitoringStatus = 1;
-                _context.SaveChanges();
+                Context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -147,7 +150,7 @@ namespace AlertToCareApi.Controllers
         [HttpGet("Vitals/{patientid}")]
         public ActionResult<IEnumerable<VitalsLogs>> GetVitalsInfoOfPatient(int patientid)
         {
-            var vitalStore = _context.VitalsLogs.ToList();
+            var vitalStore = Context.VitalsLogs.ToList();
             var patientVital = vitalStore.FirstOrDefault(item => item.PatientId == patientid);
             try
             {
@@ -167,7 +170,7 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                return Ok(_context.VitalsLogs.ToList());
+                return Ok(Context.VitalsLogs.ToList());
             }
             catch (Exception ex)
             {
@@ -180,8 +183,8 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                _context.VitalsLogs.Add(vitals);
-                _context.SaveChanges();
+                Context.VitalsLogs.Add(vitals);
+                Context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -195,15 +198,15 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                var vitalStore = _context.VitalsLogs.ToList();
+                var vitalStore = Context.VitalsLogs.ToList();
                 var vitalToBeUpdated = vitalStore.FirstOrDefault(item => item.VitalsLogId == vitallogId);
                 if(vitalToBeUpdated == null)
                 {
                     return BadRequest("No Vital With The Given Vital ID Exists");
                 }
-                _context.Remove(vitalToBeUpdated);
-                _context.Add(updatedVitals);
-                _context.SaveChanges();
+                Context.Remove(vitalToBeUpdated);
+                Context.Add(updatedVitals);
+                Context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -217,14 +220,14 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                var vitalStore = _context.VitalsLogs.ToList();
+                var vitalStore = Context.VitalsLogs.ToList();
                 var vitalToBeDeleted = vitalStore.FirstOrDefault(item => item.VitalsLogId == vitallogId);
                 if (vitalToBeDeleted == null)
                 {
                     return BadRequest("No Vital With The Given Vital ID Exists");
                 }
-                _context.Remove(vitalToBeDeleted);
-                _context.SaveChanges();
+                Context.Remove(vitalToBeDeleted);
+                Context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)

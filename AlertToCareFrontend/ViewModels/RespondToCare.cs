@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Net;
 using System.Windows;
 using System.Windows.Input;
@@ -25,12 +26,12 @@ namespace AlertToCareFrontend.ViewModels
 
         public void UpdatePatientList()
         {
-           var _client = new RestClient(_baseUrl);
-            var _request = new RestRequest("monitoring/patientinfo", Method.GET);
+           var client = new RestClient(BaseUrl);
+            var request = new RestRequest("monitoring/patientinfo", Method.GET);
 
-            _response = _client.Execute(_request);
-            var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
-            foreach (var patient in _patientStore)
+            _response = client.Execute(request);
+            var patientStore = _deserializer.Deserialize<List<Patients>>(_response);
+            foreach (var patient in patientStore)
             {
                 PatientIdList.Add(patient);
             }
@@ -38,19 +39,19 @@ namespace AlertToCareFrontend.ViewModels
         }
         public void VitalAndAlarmSelection()
         {
-            var _client = new RestClient(_baseUrl);
-            var _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
-            _request.AddUrlSegment("patientid", PatientId);
-            var _response = _client.Execute(_request);
+            var client = new RestClient(BaseUrl);
+            var request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
+            request.AddUrlSegment("patientid", PatientId);
+            var response = client.Execute(request);
 
-            if (_response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
-                var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
+                var vitals = _deserializer.Deserialize<VitalsLogs>(response);
 
                 //set the text-box selected parameter
-                Spo2Rate = vitals.Spo2Rate.ToString();
-                BpRate = vitals.BpmRate.ToString();
-                RespRate = vitals.RespRate.ToString();
+                Spo2Rate = vitals.Spo2Rate.ToString(CultureInfo.InvariantCulture);
+                BpRate = vitals.BpmRate.ToString(CultureInfo.InvariantCulture);
+                RespRate = vitals.RespRate.ToString(CultureInfo.InvariantCulture);
 
                 var vitalsMonitoring = new VitalsMonitoring();
                 string message = vitalsMonitoring.CheckVitals(vitals);
@@ -65,7 +66,7 @@ namespace AlertToCareFrontend.ViewModels
             }
             else
             {
-                var msg = _deserializer.Deserialize<string>(_response);
+                var msg = _deserializer.Deserialize<string>(response);
                 MessageBox.Show(msg);
             }
 
@@ -92,8 +93,8 @@ namespace AlertToCareFrontend.ViewModels
             double spo2 = default;
             double resp = default;
             // save change in data
-            var _client = new RestClient(_baseUrl);
-            var _request = new RestRequest("monitoring/vitals", Method.POST);
+            var client = new RestClient(BaseUrl);
+            var request = new RestRequest("monitoring/vitals", Method.POST);
             try
             {
 
@@ -115,8 +116,8 @@ namespace AlertToCareFrontend.ViewModels
 
             }
             var vitals = new VitalsLogs { PatientId = PatientId, BpmRate = bp, Spo2Rate = spo2, RespRate = resp, VitalsLogId = 200 };
-            _request.AddJsonBody(vitals);
-            _response = _client.Execute(_request);
+            request.AddJsonBody(vitals);
+            _response = client.Execute(request);
             if (_response.StatusCode != HttpStatusCode.OK)
             {
                 MessageBox.Show("Details not saved");
@@ -143,7 +144,7 @@ namespace AlertToCareFrontend.ViewModels
         #endregion
 
         #region private members
-        public string _baseUrl = "http://localhost:5000/api/";
+        public string BaseUrl = "http://localhost:5000/api/";
 
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;

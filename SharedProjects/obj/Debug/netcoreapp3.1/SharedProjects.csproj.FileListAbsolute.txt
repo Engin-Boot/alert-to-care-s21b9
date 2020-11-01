@@ -19,7 +19,6 @@ C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\SharedPr
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\bin\Debug\netcoreapp3.1\SharedProjects.deps.json
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\bin\Debug\netcoreapp3.1\SharedProjects.dll
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\bin\Debug\netcoreapp3.1\SharedProjects.pdb
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\obj\Debug\netcoreapp3.1\SharedProjects.csprojAssemblyReference.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\obj\Debug\netcoreapp3.1\SharedProjects.AssemblyInfoInputs.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\obj\Debug\netcoreapp3.1\SharedProjects.AssemblyInfo.cs
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\SharedProjects\obj\Debug\netcoreapp3.1\SharedProjects.csproj.CoreCompileInputs.cache

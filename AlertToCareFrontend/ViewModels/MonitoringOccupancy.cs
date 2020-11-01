@@ -111,6 +111,9 @@ namespace AlertToCareFrontend.ViewModels
 
         bool CommandCanExecuteWrapper(object parameter)
         {
+#pragma warning disable CS0168 // Variable is declared but never used
+           CanExecuteChangedEventManager execute;
+#pragma warning restore CS0168 // Variable is declared but never used
             return true;
         }
         #region properties

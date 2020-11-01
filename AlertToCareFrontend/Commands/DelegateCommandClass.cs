@@ -3,10 +3,10 @@ using System.Windows.Input;
 
 namespace AlertToCareFrontend.Commands
 {
-    public class DelegateCommandClass : ICommand
+    public  class DelegateCommandClass : ICommand
     {
-        Action<object> _executeMethodAddress;
-        Func<object, bool> _canExecuteMethodAddress;
+        readonly Action<object> _executeMethodAddress;
+        readonly Func<object, bool> _canExecuteMethodAddress;
 
         public DelegateCommandClass(Action<object> executeMethodAddress,Func<object,bool> canExecuteMethodAddress)
         {
@@ -14,7 +14,10 @@ namespace AlertToCareFrontend.Commands
             _canExecuteMethodAddress = canExecuteMethodAddress;
         }
 
+
         public event EventHandler CanExecuteChanged;
+
+       
 
         public bool CanExecute(object parameter)
         {
@@ -24,6 +27,12 @@ namespace AlertToCareFrontend.Commands
         public void Execute(object parameter)
         {
             _executeMethodAddress.Invoke(parameter);
+        }
+
+
+        protected virtual void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

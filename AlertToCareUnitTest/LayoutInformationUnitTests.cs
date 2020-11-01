@@ -9,16 +9,16 @@ namespace AlertToCareUnitTest
         [Fact]
         public void FindNoOfIcus_ShouldGetTheNumberOfIcusWithAGivenLayout()
         {
-            var _layoutInfo = new LayoutInformation();
-            var _noOfIcus = _layoutInfo.FindNoOfIcus(4);
-            Assert.True(_noOfIcus == 8);
+            var layoutInfo = new LayoutInformation();
+            var noOfIcus = layoutInfo.FindNoOfIcus(4);
+            Assert.True(noOfIcus == 8);
         }
         [Fact]
         public void FindListOfIcus_ShouldReturnAListOfIcusGivenLayoutNo()
         {
-            var _layoutInfo = new LayoutInformation();
-            var _noOfIcus = _layoutInfo.FindListOfIcus(4);
-            foreach(var icu in _noOfIcus)
+            var layoutInfo = new LayoutInformation();
+            var noOfIcus = layoutInfo.FindListOfIcus(4);
+            foreach(var icu in noOfIcus)
             {
                 Assert.True(icu.LayoutId == 4);
             }
