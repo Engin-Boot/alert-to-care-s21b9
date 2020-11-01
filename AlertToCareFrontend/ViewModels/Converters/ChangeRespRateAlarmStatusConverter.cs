@@ -11,7 +11,7 @@ namespace AlertToCareFrontend.ViewModels.Converters
             try
             {
                 double respRate = Double.Parse(value?.ToString() ?? string.Empty);
-                if (respRate < 12||respRate>16)
+                if (respRate < 12/*||respRate>16*/)
                     return true;
               
                 return false;
