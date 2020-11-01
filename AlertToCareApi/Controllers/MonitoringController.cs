@@ -107,13 +107,13 @@ namespace AlertToCareApi.Controllers
             try
             {
                 
-                var patientWithGivenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOn);
-                if (patientWithGivenPatientId == null)
+                var givenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOn);
+                if (givenPatientId == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
                 }
 
-                patientWithGivenPatientId.MonitoringStatus = 0;
+                givenPatientId.MonitoringStatus = 0;
                 Context.SaveChanges();
                 return Ok();
             }
@@ -128,14 +128,14 @@ namespace AlertToCareApi.Controllers
         {
             try
             {
-                Patients patientWithGivenPatientId = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOff);
+                Patients id = patientStore.FirstOrDefault(item => item.PatientId == patientIdToSetAlaramOff);
 
-                if (patientWithGivenPatientId == null)
+                if (id == null)
                 {
                     return BadRequest("No Patient With The Given Patient Id Exists");
                 }
 
-                patientWithGivenPatientId.MonitoringStatus = 1;
+                id.MonitoringStatus = 1;
                 Context.SaveChanges();
                 return Ok();
             }

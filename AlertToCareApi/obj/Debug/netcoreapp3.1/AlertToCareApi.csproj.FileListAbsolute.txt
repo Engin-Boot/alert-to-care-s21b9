@@ -176,8 +176,6 @@ C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\Alert
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.csprojAssemblyReference.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.AssemblyInfoInputs.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.AssemblyInfo.cs
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.csproj.CoreCompileInputs.cache
-C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.RazorTargetAssemblyInfo.cache
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\AlertToCareApi.csproj.CopyComplete
 C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\obj\Debug\netcoreapp3.1\staticwebassets\AlertToCareApi.StaticWebAssets.Manifest.cache

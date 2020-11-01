@@ -19,10 +19,10 @@
             </TabItem>
 
             <TabItem Header="Respond To Care">
-                <view:RespondToCare x:Name="RespondToCare" Height="573"/>
+                <view:RespondToCare x:Name="RespondToCare" Height="573" x:FieldModifier="public" />
             </TabItem>
             <TabItem Header="ICULayoutConfiguration">
-                <view:IcuLayoutConfiguration x:Name="IcuLayoutConfiguration" Height="772"/>
+                <view:IcuLayoutConfiguration x:Name="IcuLayoutConfiguration" Height="772" />
             </TabItem>
         </TabControl>
     </Grid>
