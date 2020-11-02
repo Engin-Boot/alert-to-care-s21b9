@@ -3,7 +3,10 @@ using RestSharp.Serialization.Json;
 using SharedProjects.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.Windows;
+using System.Windows.Input;
+using AlertToCareFrontend.Commands;
 
 namespace AlertToCareFrontend.ViewModels
 {
@@ -15,6 +18,7 @@ namespace AlertToCareFrontend.ViewModels
             SetFloorNoList();
             SetLayoutIdList();
             //SetIcuIdList();
+            saveCommand = new DelegateCommandClass(SaveCommandWrapper,CommandCanExecuteWrapper);
 
         }
 
@@ -357,6 +361,45 @@ namespace AlertToCareFrontend.ViewModels
                 MessageBox.Show("Not able to fetch the Icu list...");
             }
 
+        }
+        public void SaveChanges()
+        {
+
+
+
+            string url = _baseUrl + "config/AddnewIcu";
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Content-Type", "application/json");
+            Icu icu = new Icu()
+            {
+                FloorNo = SelectedFloorNew,
+                IcuNo = NewIcuNo
+                //LayoutId = SelectedLayoutIdNew,
+
+            };
+
+            request.AddJsonBody(icu);
+            IRestResponse response = client.Execute(request);
+
+            
+                MessageBox.Show("Details Saved Successfully...");
+
+            
+        }
+
+        public ICommand saveCommand
+         {
+            get;
+            set;
+        }
+        void SaveCommandWrapper(object parameter)
+        {
+            SaveChanges();
+        }
+        bool CommandCanExecuteWrapper(object parameter)
+        {
+            return true;
         }
         #region Functions
         #endregion

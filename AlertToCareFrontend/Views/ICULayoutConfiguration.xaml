@@ -6,7 +6,7 @@
 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -23,9 +23,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <TextBlock x:Name="LoadExistngIcuPage" Text="Update Existing ICU" Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}" />
-        
+
+        <TextBlock x:Name="LoadExistngIcuPage" Text="Update Existing ICU" Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}"  Background="DeepSkyBlue"/>
+
         <TextBlock Text="Floor Number: " Grid.Row="2" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <ComboBox Name="FloorNumber" ItemsSource="{Binding FloorIdList}" Text="{Binding Path=SelectedFloorForExistingIcu, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
 
@@ -43,8 +43,8 @@
 
 
 
-        <TextBlock x:Name="LoadNewIcuPage" Text="Add New ICU" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ContentStyle}" />
-        
+        <TextBlock x:Name="LoadNewIcuPage" Text="Add New ICU" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ContentStyle}" Background="DeepSkyBlue" />
+
         <TextBlock Text="Floor Number: " Grid.Row="2" Grid.Column="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <ComboBox Name="FloorNo" ItemsSource="{Binding FloorIdList}" Text="{Binding Path=SelectedFloorNew, Mode=TwoWay}" Grid.Row="2" Grid.Column="3" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
 
@@ -56,5 +56,6 @@
 
         <TextBlock Text="Bed Number: " Grid.Row="5" Grid.Column="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
         <TextBox Text="{Binding BedsInLayoutNew}" IsEnabled="False" Grid.Row="5" Grid.Column="3" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+        <Button Content="Save" Grid.Column="3" Grid.Row="7" VerticalAlignment="Top" Width="108" Height="28" Style="{StaticResource ButtonStyle}" Command="{Binding Path=saveCommand}" RenderTransformOrigin="0.633,1.354"/>
     </Grid>
 </UserControl>

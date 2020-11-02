@@ -50,7 +50,7 @@
         <ComboBox ItemsSource="{Binding IcuIdList}" Grid.Row="2" Grid.Column="2"  SelectedItem="{Binding IcuRoomNo, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}" />
 
         <TextBlock Text="Admit : " Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=ContentStyle}"/>
-        <TextBlock Text="Discharge: " Grid.Column="0" Grid.Row="5" Style="{StaticResource ResourceKey=ContentStyle}" />
+        <TextBlock Text="Discharge: " Grid.Column="0" Grid.Row="7" Style="{StaticResource ResourceKey=ContentStyle}" Margin="10,0,0,0" />
 
         <RadioButton Grid.Row="4"  Grid.Column="1" IsChecked="{Binding Path=AdmitStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"/>
         <RadioButton Grid.Row="7" Grid.Column="1" IsChecked="{Binding Path=DischargeStatus}" Style="{StaticResource ResourceKey=radioButtonStyle}"  />

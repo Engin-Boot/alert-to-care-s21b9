@@ -173,7 +173,7 @@ namespace AlertToCareApi.Controllers
             }
         }
 
-        [HttpPost("Icu")]
+        [HttpPut("AddnewIcu")]
         public IActionResult AddNewIcu([FromBody] Icu icu)
         {
             try
