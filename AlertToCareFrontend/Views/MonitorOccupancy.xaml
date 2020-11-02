@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <vm:MonitoringOccupancy></vm:MonitoringOccupancy>
     </UserControl.DataContext>
-    <Grid Background="Gainsboro">
+    <Grid Background="Beige">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

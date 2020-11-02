@@ -3,7 +3,7 @@
                     xmlns:piModel="clr-namespace:SharedProjects.Models;assembly=SharedProjects"
                     >
     <DataTemplate x:Key="personalInfoTemplate" DataType="{x:Type piModel:PersonalInfo }" >
-        <Grid Background="Gainsboro">
+        <Grid Background="LightBlue">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

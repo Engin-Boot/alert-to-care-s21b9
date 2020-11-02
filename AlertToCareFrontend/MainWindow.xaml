@@ -14,14 +14,14 @@
         </Grid.RowDefinitions>
 
         <TabControl Grid.RowSpan="2">
-            <TabItem Header="Monitor Occupancy">
+            <TabItem Header="Monitor Occupancy"  Background="pink">
                 <view:MonitorOccupancy x:Name="MonitorOccupancy"/>
             </TabItem>
 
-            <TabItem Header="Respond To Care">
+            <TabItem Header="Respond To Care" Background="pink">
                 <view:RespondToCare x:Name="RespondToCare"/>
             </TabItem>
-            <TabItem Header="ICULayoutConfiguration">
+            <TabItem Header="ICULayoutConfiguration"  Background="pink">
                 <view:IcuLayoutConfiguration x:Name="IcuLayoutConfiguration" />
             </TabItem>
         </TabControl>

@@ -89,19 +89,29 @@ namespace AlertToCareApi.Controllers
         [HttpPost("Update")]
         public IActionResult UpdateBedInfo([FromBody] Beds updateBed)
         {
-           
+            try
+            {
+
+
+
                 var bedStore = _context.Beds.ToList();
-                var bedToBeUpdated = bedStore.FirstOrDefault(item => item.BedId == updateBed.BedId && item.IcuNo == updateBed.IcuNo);
+                var bedToBeUpdated =
+                    bedStore.FirstOrDefault(item => item.BedId == updateBed.BedId && item.IcuNo == updateBed.IcuNo);
                 if (bedToBeUpdated == null)
                 {
                     return BadRequest("No Bed With The Given Bed ID Exists");
                 }
+
                 _context.Remove(bedToBeUpdated);
                 _context.Add(updateBed);
                 _context.SaveChanges();
                 return Ok();
-            
-           
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+
         }
 
         [HttpDelete("PatientInfo/{patientId}")]

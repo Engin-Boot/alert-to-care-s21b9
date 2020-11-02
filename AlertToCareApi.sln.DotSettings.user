@@ -1,10 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=932fde44_002D3362_002D48f3_002Db2ab_002Decf3e5743796/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WhenCheckVitalsIsGivenCorrectLogItReturnsAString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=741dc559_002Dd97c_002D4a4b_002Da536_002D64dc4f4aca52/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Checkspo2_InVital" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.VitalsMonitoringUnitTest.WhenCheckVitalsIsGivenCorrectLogItReturnsAString&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.LayoutInformationUnitTests.FindNoOfIcus_ShouldGetTheNumberOfIcusWithAGivenLayout&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.BedAllotmentUnitTests.GetAvailabilityOfBeds_ReturnsAListOfAvailaibleBeds&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.PatientInfoValidatorUnitTests.ValidateInfoAndCheckForAvailability_ShouldCheckPatientInfoAndBedAvailaibilityifPatientInfoisPresent&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.PatientInfoValidatorUnitTests.ValidateInfoAndCheckForAvailability_ShouldCheckPatientInfoAndBedAvailaibilityifAllbedsareoccupied&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.VitalsMonitoringUnitTest.Checkspo2_InVital&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.VitalsMonitoringUnitTest.Checkbpm_InVital&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.VitalsMonitoringUnitTest.Checkresp_InVital&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5D632BE8-7157-4B98-8FCC-4F778BC922DE::.NETCoreApp,Version=v3.1::AlertToCareUnitTest.VitalsMonitoringUnitTest.InterpretMessage_InVital&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=932fde44_002D3362_002D48f3_002Db2ab_002Decf3e5743796/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WhenCheckVitalsIsGivenCorrectLogItReturnsAString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

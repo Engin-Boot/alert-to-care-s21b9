@@ -38,7 +38,7 @@ namespace SharedProjects.Utilities
             return alarms;
         }
 
-        private int CountZeroes(int [] arr)
+        public int CountZeroes(int [] arr)
         {
             int ctr = 0;
             foreach (int i in arr)
@@ -64,17 +64,17 @@ namespace SharedProjects.Utilities
             var s = "" + pid + "," + pname + "," + a + "," + b + "," + c;
             return s;
         }
-        private int CheckSpo2(double spo2)
+        public int CheckSpo2(double spo2)
         {
             if (spo2 < 95)
             {
                 return -1;
             }
-
+            else
             return 0;
 
         }
-        private int CheckBpm(double bpm)
+        public int CheckBpm(double bpm)
         {
             if (bpm < 70)
                 return -1;
@@ -82,7 +82,7 @@ namespace SharedProjects.Utilities
                 return 1;
             return 0;
         }
-        private int CheckRespRate(double respRate)
+        public int CheckRespRate(double respRate)
         {
             if (respRate < 12)
                 return -1;
@@ -91,7 +91,7 @@ namespace SharedProjects.Utilities
             return 0;
         }
 
-        private string InterpretMessage(int msg)
+        public string InterpretMessage(int msg)
         {
             if (msg == -1)
                 return "is low";

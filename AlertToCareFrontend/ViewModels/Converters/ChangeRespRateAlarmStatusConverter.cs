@@ -8,15 +8,17 @@ namespace AlertToCareFrontend.ViewModels.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //try
-            //{
+            try
+            {
                 double respRate = Double.Parse(value?.ToString() ?? string.Empty);
-                //if (respRate < 12/*||respRate>16*/)
-                //    return true;
-              
+                if (respRate < 12)
+                    return true;
+                if( respRate > 16)
+                    return true;
+
                 return false;
-            //}
-            //catch (Exception) { return false; }
+            }
+            catch (Exception) { return false; }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
