@@ -41,7 +41,25 @@ namespace AlertToCareApi.Controllers
                 return StatusCode(500);
             }
         }
-
+        [HttpGet("Floor/{floorno}")]
+        public ActionResult<IEnumerable<Icu>> GetAllIcuOnAFloor(int floorNo)
+        {
+            try
+            {
+                var icuStore = _context.Icu.ToList();
+                List<Icu> icuOnAFloor = new List<Icu>();
+                foreach (var icu in icuStore)
+                {
+                    if (icu.FloorNo == floorNo)
+                        icuOnAFloor.Add(icu);
+                }
+                return Ok(icuOnAFloor);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
         [HttpGet("BedsInEachIcu")]
         public ActionResult<IEnumerable<NumberOfBedsInIcu>> GetNumberOfBedsInEachIcu()
         {

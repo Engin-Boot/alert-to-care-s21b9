@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj": {}
+    "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj": {
+    "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
+        "projectUniqueName": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
         "projectName": "AlertToCareFrontend",
-        "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
-        "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareFrontend\\obj\\",
+        "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareFrontend\\AlertToCareFrontend.csproj",
+        "packagesPath": "C:\\Users\\320087992\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\AlertToCareFrontend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\320087877\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\320087992\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
-                "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj"
+              "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
+                "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj"
               }
             }
           }
@@ -72,20 +72,20 @@
         }
       }
     },
-    "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
+    "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
+        "projectUniqueName": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
         "projectName": "SharedProjects",
-        "projectPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
-        "packagesPath": "C:\\Users\\320087877\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\SharedProjects\\obj\\",
+        "projectPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\SharedProjects.csproj",
+        "packagesPath": "C:\\Users\\320087992\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320087992\\Documents\\Bootcamp\\case-study-II\\alert-to-care-s21b9\\SharedProjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\320087877\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\320087992\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

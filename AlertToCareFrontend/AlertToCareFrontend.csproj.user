@@ -15,12 +15,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\DataTemplates\ChangeExistingLayoutTemplate.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\DataTemplates\AddNewIcuLayoutTemplate.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

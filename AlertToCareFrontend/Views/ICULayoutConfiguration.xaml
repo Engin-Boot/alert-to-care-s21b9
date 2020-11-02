@@ -8,20 +8,53 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TabControl Margin="10,-10,10,10">
-            <TabItem ContentTemplate="{StaticResource AddIcuLayout}" Header="AddnewIcuLayout" Margin="18,34,-16,-36">
-               
-            </TabItem>
+        
+        <TextBlock x:Name="LoadExistngIcuPage" Text="Update Existing ICU" Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}" />
+        
+        <TextBlock Text="Floor Number: " Grid.Row="2" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <ComboBox Name="FloorNumber" ItemsSource="{Binding FloorIdList}" Text="{Binding Path=SelectedFloorForExistingIcu, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
 
-                    <TabItem Header="ChangeExistingLayout" ContentTemplate="{StaticResource ChangeExistingIcuLayout}" Margin="47,36,-52,-38" RenderTransformOrigin="0.522,1.075">
-                 
-            </TabItem>
-        </TabControl>
+        <TextBlock Text="Icu Number: " Grid.Row="3" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <ComboBox Name="IcuList" ItemsSource="{Binding IcuIdList}" DisplayMemberPath="IcuNo" Text="{Binding Path=SelectedIcuNoExisting, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
 
+        <TextBlock Text="Current Layout Type: " Style="{StaticResource ResourceKey=ContentStyle}" Grid.Row="4" Grid.Column="0"/>
+        <TextBox x:Name="CurrentLayout" Text="{Binding Path=LayoutTypeExisting}" IsEnabled="False" Grid.Row="4" Grid.Column="1" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+
+        <TextBlock Text="Change Layout To: " Grid.Row="5" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <ComboBox Name="LayoutsList" ItemsSource="{Binding LayoutTypeList}" DisplayMemberPath="LayoutType" Text="{Binding Path=SelectedLayoutIdForExisting, Mode=TwoWay}" Grid.Row="5" Grid.Column="1" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+
+        <TextBlock Text="No Of Beds In Layout: " Grid.Row="6" Grid.Column="0" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <TextBox Text="{Binding BedsInLayoutExisting}" IsEnabled="False" Grid.Row="6" Grid.Column="1" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+
+
+
+        <TextBlock x:Name="LoadNewIcuPage" Text="Add New ICU" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource ResourceKey=ContentStyle}" />
+        
+        <TextBlock Text="Floor Number: " Grid.Row="2" Grid.Column="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <ComboBox Name="FloorNo" ItemsSource="{Binding FloorIdList}" Text="{Binding Path=SelectedFloorNew, Mode=TwoWay}" Grid.Row="2" Grid.Column="3" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+
+        <TextBlock Text="Layout Id: " Grid.Row="3" Grid.Column="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <ComboBox Name="LayoutsListNew" ItemsSource="{Binding LayoutTypeList}" DisplayMemberPath="LayoutType" Text="{Binding Path=SelectedLayoutIdNew, Mode=TwoWay}" Grid.Row="3" Grid.Column="3" Style="{StaticResource ResourceKey=ComboBoxStyle}"/>
+
+        <TextBlock Text="New Icu Number: " Style="{StaticResource ResourceKey=ContentStyle}" Grid.Row="4" Grid.Column="2"/>
+        <TextBox x:Name="IcuNo" Text="{Binding Path=NewIcuNo}" IsEnabled="False" Grid.Row="4" Grid.Column="3" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+
+        <TextBlock Text="Bed Number: " Grid.Row="5" Grid.Column="2" Style="{StaticResource ResourceKey=ContentStyle}"/>
+        <TextBox Text="{Binding BedsInLayoutNew}" IsEnabled="False" Grid.Row="5" Grid.Column="3" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
     </Grid>
 </UserControl>
