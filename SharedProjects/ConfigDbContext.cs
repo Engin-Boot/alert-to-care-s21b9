@@ -11,9 +11,9 @@ namespace SharedProjects
             //string _path = @"C:\Users\320087992\Documents\Bootcamp\case-study-II\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
             string _path = @" C:\Users\320087877\OneDrive - Philips\Documents\GitHub\alert-to-care-s21b9\AlertToCareApi\CaseStudy2Database.db";
            
-           // Directory.SetCurrentDirectory("CaseStudy2Database");
-            //string pathCurrentDirectory = Directory.GetCurrentDirectory();
-            //string path = @"\CaseStudy2Database";
+          /* Directory.SetCurrentDirectory("CaseStudy2Database")*/;
+           //string pathCurrentDirectory = Directory.GetCurrentDirectory();
+           // string path = @"\CaseStudy2Database";
            //string _path = pathCurrentDirectory + path;
             optionsBuilder.UseSqlite("Filename="+_path);
 

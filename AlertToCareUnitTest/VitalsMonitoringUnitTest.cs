@@ -156,6 +156,15 @@ namespace AlertToCareUnitTest
 
 
         }
+
+        [Fact]
+        public void GetVitalsForSpecificPatient_UsingPatientId()
+        {
+           
+            int id = 2;
+            Alarm alaram=  apiClassVitalsMonitoring.GetVitalsForSpecificPatient(id);
+            Assert.True(true);
+        }
     }
 
     
