@@ -27,11 +27,11 @@ namespace SharedProjects.EntriesValidator
             return false;
         }
 
-        public static void CheckForValidIcu(int icuNo, ref string message)
-        {
-            bool validIcu = false;
-            CheckForValidIcu(icuNo, ref validIcu, ref message);
-        }
+        //public static void CheckForValidIcu(int icuNo, ref string message)
+        //{
+        //    bool validIcu = false;
+        //    CheckForValidIcu(icuNo, ref validIcu, ref message);
+        //}
 
         public static void CheckForValidIcu(int icuNo, ref bool validIcu, ref string message)
         {

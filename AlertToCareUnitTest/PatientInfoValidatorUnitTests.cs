@@ -1,4 +1,5 @@
-﻿using SharedProjects.EntriesValidator;
+﻿using SharedProjects;
+using SharedProjects.EntriesValidator;
 using SharedProjects.Models;
 using Xunit;
 
@@ -6,6 +7,7 @@ namespace AlertToCareUnitTest
 {
     public class PatientInfoValidatorUnitTests
     {
+        
         private Patients patient = new Patients
         {
             PatientId = 123,
@@ -43,6 +45,16 @@ namespace AlertToCareUnitTest
             PatientInfoValidator.ValidateInfoAndCheckForAvailability(patientinfo, 32, ref validInfo, ref message);
 
             Assert.True(message == "");
+        }
+        [Fact]
+        public  void DeletePatientLog_When_discharged()
+        {
+            ConfigDbContext context = new ConfigDbContext();
+            
+            int patientid = 1;
+            PatientInfoValidator.DeleteVitalLogsForDischargedPatient(patientid); 
+          if(patientid.Equals(true))
+           Assert.True(true);
         }
        
 

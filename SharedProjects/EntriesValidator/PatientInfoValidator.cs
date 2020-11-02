@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using SharedProjects.Models;
@@ -23,25 +24,16 @@ namespace SharedProjects.EntriesValidator
             return true;
         }
 
-        // ReSharper disable once RedundantAssignment
-        public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds, ref string message)
-        {
-            bool validInfo = false;
-            ValidateInfoAndCheckForAvailability(patient, countOfAvailableBeds, ref validInfo, ref message);
-        }
+        
 
-        // ReSharper disable once RedundantAssignment
-        public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds, ref bool validInfo)
-        {
-            string message = null;
-            ValidateInfoAndCheckForAvailability(patient, countOfAvailableBeds, ref validInfo, ref message);
-        }
+       
 
         // ReSharper disable once RedundantAssignment
         public static void ValidateInfoAndCheckForAvailability(Patients patient, int countOfAvailableBeds,
             ref bool validInfo, ref string message)
         {
-           
+            if (message == null) throw new ArgumentNullException(nameof(message));
+
             if (ValidatePatientInfo(patient))
             {
                 if (CheckForBedsAvailability(countOfAvailableBeds))
@@ -89,6 +81,7 @@ namespace SharedProjects.EntriesValidator
             {
                 context.Remove(vitals);
                 context.SaveChanges();
+                
             }
         }
     }

@@ -9,10 +9,8 @@ namespace AlertToCareUnitTest
    
     public class VitalsMonitoringUnitTest
     {
-
-
-        bool result;
-        int ctr ;
+        private bool _result;
+        private int _ctr ;
         VitalsMonitoring apiClassVitalsMonitoring = new VitalsMonitoring();
 
         [Fact]
@@ -82,14 +80,14 @@ namespace AlertToCareUnitTest
 
         public void int_To_Bool()
         {
-            if (ctr == 0)
+            if (_ctr == 0)
             {
-                result = true;
+                _result = true;
 
             }
             else
             {
-                result = false;
+                _result = false;
             }
         }
         [Fact]
@@ -98,12 +96,12 @@ namespace AlertToCareUnitTest
            
             double sp02 = 72;
             double highsp02 = 97;
-            ctr = apiClassVitalsMonitoring.CheckSpo2(sp02);
+            _ctr = apiClassVitalsMonitoring.CheckSpo2(sp02);
             int_To_Bool();
-            Assert.False(result);
-            ctr = apiClassVitalsMonitoring.CheckSpo2(highsp02);
+            Assert.False(_result);
+            _ctr = apiClassVitalsMonitoring.CheckSpo2(highsp02);
             int_To_Bool();
-            Assert.True(result);
+            Assert.True(_result);
 
 
 
@@ -114,15 +112,15 @@ namespace AlertToCareUnitTest
             double lowbpm = 60;
             double highbpm = 105;
             double bpm = 72;
-            ctr = apiClassVitalsMonitoring.CheckBpm(bpm);
+            _ctr = apiClassVitalsMonitoring.CheckBpm(bpm);
             int_To_Bool();
-            Assert.True(result);
-            ctr = apiClassVitalsMonitoring.CheckBpm(highbpm);
+            Assert.True(_result);
+            _ctr = apiClassVitalsMonitoring.CheckBpm(highbpm);
             int_To_Bool();
-            Assert.False(result);
-            ctr = apiClassVitalsMonitoring.CheckBpm(lowbpm);
+            Assert.False(_result);
+            _ctr = apiClassVitalsMonitoring.CheckBpm(lowbpm);
             int_To_Bool();
-            Assert.False(result);
+            Assert.False(_result);
 
 
         }
@@ -132,29 +130,29 @@ namespace AlertToCareUnitTest
             double lowresp = 11;
             double highresp = 18;
             double bpm = 14;
-            ctr = apiClassVitalsMonitoring.CheckRespRate(bpm);
+            _ctr = apiClassVitalsMonitoring.CheckRespRate(bpm);
             int_To_Bool();
-            Assert.True(result);
-            ctr = apiClassVitalsMonitoring.CheckRespRate(lowresp);
+            Assert.True(_result);
+            _ctr = apiClassVitalsMonitoring.CheckRespRate(lowresp);
             int_To_Bool();
-            Assert.False(result);
-            ctr = apiClassVitalsMonitoring.CheckRespRate(highresp);
+            Assert.False(_result);
+            _ctr = apiClassVitalsMonitoring.CheckRespRate(highresp);
             int_To_Bool();
-            Assert.False(result);
+            Assert.False(_result);
 
 
         }
         [Fact]
         public void InterpretMessage_InVital()
         {
-            string vitallowmsg = " is low";
+            string vitallowmsg = "is low";
             string vitalhighmsg = "is high";
             int ToLowmsg = -1;
             int ToHighmsg = 1;
             string msg =apiClassVitalsMonitoring.InterpretMessage(ToHighmsg);
-            //Assert.Equal(msg=vitalhighmsg);
-            apiClassVitalsMonitoring.InterpretMessage(ToLowmsg);
-            Assert.True(true);
+            Assert.True(msg==vitalhighmsg);
+             msg=apiClassVitalsMonitoring.InterpretMessage(ToLowmsg);
+            Assert.True(msg==vitallowmsg);
 
 
         }

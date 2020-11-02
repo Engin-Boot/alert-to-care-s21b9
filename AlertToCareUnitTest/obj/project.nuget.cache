@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AsihS4s18zySd/Um3t9czu6Yp1eyobHuAhL6dM0qIfVP4MZYCRVtkZGtrg02b8pIn0PCQ7E3BJjT6r3P1CgJAQ==",
+  "dgSpecHash": "kRxX+QX0QMYZ3sll6hRIiOsx3KLWHY/90r+43irpkVZVttDvoTchL7xDk5NNKg9xxzkrytO2CCJ4oIYx+u0DnA==",
   "success": true,
   "projectFilePath": "C:\\Users\\320087877\\OneDrive - Philips\\Documents\\GitHub\\alert-to-care-s21b9\\AlertToCareUnitTest\\AlertToCareUnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\320087877\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
+    "C:\\Users\\320087877\\.nuget\\packages\\coverlet.msbuild\\2.9.0\\coverlet.msbuild.2.9.0.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\320087877\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

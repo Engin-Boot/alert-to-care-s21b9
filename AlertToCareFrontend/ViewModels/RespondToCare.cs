@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
 using System.Windows;
@@ -16,6 +15,9 @@ namespace AlertToCareFrontend.ViewModels
 {
     public class RespondToCare : Base
     {
+        private double _bp;
+        double _spo2;
+        double _resp;
         public RespondToCare()
         {
 
@@ -26,12 +28,12 @@ namespace AlertToCareFrontend.ViewModels
 
         public void UpdatePatientList()
         {
-            var _client = new RestClient(_baseUrl);
-            var _request = new RestRequest("monitoring/patientinfo", Method.GET);
+            var client = new RestClient(BaseUrl);
+            var request = new RestRequest("monitoring/patientinfo", Method.GET);
 
-            _response = _client.Execute(_request);
-            var _patientStore = _deserializer.Deserialize<List<Patients>>(_response);
-            foreach (var patient in _patientStore)
+            _response = client.Execute(request);
+            var patientStore = _deserializer.Deserialize<List<Patients>>(_response);
+            foreach (var patient in patientStore)
             {
                 PatientIdList.Add(patient);
             }
@@ -39,20 +41,20 @@ namespace AlertToCareFrontend.ViewModels
         }
         public void VitalAndAlarmSelection()
         {
-            var _client = new RestClient(_baseUrl);
-            var _request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
-            _request.AddUrlSegment("patientid", PatientId);
-            var _response = _client.Execute(_request);
+            var client = new RestClient(BaseUrl);
+            var request = new RestRequest("monitoring/vitals/{patientid}", Method.GET);
+            request.AddUrlSegment("patientid", PatientId);
+            var response = client.Execute(request);
 
-            if (_response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
-                var vitals = _deserializer.Deserialize<VitalsLogs>(_response);
+                var vitals = _deserializer.Deserialize<VitalsLogs>(response);
                 VitalLogId = vitals.VitalsLogId;
 
                 //set the text-box selected parameter
-                this.Spo2Rate = vitals.Spo2Rate.ToString();
-                this.BpRate = vitals.BpmRate.ToString();
-                this.RespRate = vitals.RespRate.ToString();
+                this.Spo2Rate = vitals.Spo2Rate.ToString(CultureInfo.InvariantCulture);
+                this.BpRate = vitals.BpmRate.ToString(CultureInfo.InvariantCulture);
+                this.RespRate = vitals.RespRate.ToString(CultureInfo.InvariantCulture);
 
                 var vitalsMonitoring = new VitalsMonitoring();
                 string message = vitalsMonitoring.CheckVitals(vitals);
@@ -67,7 +69,7 @@ namespace AlertToCareFrontend.ViewModels
             }
             else
             {
-                var msg = _deserializer.Deserialize<string>(_response);
+                var msg = _deserializer.Deserialize<string>(response);
                 MessageBox.Show(msg);
             }
 
@@ -86,46 +88,56 @@ namespace AlertToCareFrontend.ViewModels
             VitalAndAlarmSelection();
         }
 
-        public void SaveChanges()
+        private void Validation()
         {
+            if (BpRate == "" || Spo2Rate == "" || RespRate == "")
+                MessageBox.Show("   This field cannot be null");
 
-            double bp = default;
-            double spo2 = default;
-            double resp = default;
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            if (BpRate is double == false || Spo2Rate is double == false || RespRate is double == false)
+                MessageBox.Show("Input string is not in correct format");
+
+        }
+
+        private void check_vitals_textbox()
+        {
+           
             try
             {
-                bp = double.Parse(BpRate);
-                spo2 = double.Parse(Spo2Rate);
-                resp = double.Parse(RespRate);
+                _bp = double.Parse(BpRate);
+                _spo2 = double.Parse(Spo2Rate);
+                _resp = double.Parse(RespRate);
             }
 
             catch (Exception)
             {
 
-                if (BpRate == "" || Spo2Rate == "" || RespRate == "")
-                    MessageBox.Show("   This field cannot be null");
-
-                if (BpRate is double == false || Spo2Rate is double == false || RespRate is double == false)
-                    MessageBox.Show("Input string is not in correct format");
+                Validation();
 
             }
+        }
 
-            string url = _baseUrl + "monitoring/Vitals/" + VitalLogId;
+        public void SaveChanges()
+        {
+
+            check_vitals_textbox();
+
+            string url = BaseUrl + "monitoring/Vitals/" + VitalLogId;
             var client = new RestClient(url);
             var request = new RestRequest(Method.PUT);
             request.AddHeader("Content-Type", "application/json");
             VitalsLogs vitals = new VitalsLogs()
             {
                 PatientId = this.PatientId,
-                BpmRate = bp,
-                Spo2Rate = spo2,
-                RespRate = resp,
+                BpmRate = _bp,
+                Spo2Rate = _spo2,
+                RespRate = _resp,
                 VitalsLogId = this.VitalLogId
             };
             request.AddJsonBody(vitals);
-            IRestResponse _response = client.Execute(request);
+            IRestResponse response = client.Execute(request);
 
-            if (_response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 MessageBox.Show("Details Saved Successfully...");
 
@@ -152,7 +164,7 @@ namespace AlertToCareFrontend.ViewModels
         #endregion
 
         #region private members
-        public string _baseUrl = "http://localhost:5000/api/";
+        public string BaseUrl = "http://localhost:5000/api/";
 
         private readonly JsonDeserializer _deserializer = new JsonDeserializer();
         private static IRestResponse _response;
@@ -174,6 +186,7 @@ namespace AlertToCareFrontend.ViewModels
                     this._patientId = value;
                     VitalAndAlarmSelection();
                     UpdatePatientList();
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("PatientId");
 
                 }
@@ -189,6 +202,7 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _spo2Rate)
                 {
                     this._spo2Rate = value;
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("Spo2Rate");
                 }
             }
@@ -202,6 +216,7 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _bpRate)
                 {
                     this._bpRate = value;
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("BpRate");
                 }
             }
@@ -216,6 +231,7 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _respRate)
                 {
                     this._respRate = value;
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("RespRate");
                 }
             }
@@ -230,6 +246,7 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _spo2Alarm)
                 {
                     this._spo2Alarm = value;
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("Spo2Alarm");
                 }
             }
@@ -244,6 +261,7 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _bpAlarm)
                 {
                     this._bpAlarm = value;
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("BpAlarm");
                 }
             }
@@ -258,6 +276,7 @@ namespace AlertToCareFrontend.ViewModels
                 if (value != _respRateAlarm)
                 {
                     this._respRateAlarm = value;
+                    // ReSharper disable once RedundantArgumentDefaultValue
                     OnPropertyChanged("RespRateAlarm");
                 }
             }
